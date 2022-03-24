@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { TypegooseModuleOptions, TypegooseOptionsFactory } from 'nestjs-typegoose/dist/typegoose-options.interface';
+import {
+  TypegooseModuleOptions,
+  TypegooseOptionsFactory,
+} from 'nestjs-typegoose/dist/typegoose-options.interface';
 /**
  * Service dealing with app config based operations.
  *
  * @class
  */
 @Injectable()
-export class MongoDBConfigService implements TypegooseOptionsFactory{
+export class MongoDBConfigService implements TypegooseOptionsFactory {
   constructor(private configService: ConfigService) {}
 
   get uri(): string {
@@ -36,25 +39,24 @@ export class MongoDBConfigService implements TypegooseOptionsFactory{
       user: this.user,
       pass: this.pass,
       authSource: this.authSource,
-      ...this.extraOptions
+      ...this.extraOptions,
     };
   }
 
   public get extraOptions(): object {
     return {
-      useFindAndModify: false,
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      autoIndex: true
+      autoIndex: true,
     };
   }
 
-  createTypegooseOptions(): Promise<TypegooseModuleOptions> | TypegooseModuleOptions {
+  createTypegooseOptions():
+    | Promise<TypegooseModuleOptions>
+    | TypegooseModuleOptions {
     return {
       uri: this.uri,
-      ...this.options
+      ...this.options,
     };
   }
-
 }

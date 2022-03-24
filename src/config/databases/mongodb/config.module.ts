@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import configuration from './configuration';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import * as Joi from 'joi';
 import { MongoDBConfigService } from './config.service';
-import Joi from 'joi';
+import configuration from './configuration';
 /**
  * Import and provide app configuration related classes.
  *
@@ -13,12 +13,12 @@ import Joi from 'joi';
     ConfigModule.forRoot({
       load: [configuration],
       validationSchema: Joi.object({
-        MONGO_HOST: Joi.string().default('mongodb'),
-        MONGO_PORT: Joi.number().default(27017),
-        MONGO_DB: Joi.string().default('starter'),
-        MONGO_USER: Joi.string().default('root'),
-        MONGO_PASS: Joi.string().default('root'),
-        MONGO_AUTHSOURCE: Joi.string().default('admin')
+        MONGO_HOST: Joi.string(),
+        MONGO_PORT: Joi.number(),
+        MONGO_DB: Joi.string(),
+        MONGO_USER: Joi.string(),
+        MONGO_PASS: Joi.string(),
+        MONGO_AUTHSOURCE: Joi.string(),
       }),
     }),
   ],
