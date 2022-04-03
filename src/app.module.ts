@@ -4,30 +4,36 @@ import { AutomapperModule } from '@automapper/nestjs';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   AuthGuard,
   KeycloakConnectModule,
   ResourceGuard,
   RoleGuard,
 } from 'nest-keycloak-connect';
-import { TypegooseModule } from 'nestjs-typegoose';
+import { join } from 'path';
 import { AppController } from './app.controller';
-import { MongoDBConfigModule } from './config/databases/mongodb/config.module';
-import { MongoDBConfigService } from './config/databases/mongodb/config.service';
+import { MariaDBConfigModule } from './config/databases/mariadb/config.module';
+import { MariaDBConfigService } from './config/databases/mariadb/config.service';
 import { KeycloakConfigModule } from './config/keycloak/config.module';
 import { KeycloakConfigService } from './config/keycloak/config.service';
 import { UserModule } from './user/user.module';
-
+import { VehicleModule } from './vehicle/vehicle.module';
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'resources'),
+      exclude: ['/api/*'],
+    }),
     ConfigModule.forRoot({
       envFilePath: './.env',
       isGlobal: true,
       expandVariables: true,
     }),
-    TypegooseModule.forRootAsync({
-      imports: [MongoDBConfigModule],
-      useExisting: MongoDBConfigService,
+    TypeOrmModule.forRootAsync({
+      imports: [MariaDBConfigModule],
+      useExisting: MariaDBConfigService,
     }),
     KeycloakConnectModule.registerAsync({
       useExisting: KeycloakConfigService,
@@ -42,6 +48,7 @@ import { UserModule } from './user/user.module';
       },
     }),
     UserModule,
+    VehicleModule,
   ],
   controllers: [AppController],
   providers: [
