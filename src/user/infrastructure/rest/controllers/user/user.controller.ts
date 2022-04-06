@@ -8,20 +8,24 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { Roles } from 'nest-keycloak-connect';
-import { CreateUserCommand } from '../../../../application/commands/create/create-user.command';
+import {
+  AuthenticatedUser,
+  AuthGuard,
+  RoleGuard,
+  Roles,
+} from 'nest-keycloak-connect';
 import { DeleteUserCommand } from '../../../../application/commands/delete/delete-user.command';
 import { UpdateUserCommand } from '../../../../application/commands/update/update-user.command';
 import { FindAllUsersQuery } from '../../../../application/queries/find-all-users.query';
 import { FindUserByIdQuery } from '../../../../application/queries/find-user-by-id.query';
 import { User } from '../../../../domain/entities/user';
 import { Role } from '../../../../domain/types/role';
-import { CreateUserDto } from '../../dtos/create-user.dto';
 import { UpdateUserDto } from '../../dtos/update-user-dto';
 import { UserVm } from '../../vms/user.vm';
-
+@UseGuards(AuthGuard, RoleGuard)
 @Controller('users')
 export class UserController {
   constructor(
@@ -46,12 +50,9 @@ export class UserController {
     return this.mapper.map(user, UserVm, User);
   }
 
-  @Roles({ roles: [Role.ADMIN] })
   @Post()
-  async createUser(@Body() dto: CreateUserDto) {
-    const user = await this.commandBus.execute(new CreateUserCommand(dto));
-
-    return this.mapper.map(user, UserVm, User);
+  async createUser(@AuthenticatedUser() user) {
+    console.log(user);
   }
 
   @Roles({ roles: [Role.ADMIN] })
