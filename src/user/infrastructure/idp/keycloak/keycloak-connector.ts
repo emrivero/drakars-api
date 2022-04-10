@@ -39,7 +39,7 @@ export class KeycloakConnector {
 
   private async setIntervalRefreshToken() {
     const keycloakIssuer = await Issuer.discover(
-      `${this.kcConfig.authUrl}/realms/${this.kcConfig.realm}`
+      `${this.kcConfig.authUrl}/realms/${this.kcConfig.realm}`,
     );
 
     const issuerClient = new keycloakIssuer.Client({

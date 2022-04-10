@@ -1,80 +1,25 @@
-import { AutoMap } from '@automapper/classes';
-import { AggregateRoot } from '@nestjs/cqrs';
-import { UserCreatedEvent } from '../events/user-creted.event';
-import { UserDeletedEvent } from '../events/user-deleted.event';
-import { UserUpdatedEvent } from '../events/user-updated.event';
-import { Role } from '../types/role';
+import { CreatedUser, CreatedUserProps } from './created-user.entity';
 
-export class User extends AggregateRoot {
-  @AutoMap()
-  id?: string;
+type UserProps = CreatedUserProps & {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+export class User extends CreatedUser {
+  id: number;
 
-  @AutoMap()
-  createdTimestamp?: number;
+  createdAt: Date;
 
-  @AutoMap()
-  username?: string;
+  updatedAt: Date;
 
-  @AutoMap()
-  enabled?: boolean;
-
-  @AutoMap()
-  totp?: boolean;
-
-  @AutoMap()
-  emailVerified?: boolean;
-
-  @AutoMap()
-  disableableCredentialTypes?: string[];
-
-  @AutoMap()
-  notBefore?: number;
-
-  @AutoMap()
-  clientRoles?: Record<string, any>;
-
-  @AutoMap()
-  email?: string;
-
-  @AutoMap()
-  firstName?: string;
-
-  @AutoMap()
-  groups?: string[];
-
-  @AutoMap()
-  lastName?: string;
-
-  @AutoMap()
-  origin?: string;
-
-  @AutoMap()
-  realmRoles?: string[];
-
-  @AutoMap()
-  self?: string;
-
-  @AutoMap()
-  serviceAccountClientId?: string;
-
-  @AutoMap()
-  role: Role;
-
-  @AutoMap()
-  password: string;
-
-  @AutoMap()
-  attributes?: Record<string, any>;
-
-  create() {
-    this.apply(new UserCreatedEvent(this.id));
+  private constructor(props: UserProps) {
+    super(props);
+    this.id = props.id;
+    this.createdAt = props.createdAt;
+    this.updatedAt = props.updatedAt;
   }
 
-  delete() {
-    this.apply(new UserDeletedEvent(this.id));
-  }
-
-  update() {
-    this.apply(new UserUpdatedEvent(this.id));
+  static create(props: UserProps): User {
+    return new User(props);
   }
 }
