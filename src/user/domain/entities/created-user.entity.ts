@@ -2,12 +2,13 @@ import { AggregateRoot } from '@nestjs/cqrs';
 import { Role } from '../types/role';
 
 export type CreatedUserProps = {
-  email_verified: boolean;
-  name: string;
-  preferred_username: string;
-  given_name: string;
-  family_name: string;
+  email_verified?: boolean;
   email: string;
+  family_name: string;
+  given_name: string;
+  name: string;
+  password?: string;
+  preferred_username: string;
   role: Role;
 };
 
@@ -26,6 +27,8 @@ export class CreatedUser extends AggregateRoot {
 
   readonly role: Role;
 
+  readonly password: string;
+
   protected constructor(props: CreatedUserProps) {
     super();
     this.email = props.email;
@@ -35,6 +38,7 @@ export class CreatedUser extends AggregateRoot {
     this.preferred_username = props.preferred_username;
     this.name = props.name;
     this.role = props.role;
+    this.password = props.password;
   }
 
   static create(props: CreatedUserProps): CreatedUser {

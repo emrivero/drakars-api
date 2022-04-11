@@ -1,6 +1,20 @@
-import { Controller, Post, UseGuards } from '@nestjs/common';
-import { AuthenticatedUser, AuthGuard, RoleGuard } from 'nest-keycloak-connect';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import {
+  AuthenticatedUser,
+  AuthGuard,
+  RoleGuard,
+  Roles,
+  Unprotected,
+} from 'nest-keycloak-connect';
 import { CreateUserService } from '../../../../application/CreateUserService';
+import { Role } from '../../../../domain/types/role';
+import { CreateUserDto } from '../../dtos/create-user.dto';
 import { LoggedUserDto } from '../../dtos/logged-user.dto';
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('users')
@@ -23,9 +37,20 @@ export class UserController {
   //   return this.mapper.map(user, UserVm, User);
   // }
 
+  @Roles({ roles: [Role.USER] })
   @Post()
   async createUser(@AuthenticatedUser() user: LoggedUserDto) {
     this.createUserService.create(user);
+  }
+
+  // @Roles({ roles: [Role.SUPERADMIN] })
+  @Unprotected()
+  @Post('/editor')
+  async createEditor(@Body() userDto: CreateUserDto) {
+    if (![Role.ADMIN, Role.EDITOR].includes(userDto.role)) {
+      throw new BadRequestException('User role not allowed');
+    }
+    this.createUserService.createEditor(userDto);
   }
 
   // @Roles({ roles: [Role.ADMIN] })
