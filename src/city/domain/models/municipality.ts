@@ -5,4 +5,8 @@ export class Municipality {
     public city_code: string,
     public name: string,
   ) {}
+
+  static create(id: number) {
+    return new Municipality(id, null, null, null);
+  }
 }

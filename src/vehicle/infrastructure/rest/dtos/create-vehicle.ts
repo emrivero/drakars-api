@@ -1,10 +1,18 @@
-import { IsBoolean, IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
+import {
+  IsBoolean,
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsPositive,
+} from 'class-validator';
 import { MarkType } from '../../../domain/types/mark.type';
 import { TransmissionType } from '../../../domain/types/transmission';
 import { VehicleType } from '../../../domain/types/vehicle.type';
 
 export class CreateVehicleDto {
   @IsNumber()
+  @IsPositive()
   readonly year: number;
 
   @IsNotEmpty()
@@ -31,5 +39,6 @@ export class CreateVehicleDto {
   readonly pricePerDay: number;
 
   @IsBoolean()
+  @IsOptional()
   readonly rented: boolean;
 }
