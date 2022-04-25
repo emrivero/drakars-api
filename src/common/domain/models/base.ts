@@ -1,7 +1,7 @@
 export abstract class BaseModel {
-  id: number;
-
-  createdAt: Date;
-
-  updatedAt: Date;
+  constructor(
+    public id: number,
+    public createdAt: Date = null,
+    public updatedAt: Date = null,
+  ) {}
 }

@@ -1,25 +1,30 @@
-import { AutoMap } from '@automapper/classes';
-import { IsEnum, IsString } from 'class-validator';
+import { IsEmail, IsEnum, IsNumber, IsString, Length } from 'class-validator';
 import { Role } from '../../../domain/types/role';
 
 export class UpdateUserDto {
-  @AutoMap()
-  @IsString()
-  username?: string;
+  @IsNumber()
+  id: number;
 
   @IsString()
-  @AutoMap()
-  email?: string;
+  name: string;
 
   @IsString()
-  @AutoMap()
-  firstName?: string;
+  preferred_username: string;
 
   @IsString()
-  @AutoMap()
-  lastName?: string;
+  given_name: string;
+
+  @IsString()
+  family_name: string;
+
+  @IsString()
+  @IsEmail()
+  email: string;
 
   @IsEnum(Role)
-  @AutoMap()
   role: Role;
+
+  @IsString()
+  @Length(8, 20)
+  password: string;
 }

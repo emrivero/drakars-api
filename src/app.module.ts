@@ -8,16 +8,20 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { join } from 'path';
 import { AppController } from './app.controller';
+import { CityModule } from './city/city.module';
 import { MariaDBConfigModule } from './config/databases/mariadb/config.module';
 import { MariaDBConfigService } from './config/databases/mariadb/config.service';
 import { KeycloakConfigModule } from './config/keycloak/config.module';
 import { KeycloakConfigService } from './config/keycloak/config.service';
+import { InvoiceModule } from './invoice/invoice.module';
+import { OfficeModule } from './office/office.module';
+import { RentModule } from './rent/rent.module';
 import { UserModule } from './user/user.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, 'resources'),
+      rootPath: join(__dirname, 'public', 'resources'),
       exclude: ['/api/*'],
     }),
     ConfigModule.forRoot({
@@ -43,6 +47,10 @@ import { VehicleModule } from './vehicle/vehicle.module';
     }),
     UserModule,
     VehicleModule,
+    RentModule,
+    CityModule,
+    OfficeModule,
+    InvoiceModule,
   ],
   controllers: [AppController],
   providers: [],

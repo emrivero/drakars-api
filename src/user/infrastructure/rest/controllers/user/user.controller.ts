@@ -2,6 +2,10 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
@@ -13,29 +17,43 @@ import {
   Unprotected,
 } from 'nest-keycloak-connect';
 import { CreateUserService } from '../../../../application/CreateUserService';
+import { DeleteUserService } from '../../../../application/DeleteUserService';
+import { FindUserService } from '../../../../application/FindUserService';
+import { UpdateUserService } from '../../../../application/UpdateUserService';
 import { Role } from '../../../../domain/types/role';
 import { CreateUserDto } from '../../dtos/create-user.dto';
 import { LoggedUserDto } from '../../dtos/logged-user.dto';
+import { UpdateUserDto } from '../../dtos/update-user-dto';
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('users')
+@Unprotected()
 export class UserController {
-  constructor(private readonly createUserService: CreateUserService) {}
+  constructor(
+    private readonly createUserService: CreateUserService,
+    private readonly findUserService: FindUserService,
+    private readonly deleteUserService: DeleteUserService,
+    private readonly updateUserService: UpdateUserService,
+  ) {}
 
-  // @Roles({ roles: [Role.ADMIN] })
-  // @Get()
-  // async findAll(): Promise<UserVm[]> {
-  //   const users = await this.queryBus.execute(new FindAllUsersQuery());
+  @Get('/clients')
+  async getClients() {
+    return await this.findUserService.getByRole(Role.USER);
+  }
 
-  //   return this.mapper.mapArray(users, UserVm, User);
-  // }
+  @Get('/editors')
+  async getEditors() {
+    return await this.findUserService.getByRole(Role.EDITOR);
+  }
 
-  // @Roles({ roles: [Role.ADMIN] })
-  // @Get('/:id')
-  // async findById(@Param('id') id: string): Promise<UserVm> {
-  //   const user = await this.queryBus.execute(new FindUserByIdQuery(id));
+  @Get('/admins')
+  async getAdmins() {
+    return await this.findUserService.getByRole(Role.ADMIN);
+  }
 
-  //   return this.mapper.map(user, UserVm, User);
-  // }
+  @Get('/:id/:role')
+  async getById(@Param('id') id: number, @Param('role') role: Role) {
+    return await this.findUserService.getByIdAndRole(id, role);
+  }
 
   @Roles({ roles: [Role.USER] })
   @Post()
@@ -43,8 +61,6 @@ export class UserController {
     this.createUserService.create(user);
   }
 
-  // @Roles({ roles: [Role.SUPERADMIN] })
-  @Unprotected()
   @Post('/editor')
   async createEditor(@Body() userDto: CreateUserDto) {
     if (![Role.ADMIN, Role.EDITOR].includes(userDto.role)) {
@@ -53,19 +69,18 @@ export class UserController {
     this.createUserService.createEditor(userDto);
   }
 
-  // @Roles({ roles: [Role.ADMIN] })
-  // @Delete('/:id')
-  // async deleteUser(@Param('id') id: string): Promise<UserVm> {
-  //   const user = await this.commandBus.execute(new DeleteUserCommand(id));
+  @Delete('/:id')
+  async deleteUser(@Param('id') id: number) {
+    return await this.deleteUserService.deleteUser(id);
+  }
 
-  //   return this.mapper.map(user, UserVm, User);
-  // }
+  @Delete()
+  async deleteUsers(@Body() data: { ids: number[] }) {
+    return await this.deleteUserService.deleteUsers(data.ids);
+  }
 
-  // @Roles({ roles: [Role.ADMIN] })
-  // @Patch('/:id')
-  // async updateUser(@Param('id') id: string, @Body() dto: UpdateUserDto) {
-  //   const user = await this.commandBus.execute(new UpdateUserCommand(id, dto));
-
-  //   return this.mapper.map(user, UserVm, User);
-  // }
+  @Patch()
+  async updateUser(@Param('id') id: string, @Body() dto: UpdateUserDto) {
+    return await this.updateUserService.update(dto);
+  }
 }

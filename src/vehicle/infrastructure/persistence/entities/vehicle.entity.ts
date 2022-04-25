@@ -1,14 +1,64 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
+import { OfficeEntity } from '../../../../office/infrastructure/persistence/entity/office.entity';
+import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/rent.entity';
+import { MarkType } from '../../../domain/types/mark.type';
+import { TransmissionType } from '../../../domain/types/transmission';
+import { VehicleType } from '../../../domain/types/vehicle.type';
+import { VehicleRatingEntity } from './vehicle-rating';
 
 @Entity()
 export class VehicleEntity extends BaseEntity {
-  @Column()
+  @Column({
+    type: 'year',
+  })
   year: number;
 
   @Column()
   model: string;
 
+  @Column({
+    type: 'enum',
+    enum: MarkType,
+  })
+  mark: MarkType;
+
   @Column()
-  mark: string;
+  seats: number;
+
+  @Column({
+    type: 'enum',
+    enum: TransmissionType,
+  })
+  transmission: TransmissionType;
+
+  @Column({
+    type: 'enum',
+    enum: VehicleType,
+  })
+  type: VehicleType;
+
+  @Column({
+    default: false,
+  })
+  rented?: boolean;
+
+  @Column({
+    nullable: true,
+  })
+  limitKM: number;
+
+  @Column({ type: 'float' })
+  pricePerDay: number;
+
+  @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle)
+  rents: RentEntity[];
+
+  @ManyToOne(() => OfficeEntity, (office) => office.vehicles, {
+    nullable: false,
+  })
+  office: OfficeEntity;
+
+  @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle)
+  ratings: VehicleRatingEntity[];
 }

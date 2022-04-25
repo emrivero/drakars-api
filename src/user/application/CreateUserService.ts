@@ -32,8 +32,12 @@ export class CreateUserService {
     this.keycloakRepository.createUser(newEditor);
   }
 
+  async getByRole(role: Role) {
+    return await this.userRepository.findByRole(role);
+  }
+
   private async saveUser(user: CreatedUser) {
-    const exists = await this.userRepository.findBy('email', user.email);
+    const exists = await this.userRepository.findOneBy('email', user.email);
 
     if (!exists) {
       this.userRepository.save(user);
