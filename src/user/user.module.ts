@@ -5,15 +5,21 @@ import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakConfigModule } from '../config/keycloak/config.module';
 import { KeycloakConfigService } from '../config/keycloak/config.service';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
-import { CreateUserService } from './application/CreateUserService';
-import { DeleteUserService } from './application/DeleteUserService';
-import { FindUserService } from './application/FindUserService';
-import { UpdateUserService } from './application/UpdateUserService';
+import { CreateClientService } from './application/client/create/CreateUserService';
+import { DeleteClientService } from './application/client/delete';
+import { GetClientService } from './application/client/find';
+import { UpdateClientService } from './application/client/update';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
-import { UserEntity } from './infrastructure/persistence/entity/user.entity';
-import { UserMariadbRepository } from './infrastructure/persistence/repository/user.mariadb.repository';
-import { UserController } from './infrastructure/rest/controllers/user/user.controller';
+import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
+import { ClientEntity } from './infrastructure/persistence/entity/client.entity';
+import { EditorEntity } from './infrastructure/persistence/entity/editor.entity';
+import { AdminRepository } from './infrastructure/persistence/repository/admin.repository';
+import { ClientRepository } from './infrastructure/persistence/repository/client.repository';
+import { EditorRepository } from './infrastructure/persistence/repository/editor.repository';
+import { AdminController } from './infrastructure/rest/controllers/admin.controller';
+import { ClientController } from './infrastructure/rest/controllers/client.controller';
+import { EditorController } from './infrastructure/rest/controllers/editor.controller';
 
 @Module({
   imports: [
@@ -24,20 +30,24 @@ import { UserController } from './infrastructure/rest/controllers/user/user.cont
       imports: [KeycloakConfigModule],
     }),
     TypeOrmModule.forFeature([
-      UserEntity,
-      UserMariadbRepository,
+      EditorEntity,
+      AdminEntity,
+      ClientEntity,
+      ClientRepository,
+      EditorRepository,
+      AdminRepository,
       VehicleRatingEntity,
     ]),
   ],
-  controllers: [UserController],
+  controllers: [ClientController, EditorController, AdminController],
   providers: [
-    CreateUserService,
-    DeleteUserService,
-    FindUserService,
-    UpdateUserService,
+    CreateClientService,
+    DeleteClientService,
+    GetClientService,
     KeycloakConfigService,
     KeycloakConnector,
     KeycloakRepository,
+    UpdateClientService,
   ],
 })
 export class UserModule {}

@@ -1,4 +1,4 @@
-export class LoggedUserDto {
+export class LoggedClientDto {
   exp: number;
   iat: number;
   auth_time: number;

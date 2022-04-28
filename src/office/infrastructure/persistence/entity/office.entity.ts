@@ -1,6 +1,7 @@
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { MunicipalityEntity } from '../../../../city/infrastructure/persistence/entity/municipality.entity';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
+import { EditorEntity } from '../../../../user/infrastructure/persistence/entity/editor.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 
 @Entity()
@@ -19,4 +20,7 @@ export class OfficeEntity extends BaseEntity {
 
   @OneToMany(() => VehicleEntity, (vehicle) => vehicle.office)
   vehicles: VehicleEntity[];
+
+  @OneToMany(() => EditorEntity, (editor) => editor.office)
+  editors: EditorEntity;
 }

@@ -4,4 +4,9 @@ import { OfficeRepository } from '../../infrastructure/persistence/repository/of
 @Injectable()
 export class GetOfficeService {
   constructor(private readonly officeRepository: OfficeRepository) {}
+
+  async getById(id: number) {
+    const office = await this.officeRepository.findOne(id);
+    return office;
+  }
 }

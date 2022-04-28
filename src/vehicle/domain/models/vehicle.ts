@@ -1,4 +1,3 @@
-import { instanceToPlain, plainToInstance } from 'class-transformer';
 import { BaseModel } from '../../../common/domain/models/base';
 import { Office } from '../../../office/domain/models/office';
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
@@ -7,7 +6,7 @@ import { MarkType } from '../types/mark.type';
 import { TransmissionType } from '../types/transmission';
 import { VehicleType } from '../types/vehicle.type';
 
-export class Vehicle extends BaseModel {
+export class Vehicle extends BaseModel<VehicleEntity> {
   public office: Office;
 
   private constructor(
@@ -49,15 +48,6 @@ export class Vehicle extends BaseModel {
       dto.type,
       dto.rented,
     );
-  }
-
-  toEntity(): VehicleEntity {
-    const plain = instanceToPlain(this);
-    const entity = plainToInstance(VehicleEntity, plain);
-    delete entity.createdAt;
-    delete entity.updatedAt;
-    delete entity.id;
-    return entity;
   }
 
   fromEntity() {

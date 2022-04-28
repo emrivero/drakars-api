@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { OfficeRepository } from '../../../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { Vehicle } from '../../domain/models/vehicle';
+import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
 
 @Injectable()
@@ -19,7 +20,7 @@ export class UpdateVehicleService {
       );
     }
 
-    const vehicleEntity = vehicle.toEntity();
+    const vehicleEntity = vehicle.toEntity(VehicleEntity);
     return this.vehicleRepository.update(id, vehicleEntity);
   }
 }

@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { UserEntity } from '../../../../user/infrastructure/persistence/entity/user.entity';
+import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { RatingType } from '../../../domain/types/rating.type';
 import { VehicleEntity } from './vehicle.entity';
 
@@ -12,8 +12,8 @@ export class VehicleRatingEntity extends BaseEntity {
   })
   score: RatingType;
 
-  @ManyToOne(() => UserEntity, (user) => user.ratings)
-  user: UserEntity;
+  @ManyToOne(() => ClientEntity, (user) => user.ratings)
+  user: ClientEntity;
 
   @ManyToOne(() => VehicleEntity, (vehicle) => vehicle.ratings)
   vehicle: VehicleEntity;

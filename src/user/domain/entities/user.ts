@@ -1,25 +1,21 @@
-import { CreatedUser, CreatedUserProps } from './created-user.entity';
+import { BaseModel } from '../../../common/domain/models/base';
+import { UserEntity } from '../../infrastructure/persistence/entity/user.entity';
+import { Role } from '../types/role';
 
-type UserProps = CreatedUserProps & {
-  id: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
-export class User extends CreatedUser {
-  id: number;
-
-  createdAt: Date;
-
-  updatedAt: Date;
-
-  private constructor(props: UserProps) {
-    super(props);
-    this.id = props.id;
-    this.createdAt = props.createdAt;
-    this.updatedAt = props.updatedAt;
-  }
-
-  static create(props: UserProps): User {
-    return new User(props);
+export abstract class User extends BaseModel<UserEntity> {
+  public email_verified: boolean;
+  protected constructor(
+    id: number,
+    createdAt: Date,
+    updatedAt: Date,
+    public name: string,
+    public preferred_username: string,
+    public given_name: string,
+    public family_name: string,
+    public email: string,
+    public role: Role,
+    public password: string,
+  ) {
+    super(id, createdAt, updatedAt);
   }
 }

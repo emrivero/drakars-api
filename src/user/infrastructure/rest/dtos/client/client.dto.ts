@@ -1,10 +1,6 @@
-import { IsEmail, IsEnum, IsNumber, IsString, Length } from 'class-validator';
-import { Role } from '../../../domain/types/role';
+import { IsEmail, IsString, Length } from 'class-validator';
 
-export class UpdateUserDto {
-  @IsNumber()
-  id: number;
-
+export class ClientDto {
   @IsString()
   name: string;
 
@@ -20,9 +16,6 @@ export class UpdateUserDto {
   @IsString()
   @IsEmail()
   email: string;
-
-  @IsEnum(Role)
-  role: Role;
 
   @IsString()
   @Length(8, 20)

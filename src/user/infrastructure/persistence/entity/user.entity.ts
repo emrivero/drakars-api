@@ -1,11 +1,9 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/rent.entity';
-import { VehicleRatingEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle-rating';
 import { Role } from '../../../domain/types/role';
 
 @Entity()
-export class UserEntity extends BaseEntity {
+export abstract class UserEntity extends BaseEntity {
   @Column()
   email_verified: boolean;
 
@@ -27,7 +25,6 @@ export class UserEntity extends BaseEntity {
   @Column({
     type: 'enum',
     enum: Role,
-    default: Role.USER,
   })
   role: Role;
 
@@ -36,12 +33,4 @@ export class UserEntity extends BaseEntity {
     nullable: true,
   })
   profileImage: string;
-
-  @OneToMany(() => RentEntity, (rent) => rent.renterUser)
-  rents: RentEntity[];
-
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.user)
-  ratings: VehicleRatingEntity[];
-
-  //TODO: EDITOR AND ADMIN RELATE TO OFFICE
 }

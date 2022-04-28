@@ -1,10 +1,9 @@
-import { instanceToPlain, plainToInstance } from 'class-transformer';
 import { Municipality } from '../../../city/domain/models/municipality';
 import { BaseModel } from '../../../common/domain/models/base';
 import { OfficeEntity } from '../../infrastructure/persistence/entity/office.entity';
 import { CreateOfficeDto } from '../../infrastructure/rest/dto/create-office.dto';
 
-export class Office extends BaseModel {
+export class Office extends BaseModel<OfficeEntity> {
   public municipality: Municipality = null;
   private constructor(
     id: number,
@@ -35,14 +34,5 @@ export class Office extends BaseModel {
       dto.zipCode,
       dto.municipality,
     );
-  }
-
-  toEntity() {
-    const plain = instanceToPlain(this);
-    const entity = plainToInstance(OfficeEntity, plain);
-    delete entity.createdAt;
-    delete entity.updatedAt;
-    delete entity.id;
-    return entity;
   }
 }

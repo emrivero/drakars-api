@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { EntityRepository, SelectQueryBuilder } from 'typeorm';
-import { UserRepository } from '../../../domain/interface/user.repository';
+import { EntityRepository, Repository, SelectQueryBuilder } from 'typeorm';
 import { Role } from '../../../domain/types/role';
-import { UserEntity } from '../entity/user.entity';
+import { ClientEntity } from '../entity/client.entity';
 
 @Injectable()
-@EntityRepository(UserEntity)
-export class UserMariadbRepository extends UserRepository {
-  private queryBuilder: SelectQueryBuilder<UserEntity>;
+@EntityRepository(ClientEntity)
+export class ClientRepository extends Repository<ClientEntity> {
+  private queryBuilder: SelectQueryBuilder<ClientEntity>;
 
   private getQueryBuilder() {
     if (!this.queryBuilder) {
@@ -34,8 +33,4 @@ export class UserMariadbRepository extends UserRepository {
       .andWhereInIds([id])
       .getOne();
   }
-
-  // async deleteByIds(ids: number[]) {
-  //   return await this.manager.delete();
-  // }
 }
