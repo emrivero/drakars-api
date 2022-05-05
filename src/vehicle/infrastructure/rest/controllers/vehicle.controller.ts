@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   Put,
@@ -33,6 +34,7 @@ export class VehicleController {
   }
 
   @Post('/paginate')
+  @HttpCode(200)
   paginate(
     @Body()
     query: PaginateQuery & { relations: ('rents' | 'office' | 'ratings')[] },

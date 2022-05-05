@@ -51,6 +51,15 @@ export class VehicleEntity extends BaseEntity {
   @Column({ type: 'float' })
   pricePerDay: number;
 
+  @Column({ type: 'int' })
+  doors: number;
+
+  @Column()
+  fuel: string;
+
+  @Column()
+  fullName: string;
+
   @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle)
   rents: RentEntity[];
 

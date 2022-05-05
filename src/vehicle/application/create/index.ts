@@ -16,6 +16,7 @@ export class CreateVehicleService {
       throw new BadRequestException(`Office with id=${office} does not exist`);
     }
     const vehicleEntity = vehicle.toEntity(VehicleEntity);
+    vehicleEntity.fullName = `${vehicleEntity.mark} ${vehicleEntity.model}`;
     vehicleEntity.office = officeEntity;
     return this.vehicleRepository.save(vehicleEntity);
   }

@@ -1,8 +1,6 @@
 export enum VehicleType {
-  SMALL_CAR = 'small_car',
-  MEDIUM_CAR = 'medium_car',
-  LARGE_CAR = 'large_car',
-  MINI_VAN = 'mini_van',
-  VAN = 'van',
+  SMALL_CAR = 'small',
+  MEDIUM_CAR = 'medium',
+  LARGE_CAR = 'large',
   PREMIUM = 'premium',
 }

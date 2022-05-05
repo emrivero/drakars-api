@@ -12,19 +12,20 @@ import { VehicleMariadbRepository } from '../../infrastructure/persistence/repos
 export class PaginateVehicleService {
   static PAGINATE_CONFIGURATION: PaginateConfig<VehicleEntity> = {
     sortableColumns: ['id', 'year', 'pricePerDay'],
-    searchableColumns: ['model'],
+    searchableColumns: ['fullName'],
     filterableColumns: {
+      fuel: [FilterOperator.EQ],
       type: [FilterOperator.EQ],
       mark: [FilterOperator.EQ],
       pricePerDay: [FilterOperator.GT, FilterOperator.LT, FilterOperator.BTW],
       transmission: [FilterOperator.EQ],
-      seats: [FilterOperator.EQ],
+      seats: [FilterOperator.GT],
       'office.id': [FilterOperator.EQ],
     },
-    defaultLimit: 10,
-    maxLimit: 20,
+    defaultLimit: 5000,
+    maxLimit: 5000,
     defaultSortBy: [['id', 'ASC']],
-    relations: [],
+    relations: ['office'],
   };
   constructor(private readonly vehicleRepository: VehicleMariadbRepository) {}
 
@@ -33,7 +34,6 @@ export class PaginateVehicleService {
   ) {
     return paginate(query, this.vehicleRepository, {
       ...PaginateVehicleService.PAGINATE_CONFIGURATION,
-      relations: query.relations,
     });
   }
 }
