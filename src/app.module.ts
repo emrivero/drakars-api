@@ -13,6 +13,7 @@ import { MariaDBConfigModule } from './config/databases/mariadb/config.module';
 import { MariaDBConfigService } from './config/databases/mariadb/config.service';
 import { KeycloakConfigModule } from './config/keycloak/config.module';
 import { KeycloakConfigService } from './config/keycloak/config.service';
+import { DataSeedModule } from './data-seed/data-seed.module';
 import { InvoiceModule } from './invoice/invoice.module';
 import { OfficeModule } from './office/office.module';
 import { RentModule } from './rent/rent.module';
@@ -51,6 +52,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
     CityModule,
     OfficeModule,
     InvoiceModule,
+    DataSeedModule,
   ],
   controllers: [AppController],
   providers: [],

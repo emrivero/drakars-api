@@ -39,11 +39,6 @@ export class VehicleEntity extends BaseEntity {
   type: VehicleType;
 
   @Column({
-    default: false,
-  })
-  rented?: boolean;
-
-  @Column({
     nullable: true,
   })
   limitKM: number;
@@ -60,7 +55,9 @@ export class VehicleEntity extends BaseEntity {
   @Column()
   fullName: string;
 
-  @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle)
+  @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle, {
+    onDelete: 'SET NULL',
+  })
   rents: RentEntity[];
 
   @ManyToOne(() => OfficeEntity, (office) => office.vehicles, {
@@ -68,6 +65,8 @@ export class VehicleEntity extends BaseEntity {
   })
   office: OfficeEntity;
 
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle)
+  @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle, {
+    onDelete: 'SET NULL',
+  })
   ratings: VehicleRatingEntity[];
 }

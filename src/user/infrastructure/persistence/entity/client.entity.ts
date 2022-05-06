@@ -5,9 +5,13 @@ import { UserEntity } from './user.entity';
 
 @Entity()
 export class ClientEntity extends UserEntity {
-  @OneToMany(() => RentEntity, (rent) => rent.renterUser)
+  @OneToMany(() => RentEntity, (rent) => rent.renterUser, {
+    onDelete: 'SET NULL',
+  })
   rents: RentEntity[];
 
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.user)
+  @OneToMany(() => VehicleRatingEntity, (rating) => rating.user, {
+    onDelete: 'SET NULL',
+  })
   ratings: VehicleRatingEntity[];
 }

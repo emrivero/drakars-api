@@ -18,9 +18,13 @@ export class OfficeEntity extends BaseEntity {
   @ManyToOne(() => MunicipalityEntity, (municipality) => municipality.offices)
   municipality: MunicipalityEntity;
 
-  @OneToMany(() => VehicleEntity, (vehicle) => vehicle.office)
+  @OneToMany(() => VehicleEntity, (vehicle) => vehicle.office, {
+    onDelete: 'SET NULL',
+  })
   vehicles: VehicleEntity[];
 
-  @OneToMany(() => EditorEntity, (editor) => editor.office)
+  @OneToMany(() => EditorEntity, (editor) => editor.office, {
+    onDelete: 'SET NULL',
+  })
   editors: EditorEntity;
 }
