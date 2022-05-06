@@ -20,4 +20,8 @@ export enum MarkType {
   TOYOTA = 'Toyota',
   VOLKSWAGEN = 'Volkswagen',
   VOLVO = 'Volvo',
+  MINI = 'Mini',
+  MITSUBISHI = 'Mitsubishi',
+  FERRARI = 'Ferrari',
+  MAZDA = 'Mazda',
 }

@@ -1,9 +1,12 @@
 import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
+import { VehicleRepository } from 'src/vehicle/domain/repository/vehicle.repository';
+import { VehicleMariadbRepository } from 'src/vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
 import { CityRepository } from '../city/infrastructure/persistence/repository/city.mariadb,repository';
 import { MunicipalityRepository } from '../city/infrastructure/persistence/repository/municipality.mariadb.repository';
 import { SeedConfigService } from '../config/seed/config.service';
 import { dataCities } from './data/city';
 import { dataMunicipalities } from './data/municipality';
+import { dataVehicles } from './data/vehicle';
 
 @Injectable()
 export class DataSeedingService implements OnApplicationBootstrap {
@@ -11,6 +14,7 @@ export class DataSeedingService implements OnApplicationBootstrap {
   constructor(
     private readonly cityRepository: CityRepository,
     private readonly municipalityRepository: MunicipalityRepository,
+    private readonly vehicleRepository: VehicleMariadbRepository,
     private readonly seedingConfigService: SeedConfigService,
   ) {}
 
@@ -49,7 +53,10 @@ export class DataSeedingService implements OnApplicationBootstrap {
     // this.logger.log('Add cities to DB');
   }
 
-  private async importVehicles() {}
+  private async importVehicles() {
+    await this.vehicleRepository.delete({})
+    await this.vehicleRepository.insert(dataVehicles)
+  }
 
   private async importCities() {
     await this.cityRepository.delete({});

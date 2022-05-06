@@ -61,7 +61,7 @@ export class VehicleEntity extends BaseEntity {
   rents: RentEntity[];
 
   @ManyToOne(() => OfficeEntity, (office) => office.vehicles, {
-    nullable: false,
+    nullable: true,
   })
   office: OfficeEntity;
 
