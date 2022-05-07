@@ -23,7 +23,12 @@ import { VehicleModule } from './vehicle/vehicle.module';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'public', 'resources'),
+      exclude: ['/api/*', '/static/*'],
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'public', 'static', 'img'),
       exclude: ['/api/*'],
+      serveRoot: '/static',
     }),
     ConfigModule.forRoot({
       envFilePath: './.env',

@@ -55,6 +55,11 @@ export class VehicleEntity extends BaseEntity {
   @Column()
   fullName: string;
 
+  @Column({
+    nullable: true,
+  })
+  image?: string;
+
   @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle, {
     onDelete: 'SET NULL',
   })
