@@ -7,7 +7,7 @@ export class MunicipalityController {
 
   @Get('list/by-city/:cityId/:name')
   search(@Param('name') name: string, @Param('cityId') cityId: number) {
-    if (name && name.length > 1) {
+    if (name && name.length > 0) {
       return this.searchService.search(cityId, name);
     }
     return [];

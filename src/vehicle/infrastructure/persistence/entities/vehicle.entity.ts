@@ -38,10 +38,10 @@ export class VehicleEntity extends BaseEntity {
   })
   type: VehicleType;
 
-  @Column({
-    nullable: true,
-  })
-  limitKM: number;
+  // @Column({
+  //   nullable: true,
+  // })
+  // limitKM: number;
 
   @Column({ type: 'float' })
   pricePerDay: number;
@@ -67,6 +67,7 @@ export class VehicleEntity extends BaseEntity {
 
   @ManyToOne(() => OfficeEntity, (office) => office.vehicles, {
     nullable: true,
+    onDelete: 'SET NULL',
   })
   office: OfficeEntity;
 

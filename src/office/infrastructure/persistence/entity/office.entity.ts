@@ -15,6 +15,18 @@ export class OfficeEntity extends BaseEntity {
   @Column()
   zipCode: string;
 
+  @Column()
+  morningOpeningTime: string;
+
+  @Column()
+  morningClosingTime: string;
+
+  @Column()
+  eveningOpeningTime: string;
+
+  @Column()
+  eveningClosingTime: string;
+
   @ManyToOne(() => MunicipalityEntity, (municipality) => municipality.offices)
   municipality: MunicipalityEntity;
 

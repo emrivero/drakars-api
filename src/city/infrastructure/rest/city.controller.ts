@@ -7,7 +7,7 @@ export class CityController {
 
   @Get('search/:name')
   search(@Param('name') name: string) {
-    if (name && name.length > 1) {
+    if (name && name.length > 0) {
       return this.searchService.search(name);
     }
     return [];
