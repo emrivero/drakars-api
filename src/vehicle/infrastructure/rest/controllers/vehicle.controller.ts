@@ -8,7 +8,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { PaginateQuery } from 'nestjs-paginate';
+import { PaginateQuery } from '../../../../lib/paginate';
 import { CreateVehicleService } from '../../../application/create';
 import { DeleteVehicleService } from '../../../application/delete';
 import { GetVehicleService } from '../../../application/get-vehicle-by-id';

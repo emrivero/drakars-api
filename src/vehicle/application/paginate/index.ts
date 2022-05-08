@@ -4,7 +4,8 @@ import {
   paginate,
   PaginateConfig,
   PaginateQuery,
-} from 'nestjs-paginate';
+} from '../../../lib/paginate';
+
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
 
