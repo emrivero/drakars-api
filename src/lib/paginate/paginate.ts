@@ -22,6 +22,8 @@ import { WherePredicateOperator } from 'typeorm/query-builder/WhereClause';
 import { PaginateQuery } from './decorator';
 import { Column, DeepRelations, Order, RelationColumn, SortBy } from './helper';
 
+const QUERY_INFIX = '__';
+
 export class Paginated<T> {
   data: T[];
   meta: {
@@ -79,19 +81,19 @@ export function createRecursiveJoin<T>(
   if (typeof deepRelations === 'string') {
     queryBuilder.leftJoinAndSelect(
       `${aliasPrefix}.${deepRelations}`,
-      `${aliasPrefix}-${deepRelations}`,
+      `${aliasPrefix}${QUERY_INFIX}${deepRelations}`,
     );
     return;
   }
   for (const key in deepRelations) {
     queryBuilder.leftJoinAndSelect(
       `${aliasPrefix}.${key}`,
-      `${aliasPrefix}-${key}`,
+      `${aliasPrefix}${QUERY_INFIX}${key}`,
     );
     createRecursiveJoin(
       queryBuilder,
       deepRelations[key],
-      `${aliasPrefix}-${key}`,
+      `${aliasPrefix}${QUERY_INFIX}${key}`,
     );
   }
 }
@@ -261,7 +263,7 @@ export async function paginate<T>(
     config.relations.forEach((relation) => {
       queryBuilder.leftJoinAndSelect(
         `${queryBuilder.alias}.${relation}`,
-        `${queryBuilder.alias}-${relation}`,
+        `${queryBuilder.alias}${QUERY_INFIX}${relation}`,
       );
     });
   }
@@ -274,7 +276,10 @@ export async function paginate<T>(
 
   for (const order of sortBy) {
     if (order[0].split('.').length > 1) {
-      queryBuilder.addOrderBy(`${queryBuilder.alias}-${order[0]}`, order[1]);
+      queryBuilder.addOrderBy(
+        `${queryBuilder.alias}${QUERY_INFIX}${order[0]}`,
+        order[1],
+      );
     } else {
       queryBuilder.addOrderBy(`${queryBuilder.alias}.${order[0]}`, order[1]);
     }
@@ -288,13 +293,16 @@ export async function paginate<T>(
     queryBuilder.andWhere(
       new Brackets((qb: SelectQueryBuilder<T>) => {
         for (const column of searchBy) {
-          const property = column.replace(/[.](?=.*[.])/g, '-');
+          const property = column.replace(/[.](?=.*[.])/g, QUERY_INFIX);
 
           const propertyPath = (column as string).split('.');
           if (propertyPath.length > 1) {
             const condition: WherePredicateOperator = {
               operator: 'ilike',
-              parameters: [`${qb.alias}-${property}`, `:${column}`],
+              parameters: [
+                `${qb.alias}${QUERY_INFIX}${property}`,
+                `:${column}`,
+              ],
             };
             qb.orWhere(qb['createWhereConditionExpression'](condition), {
               [column]: `%${query.search}%`,
@@ -325,23 +333,26 @@ export async function paginate<T>(
             switch (condition.operator) {
               case 'between':
                 condition.parameters = [
-                  `${qb.alias}-${column}`,
-                  `:${column}-from`,
-                  `:${column}-to`,
+                  `${qb.alias}${QUERY_INFIX}${column}`,
+                  `:${column}${QUERY_INFIX}from`,
+                  `:${column}${QUERY_INFIX}to`,
                 ];
                 parameters = {
-                  [column + '-from']: filter[column].value[0],
-                  [column + '-to']: filter[column].value[1],
+                  [column + `${QUERY_INFIX}from`]: filter[column].value[0],
+                  [column + `${QUERY_INFIX}to`]: filter[column].value[1],
                 };
                 break;
               case 'in':
                 condition.parameters = [
-                  `${qb.alias}-${column}`,
+                  `${qb.alias}${QUERY_INFIX}${column}`,
                   `:...${column}`,
                 ];
                 break;
               default:
-                condition.parameters = [`${qb.alias}-${column}`, `:${column}`];
+                condition.parameters = [
+                  `${qb.alias}${QUERY_INFIX}${column}`,
+                  `:${column}`,
+                ];
                 break;
             }
             qb.andWhere(
