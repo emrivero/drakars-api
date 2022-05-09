@@ -10,7 +10,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { PaginateQuery } from 'nestjs-paginate';
+import { PaginateQuery } from '../../../../lib/paginate';
 import { CreateOfficeService } from '../../../application/create';
 import { DeleteOfficeService } from '../../../application/delete';
 import { GetOfficeService } from '../../../application/get-by-id';

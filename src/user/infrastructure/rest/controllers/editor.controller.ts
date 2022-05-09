@@ -1,5 +1,5 @@
 import { Controller, Post } from '@nestjs/common';
-import { PaginateQuery } from 'nestjs-paginate';
+import { PaginateQuery } from '../../../../lib/paginate';
 import { GetClientService } from '../../../application/client/find';
 
 @Controller('editor')
