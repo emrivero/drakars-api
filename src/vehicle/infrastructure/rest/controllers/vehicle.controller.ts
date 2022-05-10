@@ -8,13 +8,14 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { PaginateQuery } from '../../../../lib/paginate';
+import { PaginateConfig, PaginateQuery } from '../../../../lib/paginate';
 import { CreateVehicleService } from '../../../application/create';
 import { DeleteVehicleService } from '../../../application/delete';
 import { GetVehicleService } from '../../../application/get-vehicle-by-id';
 import { PaginateVehicleService } from '../../../application/paginate';
 import { UpdateVehicleService } from '../../../application/update';
 import { Vehicle } from '../../../domain/models/vehicle';
+import { VehicleEntity } from '../../persistence/entities/vehicle.entity';
 import { CreateVehicleDto } from '../dtos/create-vehicle';
 
 @Controller('vehicle')
@@ -37,7 +38,10 @@ export class VehicleController {
   @HttpCode(200)
   paginate(
     @Body()
-    query: PaginateQuery & { relations: ('rents' | 'office' | 'ratings')[] },
+    query: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    },
   ) {
     return this.paginateVehicleService.paginate(query);
   }

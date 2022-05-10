@@ -28,6 +28,11 @@ export class GetOfficeService {
         {
           zipCode: Like(`${name}%`),
         },
+        {
+          municipality: {
+            name: Like(`${name}%`),
+          },
+        },
       ],
     });
     return offices;

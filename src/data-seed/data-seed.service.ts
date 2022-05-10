@@ -1,12 +1,13 @@
 import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
-import { VehicleRepository } from 'src/vehicle/domain/repository/vehicle.repository';
+import { random } from 'lodash';
 import { VehicleMariadbRepository } from 'src/vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
 import { CityRepository } from '../city/infrastructure/persistence/repository/city.mariadb,repository';
 import { MunicipalityRepository } from '../city/infrastructure/persistence/repository/municipality.mariadb.repository';
 import { SeedConfigService } from '../config/seed/config.service';
+import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { dataCities } from './data/city';
 import { dataMunicipalities } from './data/municipality';
-import { dataVehicles } from './data/vehicle';
+import { dataVehicles, VehicleData } from './data/vehicle';
 
 @Injectable()
 export class DataSeedingService implements OnApplicationBootstrap {
@@ -16,6 +17,7 @@ export class DataSeedingService implements OnApplicationBootstrap {
     private readonly municipalityRepository: MunicipalityRepository,
     private readonly vehicleRepository: VehicleMariadbRepository,
     private readonly seedingConfigService: SeedConfigService,
+    private readonly officeRepository: OfficeRepository,
   ) {}
 
   async onApplicationBootstrap() {
@@ -54,8 +56,13 @@ export class DataSeedingService implements OnApplicationBootstrap {
   }
 
   private async importVehicles() {
-    await this.vehicleRepository.delete({})
-    await this.vehicleRepository.insert(dataVehicles)
+    const offices = await this.officeRepository.find();
+    // await this.vehicleRepository.delete({});
+    const vehiclesWithOffice: VehicleData[] = dataVehicles.map((data) => ({
+      ...data,
+      office: offices[random(0, offices.length)],
+    }));
+    await this.vehicleRepository.insert(vehiclesWithOffice);
   }
 
   private async importCities() {
@@ -76,7 +83,9 @@ export class DataSeedingService implements OnApplicationBootstrap {
     this.municipalityRepository.insert(addedCities);
   }
 
-  private async importClients() {}
+  private async importClients() {
+    return;
+  }
 
-  private async imporOffices() {}
+  // private async imporOffices() {}
 }

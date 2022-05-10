@@ -3,12 +3,12 @@ import { TransmissionType } from '../../vehicle/domain/types/transmission';
 import { VehicleType } from '../../vehicle/domain/types/vehicle.type';
 import { VehicleEntity } from '../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 
-type VehicleData = Omit<
+export type VehicleData = Omit<
   VehicleEntity,
-  'id' | 'createdAt' | 'updatedAt' | 'office' | 'ratings' | 'rents'
+  'id' | 'createdAt' | 'updatedAt' | 'ratings' | 'rents'
 >;
 
-export const dataVehicles: VehicleData[] = [
+export const dataVehicles: Omit<VehicleData, 'office'>[] = [
   {
     mark: MarkType.FIAT,
     model: '500',

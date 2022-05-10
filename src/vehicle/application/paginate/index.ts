@@ -31,10 +31,15 @@ export class PaginateVehicleService {
   constructor(private readonly vehicleRepository: VehicleMariadbRepository) {}
 
   async paginate(
-    query: PaginateQuery & { relations: ('rents' | 'office' | 'ratings')[] },
+    query: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    },
   ) {
+    const { paginateOptions } = query;
     return paginate(query, this.vehicleRepository, {
       ...PaginateVehicleService.PAGINATE_CONFIGURATION,
+      ...paginateOptions,
     });
   }
 }

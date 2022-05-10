@@ -55,6 +55,7 @@ export interface PaginateConfig<T> {
   defaultLimit?: number;
   where?: FindConditions<T> | FindConditions<T>[];
   filterableColumns?: { [key in Column<T>]?: FilterOperator[] };
+  groupBy?: Column<T>[];
 }
 
 export enum FilterOperator {
@@ -367,6 +368,16 @@ export async function paginate<T>(
         }
       }),
     );
+  }
+
+  if (config.groupBy?.length) {
+    config.groupBy.forEach((column, index) => {
+      if (index !== 0) {
+        queryBuilder.groupBy(column);
+      } else {
+        queryBuilder.addGroupBy(column);
+      }
+    });
   }
 
   [items, totalItems] = await queryBuilder.getManyAndCount();
