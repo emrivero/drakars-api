@@ -18,7 +18,7 @@ export class ClientController {
     private readonly deleteService: DeleteClientService,
   ) {}
 
-  @Post('autoregister')
+  @Post()
   async autoregister(@AuthenticatedUser() dto: ClientDto) {
     const client = Client.fromDto(dto);
     return this.createService.create(client);

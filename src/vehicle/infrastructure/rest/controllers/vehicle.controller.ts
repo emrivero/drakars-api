@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -9,6 +10,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { PaginateConfig, PaginateQuery } from '../../../../lib/paginate';
+import { DateInterval } from '../../../../rent/domain/DateInterval';
 import { CreateVehicleService } from '../../../application/create';
 import { DeleteVehicleService } from '../../../application/delete';
 import { GetVehicleService } from '../../../application/get-vehicle-by-id';
@@ -16,6 +18,7 @@ import { PaginateVehicleService } from '../../../application/paginate';
 import { UpdateVehicleService } from '../../../application/update';
 import { Vehicle } from '../../../domain/models/vehicle';
 import { VehicleEntity } from '../../persistence/entities/vehicle.entity';
+import { AvailableVehicleDto } from '../dtos/available-vehicle';
 import { CreateVehicleDto } from '../dtos/create-vehicle';
 
 @Controller('vehicle')
@@ -44,6 +47,16 @@ export class VehicleController {
     },
   ) {
     return this.paginateVehicleService.paginate(query);
+  }
+
+  @Post('/available')
+  @HttpCode(200)
+  available(@Body() dto: AvailableVehicleDto & PaginateQuery) {
+    const interval = new DateInterval(dto.startDate, dto.endDate);
+    if (!interval.isValid()) {
+      throw new BadRequestException('Start date is after end date');
+    }
+    return this.getVehicleService.listAvailable(dto);
   }
 
   @Put('/:id')

@@ -9,6 +9,7 @@ import {
   Patch,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { PaginateQuery } from '../../../../lib/paginate';
 import { CreateOfficeService } from '../../../application/create';
@@ -19,6 +20,7 @@ import { TransferOfficeVehiclesService } from '../../../application/transfer-veh
 import { UpdateOfficeService } from '../../../application/update';
 import { Office } from '../../../domain/models/office';
 import { CreateOfficeDto } from '../dto/create-office.dto';
+import { hoursFormatValidator } from '../validator/hours-format-validator';
 import { validateHours } from '../validator/hours-validator';
 
 @Controller('office')
@@ -95,5 +97,14 @@ export class OfficeController {
     @Param('newOfficeId') newOfficeId: number,
   ) {
     return this.transferService.transfer(oldOfficeId, newOfficeId);
+  }
+
+  @Get('valid-hour/:id')
+  async inHour(@Param('id') id: number, @Query('hour') hour: string) {
+    if (!hoursFormatValidator(hour)) {
+      throw new BadRequestException('Start hour should be in format HH:MM');
+    }
+
+    return { result: await this.getService.hoursInRange(id, hour) };
   }
 }

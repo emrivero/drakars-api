@@ -14,7 +14,7 @@ export class CreateClientService {
   async create(client: Client) {
     const clientEntity = client.toEntity(ClientEntity);
 
-    return this.clientRepository.save(clientEntity);
+    return this.clientRepository.create(clientEntity);
   }
 
   // async createEditor(user: CreateUserDto) {

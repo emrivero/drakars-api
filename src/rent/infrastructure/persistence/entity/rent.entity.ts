@@ -1,6 +1,7 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, Generated, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { InvoiceEntity } from '../../../../invoice/infrastructure/persistence/entity/invoice.entity';
+import { InvoiceStatus } from '../../../../invoice/domain/types/invoice-status';
+import { PaymentType } from '../../../../invoice/domain/types/payment-type';
 import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 
@@ -12,8 +13,9 @@ export class RentEntity extends BaseEntity {
   @ManyToOne(() => ClientEntity, (user) => user.rents)
   renterUser: ClientEntity;
 
-  @ManyToOne(() => InvoiceEntity, (invoice) => invoice.rent)
-  invoice: InvoiceEntity;
+  // @OneToOne(() => InvoiceEntity)
+  // @JoinColumn()
+  // invoice: InvoiceEntity;
 
   @Column({
     type: 'date',
@@ -24,4 +26,28 @@ export class RentEntity extends BaseEntity {
     type: 'date',
   })
   endDate: Date;
+
+  @Column({
+    type: 'uuid',
+    unique: true,
+  })
+  @Generated('uuid')
+  reference: string;
+
+  @Column({
+    type: 'enum',
+    enum: InvoiceStatus,
+  })
+  status: InvoiceStatus;
+
+  @Column({
+    type: 'enum',
+    enum: PaymentType,
+  })
+  paymentType: PaymentType;
+
+  @Column({
+    type: 'date',
+  })
+  paymentDate: Date;
 }
