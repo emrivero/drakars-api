@@ -14,4 +14,10 @@ export class DateInterval {
   isValid() {
     return new DateModel(this.startDate).before(new DateModel(this.endDate));
   }
+
+  getDays() {
+    const start = new DateModel(this.startDate);
+    const end = new DateModel(this.endDate);
+    return end.value.diff(start.value, 'day');
+  }
 }

@@ -1,6 +1,6 @@
 import { Column, Entity, Generated, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { InvoiceStatus } from '../../../../invoice/domain/types/invoice-status';
+import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
 import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
@@ -20,34 +20,39 @@ export class RentEntity extends BaseEntity {
   @Column({
     type: 'date',
   })
-  startDate: Date;
+  startDate: string;
 
   @Column({
     type: 'date',
   })
-  endDate: Date;
+  endDate: string;
 
   @Column({
     type: 'uuid',
     unique: true,
   })
   @Generated('uuid')
-  reference: string;
+  reference?: string;
 
   @Column({
     type: 'enum',
-    enum: InvoiceStatus,
+    enum: PaymentStatus,
   })
-  status: InvoiceStatus;
+  status: PaymentStatus;
 
   @Column({
     type: 'enum',
     enum: PaymentType,
+    nullable: true,
   })
-  paymentType: PaymentType;
+  paymentType?: PaymentType;
 
   @Column({
     type: 'date',
+    nullable: true,
   })
-  paymentDate: Date;
+  paymentDate?: string;
+
+  @Column({ type: 'float' })
+  total: number;
 }

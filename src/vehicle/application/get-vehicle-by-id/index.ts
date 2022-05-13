@@ -30,20 +30,53 @@ export class GetVehicleService {
     defaultSortBy: [['id', 'ASC']],
   };
 
+  async isAvailable(query: AvailableVehicleDto, vehicleId: number) {
+    const isAvailable =
+      (await this.getAvailableQuery(
+        query.office,
+        query.startDate,
+        query.endDate,
+      )
+        .andWhere('vehicle.id=:id', { id: vehicleId })
+        .getCount()) > 0;
+    return isAvailable;
+  }
+
   listAvailable(query: AvailableVehicleDto & PaginateQuery) {
+    const queryBuilder = this.getAvailableQuery(
+      query.office,
+      query.startDate,
+      query.endDate,
+    );
+    return paginate(query, queryBuilder, {
+      ...GetVehicleService.PAGINATE_CONFIGURATION,
+    });
+  }
+
+  getById(id: number) {
+    return this.vehicleRepository.findOne(id, {
+      //   relations: ['office', 'rents', 'ratings'],
+    });
+  }
+
+  private getAvailableQuery(
+    office: number,
+    startDate: string,
+    endDate: string,
+  ) {
     const queryBuilder = this.vehicleRepository
       .createQueryBuilder('vehicle')
       .select('vehicle')
       .leftJoin('vehicle.rents', 'rent')
-      .where('vehicle.office=:office', { office: query.office })
+      .where('vehicle.office=:office', { office })
       .andWhere(
         new Brackets((qb) => {
           qb.where(
             new Brackets((qb) => {
               qb.where('rent.endDate < :startDate', {
-                startDate: query.startDate,
+                startDate,
               }).orWhere('rent.startDate > :endDate', {
-                endDate: query.endDate,
+                endDate,
               });
             }),
           ).orWhere(
@@ -55,14 +88,7 @@ export class GetVehicleService {
           );
         }),
       );
-    return paginate(query, queryBuilder, {
-      ...GetVehicleService.PAGINATE_CONFIGURATION,
-    });
-  }
 
-  getById(id: number) {
-    return this.vehicleRepository.findOne(id, {
-      //   relations: ['office', 'rents', 'ratings'],
-    });
+    return queryBuilder;
   }
 }

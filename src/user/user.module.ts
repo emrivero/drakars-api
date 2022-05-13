@@ -8,6 +8,7 @@ import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entit
 import { CreateClientService } from './application/client/create/CreateUserService';
 import { DeleteClientService } from './application/client/delete';
 import { GetClientService } from './application/client/find';
+import { FindOrCreateClientService } from './application/client/find-or-create';
 import { UpdateClientService } from './application/client/update';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
@@ -48,6 +49,7 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakConnector,
     KeycloakRepository,
     UpdateClientService,
+    FindOrCreateClientService,
   ],
 })
 export class UserModule {}

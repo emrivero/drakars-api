@@ -8,12 +8,13 @@ export class Client extends User {
     createdAt: Date,
     updatedAt: Date,
     name: string,
-    preferred_username: string,
-    given_name: string,
     family_name: string,
     email: string,
+    public readonly dni: string,
     role: Role,
-    password: string,
+    preferred_username?: string,
+    given_name?: string,
+    password?: string,
   ) {
     super(
       id,
@@ -35,11 +36,12 @@ export class Client extends User {
       null,
       null,
       dto.name,
-      dto.preferred_username,
-      dto.given_name,
       dto.family_name,
       dto.email,
+      dto.dni,
       Role.CLIENT,
+      dto.preferred_username,
+      dto.given_name,
       dto.password,
     );
   }

@@ -1,15 +1,15 @@
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { InvoiceStatus } from '../../../domain/types/invoice-status';
+import { PaymentStatus } from '../../../domain/types/invoice-status';
 import { PaymentType } from '../../../domain/types/payment-type';
 
 @Entity()
 export class InvoiceEntity extends BaseEntity {
   @Column({
     type: 'enum',
-    enum: InvoiceStatus,
+    enum: PaymentStatus,
   })
-  status: InvoiceStatus;
+  status: PaymentStatus;
 
   @Column({
     type: 'enum',

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { EntityRepository, Repository, SelectQueryBuilder } from 'typeorm';
+import { Column } from '../../../../lib/paginate/helper';
 import { Role } from '../../../domain/types/role';
 import { ClientEntity } from '../entity/client.entity';
 
@@ -15,7 +16,7 @@ export class ClientRepository extends Repository<ClientEntity> {
     return this.queryBuilder;
   }
 
-  async findOneBy(field: string, value: any) {
+  async findOneBy(field: Column<ClientEntity>, value: any) {
     return await this.getQueryBuilder()
       .where(`user.${field}=:${field}`, { [field]: value })
       .getOne();

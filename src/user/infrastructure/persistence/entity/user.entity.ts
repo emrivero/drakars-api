@@ -5,16 +5,7 @@ import { Role } from '../../../domain/types/role';
 @Entity()
 export abstract class UserEntity extends BaseEntity {
   @Column()
-  email_verified: boolean;
-
-  @Column()
   name: string;
-
-  @Column()
-  preferred_username: string;
-
-  @Column()
-  given_name: string;
 
   @Column()
   family_name: string;
@@ -25,12 +16,28 @@ export abstract class UserEntity extends BaseEntity {
   @Column({
     type: 'enum',
     enum: Role,
+    nullable: true,
   })
-  role: Role;
+  role?: Role;
 
   @Column({
     type: 'blob',
     nullable: true,
   })
-  profileImage: string;
+  profileImage?: string;
+
+  @Column({
+    default: false,
+  })
+  email_verified?: boolean;
+
+  @Column({
+    default: '',
+  })
+  preferred_username?: string;
+
+  @Column({
+    default: '',
+  })
+  given_name?: string;
 }

@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
 export class DateModel {
-  private value: moment.Moment = null;
+  public value: moment.Moment = null;
 
   constructor(value) {
     if (moment(value).isValid()) {
