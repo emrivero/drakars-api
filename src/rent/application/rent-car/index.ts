@@ -14,6 +14,7 @@ import { DateInterval } from '../../domain/DateInterval';
 import { RentEntity } from '../../infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../../infrastructure/persistence/repository/rent.repository';
 import { RentCardDto } from '../../infrastructure/rest/dto/rent-car';
+import { GetRentServive } from '../get-rent';
 
 @Injectable()
 export class RentCarService {
@@ -21,6 +22,7 @@ export class RentCarService {
     private readonly rentRepository: RentRepository,
     private readonly vehicleRepository: VehicleMariadbRepository,
     private readonly findOrCreateService: FindOrCreateClientService,
+    private readonly getRentService: GetRentServive,
     private readonly getVehicleService: GetVehicleService,
   ) {}
 
@@ -79,6 +81,10 @@ export class RentCarService {
     ) {
       throw new BadRequestException('This vehicle is not available');
     }
-    return await this.rentRepository.save(rentEntity);
+    const createdRent = await this.rentRepository.save(rentEntity);
+    return this.getRentService.find(
+      createdRent.renterUser.dni,
+      createdRent.reference,
+    );
   }
 }

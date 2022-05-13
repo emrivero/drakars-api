@@ -9,6 +9,8 @@ import { ClientRepository } from '../user/infrastructure/persistence/repository/
 import { GetVehicleService } from '../vehicle/application/get-vehicle-by-id';
 import { VehicleEntity } from '../vehicle/infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { CancelRentService } from './application/cancel-rent';
+import { GetRentServive } from './application/get-rent';
 import { RentCarService } from './application/rent-car';
 import { RentEntity } from './infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from './infrastructure/persistence/repository/rent.repository';
@@ -32,6 +34,8 @@ import { RentController } from './infrastructure/rest/rent.controller';
     FindOrCreateClientService,
     GetVehicleService,
     GetOfficeService,
+    GetRentServive,
+    CancelRentService,
   ],
   controllers: [RentController],
 })
