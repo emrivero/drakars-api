@@ -1,10 +1,4 @@
-import {
-  IsDateString,
-  IsEnum,
-  IsOptional,
-  IsPositive,
-  ValidateIf,
-} from 'class-validator';
+import { IsDateString, IsEnum, IsPositive, ValidateIf } from 'class-validator';
 import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
 import { UserInfo } from './user-info';
@@ -12,6 +6,12 @@ import { UserInfo } from './user-info';
 export class RentCardDto {
   @IsPositive()
   vehicle: number;
+
+  @IsPositive()
+  originOffice: number;
+
+  @IsPositive()
+  destinyOffice: number;
 
   user: UserInfo;
 
@@ -27,8 +27,4 @@ export class RentCardDto {
   @ValidateIf((dto: RentCardDto) => dto.paymentStatus === PaymentStatus.PAID)
   @IsEnum(PaymentType)
   paymentType: PaymentType;
-
-  @IsOptional()
-  @IsDateString()
-  paymentDate: string;
 }

@@ -1,10 +1,12 @@
-import { IsString, Matches } from 'class-validator';
+import { IsNotEmpty, IsString, Matches } from 'class-validator';
 
 export class UserInfo {
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @IsString()
+  @IsNotEmpty()
   lastName: string;
 
   @Matches(/^[a-z]{3}[0-9]{6}[a-z]?$/i)

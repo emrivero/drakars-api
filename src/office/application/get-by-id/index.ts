@@ -39,7 +39,7 @@ export class GetOfficeService {
       relations: ['municipality', 'municipality.city'],
       where: [
         {
-          name: Like(`${name}%`),
+          name: Like(`%${name}%`),
         },
         {
           municipality: {

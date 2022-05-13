@@ -3,6 +3,9 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import * as moment from 'moment';
+import { PaymentStatus } from '../../../invoice/domain/types/invoice-status';
+import { OfficeEntity } from '../../../office/infrastructure/persistence/entity/office.entity';
 import { FindOrCreateClientService } from '../../../user/application/client/find-or-create';
 import { Client } from '../../../user/domain/entities/client';
 import { GetVehicleService } from '../../../vehicle/application/get-vehicle-by-id';
@@ -21,7 +24,11 @@ export class RentCarService {
     private readonly getVehicleService: GetVehicleService,
   ) {}
 
-  async rent(dto: RentCardDto) {
+  async rent(
+    dto: RentCardDto,
+    originOffice: OfficeEntity,
+    destinyOffice: OfficeEntity,
+  ) {
     const { user } = dto;
     const client = Client.fromDto({
       email: user.email,
@@ -43,13 +50,18 @@ export class RentCarService {
     }
 
     const rentEntity: RentEntity = {
-      paymentDate: dto.paymentDate,
+      paymentDate:
+        dto.paymentStatus === PaymentStatus.PAID
+          ? moment().format('YYYY-MM-DD')
+          : null,
       paymentType: dto.paymentType,
       rentedVehicle: vehicle,
       startDate: dto.startDate,
-      endDate: dto.startDate,
+      endDate: dto.endDate,
       status: dto.paymentStatus,
       renterUser,
+      originOffice,
+      destinyOffice,
       total:
         new DateInterval(dto.startDate, dto.endDate).getDays() *
         vehicle.pricePerDay,

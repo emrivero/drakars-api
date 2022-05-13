@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GetOfficeService } from '../office/application/get-by-id';
+import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
+import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { FindOrCreateClientService } from '../user/application/client/find-or-create';
 import { ClientEntity } from '../user/infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../user/infrastructure/persistence/repository/client.repository';
@@ -20,9 +23,16 @@ import { RentController } from './infrastructure/rest/rent.controller';
       VehicleMariadbRepository,
       ClientRepository,
       ClientEntity,
+      OfficeRepository,
+      OfficeEntity,
     ]),
   ],
-  providers: [RentCarService, FindOrCreateClientService, GetVehicleService],
+  providers: [
+    RentCarService,
+    FindOrCreateClientService,
+    GetVehicleService,
+    GetOfficeService,
+  ],
   controllers: [RentController],
 })
 export class RentModule {}

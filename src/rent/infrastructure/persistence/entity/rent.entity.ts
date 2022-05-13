@@ -2,6 +2,7 @@ import { Column, Entity, Generated, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
 import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
+import { OfficeEntity } from '../../../../office/infrastructure/persistence/entity/office.entity';
 import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 
@@ -12,6 +13,12 @@ export class RentEntity extends BaseEntity {
 
   @ManyToOne(() => ClientEntity, (user) => user.rents)
   renterUser: ClientEntity;
+
+  @ManyToOne(() => OfficeEntity)
+  originOffice: OfficeEntity;
+
+  @ManyToOne(() => OfficeEntity)
+  destinyOffice: OfficeEntity;
 
   // @OneToOne(() => InvoiceEntity)
   // @JoinColumn()
