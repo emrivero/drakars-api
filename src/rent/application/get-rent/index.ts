@@ -12,6 +12,7 @@ export class GetRentServive {
         renterUser: { dni },
       },
       relations: [
+        'rentedVehicle',
         'renterUser',
         'originOffice',
         'destinyOffice',

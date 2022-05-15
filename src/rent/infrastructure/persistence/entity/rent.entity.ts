@@ -34,6 +34,12 @@ export class RentEntity extends BaseEntity {
   })
   endDate: string;
 
+  @Column()
+  startHour: string;
+
+  @Column()
+  endHour: string;
+
   @Column({
     type: 'uuid',
     unique: true,

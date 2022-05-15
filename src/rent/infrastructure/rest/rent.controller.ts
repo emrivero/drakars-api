@@ -5,6 +5,7 @@ import {
   Get,
   NotFoundException,
   Param,
+  Patch,
   Post,
 } from '@nestjs/common';
 import { GetOfficeService } from '../../../office/application/get-by-id';
@@ -12,6 +13,7 @@ import { CancelRentService } from '../../application/cancel-rent';
 import { GetRentServive } from '../../application/get-rent';
 import { RentCarService } from '../../application/rent-car';
 import { RentCardDto } from './dto/rent-car';
+import { UpdateRentCardDto } from './dto/update-rent-dto';
 
 @Controller('rent-car')
 export class RentController {
@@ -41,7 +43,16 @@ export class RentController {
     return this.getRentService.find(dni, reference);
   }
 
-  @Delete('cance/:dni/:reference')
+  @Patch(':dni/:reference')
+  updateRent(
+    @Param('dni') dni: string,
+    @Param('reference') reference: string,
+    @Body() dto: UpdateRentCardDto,
+  ) {
+    return this.rentCarService.editRent(dni, reference, dto);
+  }
+
+  @Delete(':dni/:reference')
   cancelRent(@Param('dni') dni: string, @Param('reference') reference: string) {
     return this.cancelRentService.cancel(dni, reference);
   }

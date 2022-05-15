@@ -31,15 +31,12 @@ export class GetVehicleService {
   };
 
   async isAvailable(query: AvailableVehicleDto, vehicleId: number) {
-    const isAvailable =
-      (await this.getAvailableQuery(
-        query.office,
-        query.startDate,
-        query.endDate,
-      )
-        .andWhere('vehicle.id=:id', { id: vehicleId })
-        .getCount()) > 0;
-    return isAvailable;
+    const isAvailable = this.getAvailableQuery(
+      query.office,
+      query.startDate,
+      query.endDate,
+    ).andWhere('vehicle.id=:id', { id: vehicleId });
+    return (await isAvailable.getCount()) > 0;
   }
 
   listAvailable(query: AvailableVehicleDto & PaginateQuery) {
