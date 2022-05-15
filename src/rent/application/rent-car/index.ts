@@ -5,10 +5,10 @@ import {
 } from '@nestjs/common';
 import * as moment from 'moment';
 import { MoreThan, Not } from 'typeorm';
+import { FindOrCreateClientService } from '../../../client/application/find-or-create';
+import { Client } from '../../../client/domain/entities/client';
 import { PaymentStatus } from '../../../invoice/domain/types/invoice-status';
 import { OfficeEntity } from '../../../office/infrastructure/persistence/entity/office.entity';
-import { FindOrCreateClientService } from '../../../user/application/client/find-or-create';
-import { Client } from '../../../user/domain/entities/client';
 import { GetVehicleService } from '../../../vehicle/application/get-vehicle-by-id';
 import { VehicleMariadbRepository } from '../../../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
 import { DateInterval } from '../../domain/DateInterval';

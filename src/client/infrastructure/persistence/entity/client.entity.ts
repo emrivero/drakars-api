@@ -8,6 +8,9 @@ export class ClientEntity extends UserEntity {
   @Column()
   dni: string;
 
+  @Column()
+  phone: string;
+
   @OneToMany(() => RentEntity, (rent) => rent.renterUser, {
     onDelete: 'SET NULL',
   })

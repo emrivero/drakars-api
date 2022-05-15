@@ -9,6 +9,7 @@ import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { CityModule } from './city/city.module';
+import { ClientModule } from './client/client.module';
 import { MariaDBConfigModule } from './config/databases/mariadb/config.module';
 import { MariaDBConfigService } from './config/databases/mariadb/config.service';
 import { KeycloakConfigModule } from './config/keycloak/config.module';
@@ -58,6 +59,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
     OfficeModule,
     InvoiceModule,
     DataSeedModule,
+    ClientModule,
   ],
   controllers: [AppController],
   providers: [],

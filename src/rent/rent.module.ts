@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FindOrCreateClientService } from '../client/application/find-or-create';
+import { ClientEntity } from '../client/infrastructure/persistence/entity/client.entity';
+import { ClientRepository } from '../client/infrastructure/persistence/repository/client.repository';
 import { GetOfficeService } from '../office/application/get-by-id';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
-import { FindOrCreateClientService } from '../user/application/client/find-or-create';
-import { ClientEntity } from '../user/infrastructure/persistence/entity/client.entity';
-import { ClientRepository } from '../user/infrastructure/persistence/repository/client.repository';
 import { GetVehicleService } from '../vehicle/application/get-vehicle-by-id';
 import { VehicleEntity } from '../vehicle/infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';

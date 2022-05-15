@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
+import { ClientEntity } from '../../../../client/infrastructure/persistence/entity/client.entity';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { RatingType } from '../../../domain/types/rating.type';
 import { VehicleEntity } from './vehicle.entity';
 

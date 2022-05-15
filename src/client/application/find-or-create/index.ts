@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '../../../domain/entities/client';
-import { ClientEntity } from '../../../infrastructure/persistence/entity/client.entity';
-import { ClientRepository } from '../../../infrastructure/persistence/repository/client.repository';
+import { Client } from '../../domain/entities/client';
+import { ClientEntity } from '../../infrastructure/persistence/entity/client.entity';
+import { ClientRepository } from '../../infrastructure/persistence/repository/client.repository';
 
 @Injectable()
 export class FindOrCreateClientService {

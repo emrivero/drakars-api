@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '../../../domain/entities/client';
-import { ClientRepository } from '../../../infrastructure/persistence/repository/client.repository';
+import { Client } from '../../domain/entities/client';
+import { ClientRepository } from '../../infrastructure/persistence/repository/client.repository';
 
 @Injectable()
 export class DeleteClientService {

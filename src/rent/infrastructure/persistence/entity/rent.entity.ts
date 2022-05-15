@@ -1,9 +1,9 @@
 import { Column, Entity, Generated, ManyToOne } from 'typeorm';
+import { ClientEntity } from '../../../../client/infrastructure/persistence/entity/client.entity';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
 import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
 import { OfficeEntity } from '../../../../office/infrastructure/persistence/entity/office.entity';
-import { ClientEntity } from '../../../../user/infrastructure/persistence/entity/client.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 
 @Entity()

@@ -1,4 +1,4 @@
-import { ClientDto } from '../../infrastructure/rest/dtos/client/client.dto';
+import { ClientDto } from '../../infrastructure/rest/dtos/client.dto';
 import { Role } from '../types/role';
 import { User } from './user';
 
