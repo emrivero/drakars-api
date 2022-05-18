@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { paginate, PaginateConfig, PaginateQuery } from '../../../lib/paginate';
-import { Client } from '../../domain/entities/client';
 import { ClientEntity } from '../../infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../../infrastructure/persistence/repository/client.repository';
+import { ClientDto } from '../../infrastructure/rest/dtos/client.dto';
 
 @Injectable()
 export class GetClientService {
@@ -16,7 +16,7 @@ export class GetClientService {
     private readonly clientRepository: ClientRepository, // private readonly keycloakRepository: KeycloakRepository,
   ) {}
 
-  async findByEmail(client: Client) {
+  async findByEmail(client: ClientDto) {
     return this.clientRepository.findOneBy('email', client.email);
   }
 

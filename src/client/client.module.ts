@@ -18,12 +18,8 @@ import { FindOrCreateClientService } from './application/find-or-create';
 import { UpdateClientService } from './application/update';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
-import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
 import { ClientEntity } from './infrastructure/persistence/entity/client.entity';
-import { EditorEntity } from './infrastructure/persistence/entity/editor.entity';
-import { AdminRepository } from './infrastructure/persistence/repository/admin.repository';
 import { ClientRepository } from './infrastructure/persistence/repository/client.repository';
-import { EditorRepository } from './infrastructure/persistence/repository/editor.repository';
 import { ClientController } from './infrastructure/rest/controllers/client.controller';
 
 @Module({
@@ -35,12 +31,8 @@ import { ClientController } from './infrastructure/rest/controllers/client.contr
       imports: [KeycloakConfigModule],
     }),
     TypeOrmModule.forFeature([
-      EditorEntity,
-      AdminEntity,
       ClientEntity,
       ClientRepository,
-      EditorRepository,
-      AdminRepository,
       VehicleRatingEntity,
     ]),
   ],

@@ -1,4 +1,4 @@
-import { IsEmail, IsString, Length, Matches } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 
 export class ClientDto {
   @IsString()
@@ -18,9 +18,5 @@ export class ClientDto {
   email: string;
 
   @IsString()
-  @Length(8, 20)
-  password: string;
-
-  @Matches(/^[a-z]{3}[0-9]{6}[a-z]?$/i)
-  dni: string;
+  sub: string;
 }

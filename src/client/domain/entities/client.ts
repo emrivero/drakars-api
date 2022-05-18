@@ -1,48 +1,39 @@
-import { ClientDto } from '../../infrastructure/rest/dtos/client.dto';
+import UserRepresentation from '@keycloak/keycloak-admin-client/lib/defs/userRepresentation';
+import { BaseModel } from '../../../common/domain/models/base';
+import { ClientEntity } from '../../infrastructure/persistence/entity/client.entity';
 import { Role } from '../types/role';
-import { User } from './user';
 
-export class Client extends User {
-  private constructor(
+export class Client extends BaseModel<ClientEntity> {
+  constructor(
     id: number,
     createdAt: Date,
     updatedAt: Date,
-    name: string,
-    family_name: string,
-    email: string,
+    public readonly name: string,
+    public readonly family_name: string,
+    public readonly email: string,
     public readonly dni: string,
-    role: Role,
-    preferred_username?: string,
-    given_name?: string,
-    password?: string,
+    public readonly phone: string,
+    public role: Role,
   ) {
-    super(
-      id,
-      createdAt,
-      updatedAt,
-      name,
-      preferred_username,
-      given_name,
-      family_name,
-      email,
-      role,
-      password,
-    );
+    super(id, createdAt, updatedAt);
+    this.name = name;
   }
 
-  static fromDto(dto: ClientDto) {
+  static create(props: ConstructorParameters<typeof Client>) {
+    return new Client(...props);
+  }
+
+  static fromKCEntity(entity: UserRepresentation) {
     return new Client(
       null,
       null,
       null,
-      dto.name,
-      dto.family_name,
-      dto.email,
-      dto.dni,
+      entity.firstName,
+      entity.lastName,
+      entity.email,
+      entity.attributes.dni,
+      entity.attributes.phone,
       Role.CLIENT,
-      dto.preferred_username,
-      dto.given_name,
-      dto.password,
     );
   }
 }

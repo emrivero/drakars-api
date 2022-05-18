@@ -1,15 +1,32 @@
 import { Column, Entity, OneToMany } from 'typeorm';
+import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
 import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/rent.entity';
 import { VehicleRatingEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle-rating';
-import { UserEntity } from './user.entity';
+import { Role } from '../../../domain/types/role';
 
 @Entity()
-export class ClientEntity extends UserEntity {
+export class ClientEntity extends BaseEntity {
   @Column()
   dni: string;
 
   @Column()
   phone: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  family_name: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column({
+    type: 'enum',
+    enum: Role,
+    nullable: true,
+  })
+  role?: Role;
 
   @OneToMany(() => RentEntity, (rent) => rent.renterUser, {
     onDelete: 'SET NULL',

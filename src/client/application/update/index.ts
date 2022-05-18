@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '../../domain/entities/client';
-import { ClientEntity } from '../../infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../../infrastructure/persistence/repository/client.repository';
+import { ClientDto } from '../../infrastructure/rest/dtos/client.dto';
+import { UpdateClientDto } from '../../infrastructure/rest/dtos/update-client.dto';
 
 import { GetClientService } from '../find';
 
@@ -12,10 +12,10 @@ export class UpdateClientService {
     private readonly getService: GetClientService, // private readonly keycloakRepository: KeycloakRepository,
   ) {}
 
-  async update(updateClient: Client, loggedClient: Client) {
+  async update(updateClient: UpdateClientDto, loggedClient: ClientDto) {
     const userEntity = await this.getService.findByEmail(loggedClient);
     const { id } = userEntity;
-    const updateEntity = updateClient.toEntity(ClientEntity);
-    return await this.clientRepository.update(id, updateEntity);
+    await this.clientRepository.update(id, { ...updateClient });
+    return this.clientRepository.findOne(id);
   }
 }

@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { MoreThan, Not } from 'typeorm';
 import { FindOrCreateClientService } from '../../../client/application/find-or-create';
 import { Client } from '../../../client/domain/entities/client';
+import { Role } from '../../../client/domain/types/role';
 import { PaymentStatus } from '../../../invoice/domain/types/invoice-status';
 import { OfficeEntity } from '../../../office/infrastructure/persistence/entity/office.entity';
 import { GetVehicleService } from '../../../vehicle/application/get-vehicle-by-id';
@@ -68,15 +69,17 @@ export class RentCarService {
     destinyOffice: OfficeEntity,
   ) {
     const { user } = dto;
-    const client = Client.fromDto({
-      email: user.email,
-      family_name: user.lastName,
-      name: user.name,
-      given_name: '',
-      preferred_username: '',
-      password: '',
-      dni: user.dni,
-    });
+    const client = Client.create([
+      null,
+      null,
+      null,
+      user.name,
+      user.lastName,
+      user.email,
+      user.dni,
+      user.phone,
+      Role.CLIENT,
+    ]);
 
     const renterUser = await this.findOrCreateService.findOrCreate(client);
     const vehicle = await this.vehicleRepository.findOne(dto.vehicle, {

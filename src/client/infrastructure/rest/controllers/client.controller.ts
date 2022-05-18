@@ -1,11 +1,11 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { AuthenticatedUser } from 'nest-keycloak-connect';
 import { CreateClientService } from '../../../application/create/CreateUserService';
 import { DeleteClientService } from '../../../application/delete';
 import { GetClientService } from '../../../application/find';
 import { UpdateClientService } from '../../../application/update';
-import { Client } from '../../../domain/entities/client';
 import { ClientDto } from '../dtos/client.dto';
+import { UpdateClientDto } from '../dtos/update-client.dto';
 
 // @UseGuards(RoleGuard)
 @Controller('client')
@@ -20,33 +20,25 @@ export class ClientController {
 
   @Post()
   async autoregister(@AuthenticatedUser() dto: ClientDto) {
-    //TODO: Pedir usuario a keycloak
-    // name, lastName, dni, email, phone
-    // Cambiar modelo de cliente para simplificar
-    // Crear un mapper que convierta los usuarios de Keycloak en usuarios de BD
-    const client = Client.fromDto(dto);
-    return this.createService.create(client);
+    return this.createService.create(dto);
   }
 
   @Get('getme')
   async getMe(@AuthenticatedUser() dto: ClientDto) {
-    const client = Client.fromDto(dto);
-    return this.findService.findByEmail(client);
+    return this.findService.findByEmail(dto);
   }
 
   @Put('editme')
   async editMe(
-    @Body() newData: ClientDto,
+    @Body() newData: UpdateClientDto,
     @AuthenticatedUser() dto: ClientDto,
   ) {
-    const newClient = Client.fromDto(newData);
-    const client = Client.fromDto(dto);
-    return this.updateService.update(newClient, client);
+    return this.updateService.update(newData, dto);
   }
 
-  @Delete('deleteme')
-  async deleteMe(@AuthenticatedUser() dto: ClientDto) {
-    const client = Client.fromDto(dto);
-    return this.deleteService.delete(client);
-  }
+  // @Delete('deleteme')
+  // async deleteMe(@AuthenticatedUser() dto: ClientDto) {
+  //   const client = Client.fromDto(dto);
+  //   return this.deleteService.delete(client);
+  // }
 }
