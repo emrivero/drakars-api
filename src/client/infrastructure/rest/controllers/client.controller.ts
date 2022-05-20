@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { AuthenticatedUser } from 'nest-keycloak-connect';
 import { CreateClientService } from '../../../application/create/CreateUserService';
 import { DeleteClientService } from '../../../application/delete';
@@ -36,9 +36,9 @@ export class ClientController {
     return this.updateService.update(newData, dto);
   }
 
-  // @Delete('deleteme')
-  // async deleteMe(@AuthenticatedUser() dto: ClientDto) {
-  //   const client = Client.fromDto(dto);
-  //   return this.deleteService.delete(client);
-  // }
+  @Delete('deleteme')
+  async deleteMe(@AuthenticatedUser() dto: ClientDto) {
+    const { sub, email } = dto;
+    return this.deleteService.delete(sub, email);
+  }
 }

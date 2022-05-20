@@ -1,14 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '../../domain/entities/client';
+import { KeycloakRepository } from '../../infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { ClientRepository } from '../../infrastructure/persistence/repository/client.repository';
 
 @Injectable()
 export class DeleteClientService {
   constructor(
-    private readonly clientRepository: ClientRepository, // private readonly keycloakRepository: KeycloakRepository,
+    private readonly clientRepository: ClientRepository,
+    private readonly keycloakRepository: KeycloakRepository,
   ) {}
 
-  async delete(client: Client) {
-    return this.clientRepository.delete({ email: client.email });
+  async delete(id: string, email: string) {
+    const user = await this.clientRepository.findOne({
+      where: {
+        email,
+      },
+    });
+    await this.keycloakRepository.deleteUser(id);
+    return this.clientRepository.delete(user.id);
   }
 }
