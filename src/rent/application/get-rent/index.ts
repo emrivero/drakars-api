@@ -5,11 +5,11 @@ import { RentRepository } from '../../infrastructure/persistence/repository/rent
 export class GetRentServive {
   constructor(private readonly rentRepository: RentRepository) {}
 
-  async find(dni: string, reference: string) {
+  async find(email: string, reference: string) {
     return await this.rentRepository.findOne({
       where: {
         reference,
-        renterUser: { dni },
+        renterUser: { email },
       },
       relations: [
         'rentedVehicle',

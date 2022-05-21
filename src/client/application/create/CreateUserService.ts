@@ -17,7 +17,7 @@ export class CreateClientService {
     if (!exist) {
       const kcClientEntity = await this.keycloakRepository.getUser(dto.sub);
       const client = Client.fromKCEntity(kcClientEntity);
-
+      client.type = 'registered';
       const entity = client.toEntity(ClientEntity);
 
       return this.clientRepository.save(entity);

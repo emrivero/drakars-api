@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  ConflictException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -21,8 +22,12 @@ import { GetRentServive } from '../get-rent';
 
 @Injectable()
 export class RentCarService {
-  private VEHICLE_NOT_AVAILABLE_ERROR = new BadRequestException(
+  private readonly VEHICLE_NOT_AVAILABLE_ERROR = new BadRequestException(
     'This vehicle is not available',
+  );
+
+  private readonly REGISTERED_USER_EXISTS = new ConflictException(
+    'Registered user cannot rent in anonymous mode',
   );
 
   constructor(
@@ -32,6 +37,14 @@ export class RentCarService {
     private readonly getRentService: GetRentServive,
     private readonly getVehicleService: GetVehicleService,
   ) {}
+
+  async checkExistsRegistered(email: string) {
+    if (
+      await this.findOrCreateService.checkIfExist({ email, type: 'registered' })
+    ) {
+      throw this.REGISTERED_USER_EXISTS;
+    }
+  }
 
   async editRent(dni: string, reference: string, dto: UpdateRentCardDto) {
     const rentEntity = await this.findByReferenceAndDni(dni, reference);
@@ -125,10 +138,11 @@ export class RentCarService {
       throw this.VEHICLE_NOT_AVAILABLE_ERROR;
     }
     const createdRent = await this.rentRepository.save(rentEntity);
-    return this.getRentService.find(
-      createdRent.renterUser.dni,
-      createdRent.reference,
-    );
+    return createdRent;
+    // return await this.getRentService.find(
+    //   createdRent.renterUser.dni,
+    //   createdRent.reference,
+    // );
   }
 
   private async isExtendable(

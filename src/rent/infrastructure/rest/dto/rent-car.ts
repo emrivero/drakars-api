@@ -1,9 +1,14 @@
+import { Type } from 'class-transformer';
 import {
   IsDateString,
+  IsDefined,
   IsEnum,
+  IsNotEmptyObject,
+  IsObject,
   IsPositive,
   Matches,
   ValidateIf,
+  ValidateNested,
 } from 'class-validator';
 import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
@@ -19,6 +24,11 @@ export class RentCardDto {
   @IsPositive()
   destinyOffice: number;
 
+  @IsDefined()
+  @IsNotEmptyObject()
+  @IsObject()
+  @ValidateNested()
+  @Type(() => UserInfo)
   user: UserInfo;
 
   @IsDateString()

@@ -1,15 +1,11 @@
 import { Module } from '@nestjs/common';
-import { APP_GUARD } from '@nestjs/core';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  AuthGuard,
-  KeycloakConnectModule,
-  ResourceGuard,
-  RoleGuard,
-} from 'nest-keycloak-connect';
+import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakConfigModule } from '../config/keycloak/config.module';
 import { KeycloakConfigService } from '../config/keycloak/config.service';
+import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
+import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
 import { CreateClientService } from './application/create/CreateUserService';
 import { DeleteClientService } from './application/delete';
@@ -34,6 +30,8 @@ import { ClientController } from './infrastructure/rest/controllers/client.contr
       ClientEntity,
       ClientRepository,
       VehicleRatingEntity,
+      RentRepository,
+      RentEntity,
     ]),
   ],
   controllers: [ClientController],
@@ -46,18 +44,18 @@ import { ClientController } from './infrastructure/rest/controllers/client.contr
     KeycloakRepository,
     UpdateClientService,
     FindOrCreateClientService,
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: ResourceGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: RoleGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: ResourceGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: RoleGuard,
+    // },
   ],
 })
 export class ClientModule {}

@@ -14,6 +14,7 @@ export class Client extends BaseModel<ClientEntity> {
     public readonly dni: string,
     public readonly phone: string,
     public role: Role,
+    public type: 'anonymous' | 'registered' = 'anonymous',
   ) {
     super(id, createdAt, updatedAt);
     this.name = name;
@@ -31,8 +32,8 @@ export class Client extends BaseModel<ClientEntity> {
       entity.firstName,
       entity.lastName,
       entity.email,
-      entity.attributes.dni,
-      entity.attributes.phone,
+      entity.attributes?.dni,
+      entity.attributes?.phone,
       Role.CLIENT,
     );
   }

@@ -1,7 +1,7 @@
-import { Controller, UseGuards } from '@nestjs/common';
-import { AuthGuard, RoleGuard, Unprotected } from 'nest-keycloak-connect';
+import { Controller } from '@nestjs/common';
+import { Unprotected } from 'nest-keycloak-connect';
 
-@UseGuards(AuthGuard, RoleGuard)
+// @UseGuards(AuthGuard, RoleGuard)
 @Controller('users')
 @Unprotected()
 export class UserController {

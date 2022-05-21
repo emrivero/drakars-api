@@ -45,8 +45,9 @@ export class GetVehicleService {
       query.startDate,
       query.endDate,
     );
-    return paginate(query, queryBuilder, {
+    return paginate({ ...query }, queryBuilder, {
       ...GetVehicleService.PAGINATE_CONFIGURATION,
+      groupBy: ['mark', 'model'],
     });
   }
 

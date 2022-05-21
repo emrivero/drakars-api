@@ -1,5 +1,15 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { AuthenticatedUser } from 'nest-keycloak-connect';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Inject,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
+import { AuthenticatedUser, AuthGuard, RoleGuard } from 'nest-keycloak-connect';
+import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { CreateClientService } from '../../../application/create/CreateUserService';
 import { DeleteClientService } from '../../../application/delete';
 import { GetClientService } from '../../../application/find';
@@ -7,7 +17,7 @@ import { UpdateClientService } from '../../../application/update';
 import { ClientDto } from '../dtos/client.dto';
 import { UpdateClientDto } from '../dtos/update-client.dto';
 
-// @UseGuards(RoleGuard)
+@UseGuards(RoleGuard, AuthGuard)
 @Controller('client')
 // @Roles({ roles: [Role.CLIENT] })
 export class ClientController {
@@ -16,6 +26,8 @@ export class ClientController {
     private readonly findService: GetClientService,
     private readonly updateService: UpdateClientService,
     private readonly deleteService: DeleteClientService,
+    @Inject(RentRepository)
+    private readonly rentRepository: RentRepository,
   ) {}
 
   @Post()
@@ -40,5 +52,17 @@ export class ClientController {
   async deleteMe(@AuthenticatedUser() dto: ClientDto) {
     const { sub, email } = dto;
     return this.deleteService.delete(sub, email);
+  }
+
+  @Get('getrent')
+  async getRent(@AuthenticatedUser() dto: ClientDto) {
+    const { email } = dto;
+    return this.rentRepository.getRent(email);
+  }
+
+  @Get('getrents')
+  async getRentsHistory(@AuthenticatedUser() dto: ClientDto) {
+    const { email } = dto;
+    return this.rentRepository.getOldRents(email);
   }
 }

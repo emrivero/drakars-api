@@ -68,4 +68,7 @@ export class RentEntity extends BaseEntity {
 
   @Column({ type: 'float' })
   total: number;
+
+  @Column({ default: true, type: 'boolean' })
+  active?: boolean;
 }

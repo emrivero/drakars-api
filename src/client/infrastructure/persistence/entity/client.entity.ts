@@ -6,10 +6,14 @@ import { Role } from '../../../domain/types/role';
 
 @Entity()
 export class ClientEntity extends BaseEntity {
-  @Column()
+  @Column({
+    nullable: true,
+  })
   dni: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   phone: string;
 
   @Column()
@@ -37,4 +41,11 @@ export class ClientEntity extends BaseEntity {
     onDelete: 'SET NULL',
   })
   ratings: VehicleRatingEntity[];
+
+  @Column({
+    type: 'enum',
+    enum: ['anonymous', 'registered'],
+    default: 'anonymous',
+  })
+  type: 'anonymous' | 'registered';
 }

@@ -1,13 +1,7 @@
 import { Module } from '@nestjs/common';
-import { APP_GUARD } from '@nestjs/core';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  AuthGuard,
-  KeycloakConnectModule,
-  ResourceGuard,
-  RoleGuard,
-} from 'nest-keycloak-connect';
+import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakConfigModule } from '../config/keycloak/config.module';
 import { KeycloakConfigService } from '../config/keycloak/config.service';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
@@ -41,18 +35,18 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakConfigService,
     KeycloakConnector,
     KeycloakRepository,
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: ResourceGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: RoleGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: ResourceGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: RoleGuard,
+    // },
   ],
 })
 export class UserModule {}

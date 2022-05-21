@@ -9,7 +9,7 @@ export class UserInfo {
   @IsNotEmpty()
   lastName: string;
 
-  @Matches(/^[a-z]{3}[0-9]{6}[a-z]?$/i)
+  @Matches(/[0-9]{8}[A-Za-z]{1}/i)
   dni: string;
 
   @Matches(

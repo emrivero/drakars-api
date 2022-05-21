@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { FindOrCreateClientService } from '../client/application/find-or-create';
 import { ClientEntity } from '../client/infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../client/infrastructure/persistence/repository/client.repository';
+import { KeycloakConfigModule } from '../config/keycloak/config.module';
+import { KeycloakConfigService } from '../config/keycloak/config.service';
 import { GetOfficeService } from '../office/application/get-by-id';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
@@ -28,7 +31,12 @@ import { RentController } from './infrastructure/rest/rent.controller';
       OfficeRepository,
       OfficeEntity,
     ]),
+    KeycloakConnectModule.registerAsync({
+      useExisting: KeycloakConfigService,
+      imports: [KeycloakConfigModule],
+    }),
   ],
+
   providers: [
     RentCarService,
     FindOrCreateClientService,

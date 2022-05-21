@@ -20,4 +20,8 @@ export class FindOrCreateClientService {
 
     return await this.clientRepository.save(clientEntity);
   }
+
+  async checkIfExist(client: Partial<ClientEntity>) {
+    return (await this.clientRepository.count({ ...client })) > 0;
+  }
 }

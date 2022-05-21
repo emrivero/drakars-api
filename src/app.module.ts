@@ -5,15 +5,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { CityModule } from './city/city.module';
 import { ClientModule } from './client/client.module';
 import { MariaDBConfigModule } from './config/databases/mariadb/config.module';
 import { MariaDBConfigService } from './config/databases/mariadb/config.service';
-import { KeycloakConfigModule } from './config/keycloak/config.module';
-import { KeycloakConfigService } from './config/keycloak/config.service';
 import { DataSeedModule } from './data-seed/data-seed.module';
 import { InvoiceModule } from './invoice/invoice.module';
 import { OfficeModule } from './office/office.module';
@@ -40,10 +37,10 @@ import { VehicleModule } from './vehicle/vehicle.module';
       imports: [MariaDBConfigModule],
       useExisting: MariaDBConfigService,
     }),
-    KeycloakConnectModule.registerAsync({
-      useExisting: KeycloakConfigService,
-      imports: [KeycloakConfigModule],
-    }),
+    // KeycloakConnectModule.registerAsync({
+    //   useExisting: KeycloakConfigService,
+    //   imports: [KeycloakConfigModule],
+    // }),
     AutomapperModule.forRoot({
       options: [{ name: 'classMapper', pluginInitializer: classes }],
       singular: true,
@@ -62,6 +59,5 @@ import { VehicleModule } from './vehicle/vehicle.module';
     ClientModule,
   ],
   controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}
