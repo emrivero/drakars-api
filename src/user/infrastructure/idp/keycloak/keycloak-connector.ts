@@ -1,7 +1,7 @@
 import KcAdminClient from '@keycloak/keycloak-admin-client';
 import { Injectable } from '@nestjs/common';
 import { Issuer } from 'openid-client';
-import { KeycloakConfigService } from '../../../../config/keycloak/config.service';
+import { KeycloakAdminConfigService } from '../../../../config/keycloak-admin/config.service';
 
 @Injectable()
 export class KeycloakConnector {
@@ -9,7 +9,7 @@ export class KeycloakConnector {
   private readonly GRANT_TYPE = 'password';
   private kcAdminClient: KcAdminClient = null;
 
-  constructor(private readonly kcConfig: KeycloakConfigService) {}
+  constructor(private readonly kcConfig: KeycloakAdminConfigService) {}
 
   public async getkcClient() {
     if (this.kcAdminClient) {

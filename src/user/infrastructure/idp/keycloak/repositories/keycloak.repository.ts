@@ -1,4 +1,5 @@
 import KeycloakAdminClient from '@keycloak/keycloak-admin-client';
+import { RequiredActionAlias } from '@keycloak/keycloak-admin-client/lib/defs/requiredActionProviderRepresentation';
 import RoleRepresentation from '@keycloak/keycloak-admin-client/lib/defs/roleRepresentation';
 import {
   BadRequestException,
@@ -6,8 +7,8 @@ import {
   HttpException,
   Injectable,
 } from '@nestjs/common';
-import { KeycloakConfigService } from '../../../../../config/keycloak/config.service';
-import { User } from '../../../../domain/entities/user';
+import { KeycloakAdminConfigService } from '../../../../../config/keycloak-admin/config.service';
+import { UserModel } from '../../../../domain/interface/user.model';
 import { UserKeycloakEntity } from '../entities/user.keycloak.entity';
 import { KeycloakConnector } from '../keycloak-connector';
 
@@ -17,7 +18,7 @@ export class KeycloakRepository {
 
   constructor(
     private readonly kcConnector: KeycloakConnector,
-    private readonly kcConfig: KeycloakConfigService,
+    private readonly kcConfig: KeycloakAdminConfigService,
   ) {}
 
   private async getKcClient(): Promise<KeycloakAdminClient> {
@@ -91,7 +92,7 @@ export class KeycloakRepository {
     }
   }
 
-  private async setRole(id: string, user: User) {
+  private async setRole(id: string, user: UserModel) {
     try {
       const client = await this.getKcClient();
 
@@ -123,15 +124,16 @@ export class KeycloakRepository {
     }
   }
 
-  async createUser(user: User) {
+  async createUser(user: UserModel) {
     const client = await this.getKcClient();
     try {
       const { id } = await client.users.create({
         username: user.email,
         email: user.email,
         lastName: user.family_name,
-        firstName: user.given_name,
+        firstName: user.name,
         enabled: true,
+        requiredActions: [RequiredActionAlias.UPDATE_PASSWORD],
         credentials: [
           {
             temporary: false,
@@ -202,7 +204,7 @@ export class KeycloakRepository {
     }
   }
 
-  async updateUser(id: string, user: User) {
+  async updateUser(id: string, user: UserModel) {
     try {
       const client = await this.getKcClient();
 
@@ -212,7 +214,7 @@ export class KeycloakRepository {
           username: user.email,
           email: user.email,
           lastName: user.family_name,
-          firstName: user.given_name,
+          firstName: user.name,
           enabled: true,
           attributes: {
             rol: user.role,

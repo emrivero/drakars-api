@@ -2,9 +2,13 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
-import { KeycloakConfigModule } from '../config/keycloak/config.module';
-import { KeycloakConfigService } from '../config/keycloak/config.service';
+import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.module';
+import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.service';
+import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
+import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
+import { CreateUserService } from './application/CreateUserService';
+import { DeleteUserService } from './application/DeleteUserService';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
@@ -17,12 +21,14 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
 @Module({
   imports: [
     CqrsModule,
-    KeycloakConfigModule,
+    KeycloakAdminConfigModule,
     KeycloakConnectModule.registerAsync({
-      useExisting: KeycloakConfigService,
-      imports: [KeycloakConfigModule],
+      useExisting: KeycloakAdminConfigService,
+      imports: [KeycloakAdminConfigModule],
     }),
     TypeOrmModule.forFeature([
+      OfficeRepository,
+      OfficeEntity,
       EditorEntity,
       AdminEntity,
       EditorRepository,
@@ -32,7 +38,9 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
   ],
   controllers: [EditorController, AdminController],
   providers: [
-    KeycloakConfigService,
+    CreateUserService,
+    DeleteUserService,
+    KeycloakAdminConfigService,
     KeycloakConnector,
     KeycloakRepository,
     // {

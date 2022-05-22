@@ -1,9 +1,9 @@
 import { instanceToPlain, plainToInstance } from 'class-transformer';
-import { BaseEntity } from '../../infrastructure/entities/base-entity';
+import { AbstractEntity } from '../../infrastructure/entities/abstract-entity';
 
-export abstract class BaseModel<T extends BaseEntity> {
+export abstract class BaseModel<T extends AbstractEntity, ID = number> {
   constructor(
-    public id: number,
+    public id: ID,
     public createdAt: Date = null,
     public updatedAt: Date = null,
   ) {}
@@ -13,7 +13,6 @@ export abstract class BaseModel<T extends BaseEntity> {
     const entity = plainToInstance(construct, plain);
     delete entity.createdAt;
     delete entity.updatedAt;
-    delete entity.id;
     return entity;
   }
 }
