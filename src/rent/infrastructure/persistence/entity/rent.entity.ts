@@ -1,10 +1,10 @@
 import { Column, Entity, Generated, ManyToOne } from 'typeorm';
 import { ClientEntity } from '../../../../client/infrastructure/persistence/entity/client.entity';
 import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
-import { PaymentStatus } from '../../../../invoice/domain/types/invoice-status';
 import { PaymentType } from '../../../../invoice/domain/types/payment-type';
 import { OfficeEntity } from '../../../../office/infrastructure/persistence/entity/office.entity';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
+import { RentStatus } from '../../../domain/status';
 
 @Entity()
 export class RentEntity extends BaseEntity {
@@ -49,12 +49,6 @@ export class RentEntity extends BaseEntity {
 
   @Column({
     type: 'enum',
-    enum: PaymentStatus,
-  })
-  status: PaymentStatus;
-
-  @Column({
-    type: 'enum',
     enum: PaymentType,
     nullable: true,
   })
@@ -69,6 +63,6 @@ export class RentEntity extends BaseEntity {
   @Column({ type: 'float' })
   total: number;
 
-  @Column({ default: true, type: 'boolean' })
-  active?: boolean;
+  @Column({ default: 'pending' })
+  status: RentStatus;
 }

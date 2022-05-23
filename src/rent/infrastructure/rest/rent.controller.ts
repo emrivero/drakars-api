@@ -79,6 +79,13 @@ export class RentController {
     return await this.rentCarService.rent(dto, origin, destiny);
   }
 
+  @Get('exist-active-rent/:email')
+  async existActiveRent(@Param('email') email: string) {
+    const rent = await this.rentRepository.getRent(email);
+
+    return { exist: !!rent?.id };
+  }
+
   @Get(':email/:reference')
   getRent(
     @Param('email') email: string,
@@ -99,12 +106,5 @@ export class RentController {
   @Delete(':dni/:reference')
   cancelRent(@Param('dni') dni: string, @Param('reference') reference: string) {
     return this.cancelRentService.cancel(dni, reference);
-  }
-
-  @Get('exist-active-rent/:email')
-  async existActiveRent(@Param(':email') email: string) {
-    const rent = await this.rentRepository.getRent(email);
-
-    return { exist: !!rent?.id };
   }
 }

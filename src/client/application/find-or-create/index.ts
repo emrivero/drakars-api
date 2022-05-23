@@ -15,6 +15,9 @@ export class FindOrCreateClientService {
     );
 
     if (foundEntity) {
+      foundEntity.dni = client.dni;
+      foundEntity.phone = client.phone;
+      await this.clientRepository.save(foundEntity);
       return foundEntity;
     }
 

@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { EntityRepository, Repository } from 'typeorm';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { EntityRepository, In, Repository } from 'typeorm';
 import { RentEntity } from '../entity/rent.entity';
 
 @Injectable()
@@ -9,9 +9,9 @@ export class RentRepository extends Repository<RentEntity> {
     return this.findOne({
       where: {
         renterUser: {
-          email,
+          email: email,
         },
-        active: true,
+        status: In(['pending', 'checkedin']),
       },
       order: {
         createdAt: 'DESC',
@@ -35,7 +35,7 @@ export class RentRepository extends Repository<RentEntity> {
         renterUser: {
           email,
         },
-        active: false,
+        status: 'checkedout',
       },
       order: {
         createdAt: 'DESC',
@@ -51,5 +51,63 @@ export class RentRepository extends Repository<RentEntity> {
         'originOffice.municipality.city',
       ],
     });
+  }
+
+  getRentAnyFilter(value: string) {
+    return this.findOne({
+      where: [
+        {
+          renterUser: {
+            email: value,
+          },
+          status: In(['pending', 'checkedin']),
+        },
+        {
+          renterUser: {
+            dni: value,
+          },
+          status: In(['pending', 'checkedin']),
+        },
+        {
+          reference: value,
+          status: In(['pending', 'checkedin']),
+        },
+      ],
+      order: {
+        createdAt: 'DESC',
+      },
+      relations: [
+        'renterUser',
+        'rentedVehicle',
+        'destinyOffice',
+        'originOffice',
+        'destinyOffice.municipality',
+        'originOffice.municipality',
+        'destinyOffice.municipality.city',
+        'originOffice.municipality.city',
+      ],
+    });
+  }
+
+  async checkIn(id: number) {
+    const rent = await this.findOne(id);
+    if (!rent) {
+      throw new NotFoundException();
+    }
+
+    rent.status = 'checkedin';
+    this.save(rent);
+    return rent;
+  }
+
+  async checkOut(id: number) {
+    const rent = await this.findOne(id);
+    if (!rent) {
+      throw new NotFoundException();
+    }
+
+    rent.status = 'checkedout';
+    this.save(rent);
+    return rent;
   }
 }

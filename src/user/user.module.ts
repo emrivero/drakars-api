@@ -6,6 +6,8 @@ import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.modul
 import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.service';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
+import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
+import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
@@ -27,6 +29,8 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
       imports: [KeycloakAdminConfigModule],
     }),
     TypeOrmModule.forFeature([
+      RentRepository,
+      RentEntity,
       OfficeRepository,
       OfficeEntity,
       EditorEntity,

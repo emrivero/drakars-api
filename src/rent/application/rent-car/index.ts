@@ -112,7 +112,7 @@ export class RentCarService {
       rentedVehicle: vehicle,
       startDate: dto.startDate,
       endDate: dto.endDate,
-      status: dto.paymentStatus,
+      status: 'pending',
       renterUser,
       originOffice,
       destinyOffice,
