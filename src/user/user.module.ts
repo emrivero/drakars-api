@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.module';
@@ -22,7 +21,6 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
 
 @Module({
   imports: [
-    CqrsModule,
     KeycloakAdminConfigModule,
     KeycloakConnectModule.registerAsync({
       useExisting: KeycloakAdminConfigService,

@@ -1,5 +1,6 @@
 import {
   Body,
+  ConflictException,
   Controller,
   Delete,
   Get,
@@ -7,21 +8,32 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
+import {
+  AuthenticatedUser,
+  AuthGuard,
+  RoleGuard,
+  RoleMatchingMode,
+  Roles,
+} from 'nest-keycloak-connect';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
+import { Role } from '../../../domain/types/role';
+import { EditorRepository } from '../../persistence/repository/editor.repository';
+import { AdminDto } from '../dtos/admin/admin-dto';
 import { CreateAdminDto } from '../dtos/admin/create-admin-dto';
 import { CreateEditorDto } from '../dtos/editor/create-editor-dto';
 
+@UseGuards(AuthGuard, RoleGuard)
 @Controller('admin')
-// @UseGuards(RoleGuard, AuthGuard)
-// @Roles({ roles: [Role.ADMIN] })
 export class AdminController {
   constructor(
     private createService: CreateUserService,
     private deleteService: DeleteUserService,
     private rentRepository: RentRepository,
+    private editorRepository: EditorRepository,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -39,19 +51,41 @@ export class AdminController {
   }
 
   @Get('rent/:searchValue')
-  async getRent(@Param('searchValue') value: string) {
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  async getRent(
+    @AuthenticatedUser() dto: AdminDto,
+    @Param('searchValue') value: string,
+  ) {
     const rent = await this.rentRepository.getRentAnyFilter(value);
     if (!rent) {
       throw new NotFoundException();
     }
+    const { resource_access, sub } = dto;
+    if (resource_access) {
+      const roles = resource_access['drakars-admin-api']?.roles;
+      if (roles.includes(Role.EDITOR)) {
+        const editor = await this.editorRepository.findOne({
+          where: {
+            id: sub,
+          },
+          relations: ['office'],
+        });
+
+        if (editor.office.id !== rent.originOffice.id) {
+          throw new ConflictException();
+        }
+      }
+    }
     return rent;
   }
 
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
   @Patch('rent/checkIn/:id')
   checkInRent(@Param('id') id: number) {
     return this.rentRepository.checkIn(id);
   }
 
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
   @Patch('rent/checkOut/:id')
   checkOutRent(@Param('id') id: number) {
     return this.rentRepository.checkOut(id);

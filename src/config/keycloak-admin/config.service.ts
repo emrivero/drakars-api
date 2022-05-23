@@ -26,23 +26,23 @@ export class KeycloakAdminConfigService
   constructor(private configService: ConfigService) {}
 
   get authUrl(): string {
-    return this.configService.get<string>('keycloak.authUrl');
+    return this.configService.get<string>('keycloak-admin.authUrl');
   }
 
   get realm(): string {
-    return this.configService.get<string>('keycloak.realm');
+    return this.configService.get<string>('keycloak-admin.realm');
   }
 
   get clientID(): string {
-    return this.configService.get<string>('keycloak.clientID');
+    return this.configService.get<string>('keycloak-admin.clientID');
   }
 
   get secret(): string {
-    return this.configService.get<string>('keycloak.secret');
+    return this.configService.get<string>('keycloak-admin.secret');
   }
 
   get clientAdminUser(): string {
-    return this.configService.get<string>('keycloak.clientAdminUser');
+    return this.configService.get<string>('keycloak-admin.clientAdminUser');
   }
 
   get clientAdminPassword(): string {
