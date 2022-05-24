@@ -17,7 +17,9 @@ import {
   RoleMatchingMode,
   Roles,
 } from 'nest-keycloak-connect';
+import { PaginateQuery } from '../../../../lib/paginate';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
+import { PaginateAdminService } from '../../../application/admin/PaginateAdminService';
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
 import { Role } from '../../../domain/types/role';
@@ -34,6 +36,7 @@ export class AdminController {
     private deleteService: DeleteUserService,
     private rentRepository: RentRepository,
     private editorRepository: EditorRepository,
+    private paginateService: PaginateAdminService,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -89,5 +92,23 @@ export class AdminController {
   @Patch('rent/checkOut/:id')
   checkOutRent(@Param('id') id: number) {
     return this.rentRepository.checkOut(id);
+  }
+
+  @Roles({ roles: [Role.ADMIN], mode: RoleMatchingMode.ANY })
+  @Post('paginate/editor')
+  paginateEditor(
+    @Body()
+    query: PaginateQuery,
+  ) {
+    return this.paginateService.paginateEditor(query);
+  }
+
+  @Roles({ roles: [Role.ADMIN], mode: RoleMatchingMode.ANY })
+  @Post('paginate/admin')
+  paginateAdmins(
+    @Body()
+    query: PaginateQuery,
+  ) {
+    return this.paginateService.paginateAdmin(query);
   }
 }

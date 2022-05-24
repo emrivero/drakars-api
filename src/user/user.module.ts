@@ -8,6 +8,7 @@ import { OfficeRepository } from '../office/infrastructure/persistence/repositor
 import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
+import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
@@ -45,6 +46,7 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakAdminConfigService,
     KeycloakConnector,
     KeycloakRepository,
+    PaginateAdminService,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,
