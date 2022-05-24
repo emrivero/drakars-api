@@ -111,4 +111,13 @@ export class AdminController {
   ) {
     return this.paginateService.paginateAdmin(query);
   }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Post('paginate/client')
+  paginateClients(
+    @Body()
+    query: PaginateQuery,
+  ) {
+    return this.paginateService.paginateClient(query);
+  }
 }

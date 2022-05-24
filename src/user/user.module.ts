@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
+import { ClientEntity } from '../client/infrastructure/persistence/entity/client.entity';
+import { ClientRepository } from '../client/infrastructure/persistence/repository/client.repository';
 import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.module';
 import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.service';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
@@ -37,6 +39,8 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
       EditorRepository,
       AdminRepository,
       VehicleRatingEntity,
+      ClientRepository,
+      ClientEntity,
     ]),
   ],
   controllers: [EditorController, AdminController],
