@@ -9,7 +9,10 @@ import { OfficeEntity } from '../office/infrastructure/persistence/entity/office
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
+import { PaginateVehicleService } from '../vehicle/application/paginate';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
+import { VehicleEntity } from '../vehicle/infrastructure/persistence/entities/vehicle.entity';
+import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
 import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
@@ -39,6 +42,8 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
       EditorRepository,
       AdminRepository,
       VehicleRatingEntity,
+      VehicleMariadbRepository,
+      VehicleEntity,
       ClientRepository,
       ClientEntity,
     ]),
@@ -51,6 +56,7 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakConnector,
     KeycloakRepository,
     PaginateAdminService,
+    PaginateVehicleService,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,

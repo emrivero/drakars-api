@@ -8,7 +8,12 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { AuthenticatedUser, AuthGuard, RoleGuard } from 'nest-keycloak-connect';
+import {
+  AuthenticatedUser,
+  AuthGuard,
+  RoleGuard,
+  Roles,
+} from 'nest-keycloak-connect';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { CreateClientService } from '../../../application/create/CreateUserService';
 import { DeleteClientService } from '../../../application/delete';
@@ -17,9 +22,9 @@ import { UpdateClientService } from '../../../application/update';
 import { ClientDto } from '../dtos/client.dto';
 import { UpdateClientDto } from '../dtos/update-client.dto';
 
-@UseGuards(RoleGuard, AuthGuard)
+@UseGuards(AuthGuard, RoleGuard)
 @Controller('client')
-// @Roles({ roles: [Role.CLIENT] })
+@Roles({ roles: ['user'] })
 export class ClientController {
   constructor(
     private readonly createService: CreateClientService,

@@ -4,6 +4,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   NotFoundException,
   Param,
   Patch,
@@ -17,8 +18,14 @@ import {
   RoleMatchingMode,
   Roles,
 } from 'nest-keycloak-connect';
-import { PaginateQuery } from '../../../../lib/paginate';
+import {
+  PaginateConfig,
+  Paginated,
+  PaginateQuery,
+} from '../../../../lib/paginate';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
+import { PaginateVehicleService } from '../../../../vehicle/application/paginate';
+import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
 import { PaginateAdminService } from '../../../application/admin/PaginateAdminService';
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
@@ -37,6 +44,7 @@ export class AdminController {
     private rentRepository: RentRepository,
     private editorRepository: EditorRepository,
     private paginateService: PaginateAdminService,
+    private paginateVehicleService: PaginateVehicleService,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -119,5 +127,60 @@ export class AdminController {
     query: PaginateQuery,
   ) {
     return this.paginateService.paginateClient(query);
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Post('/vehicle/paginate')
+  @HttpCode(200)
+  async paginate(
+    @AuthenticatedUser() dto: AdminDto,
+    @Body()
+    query: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    },
+  ): Promise<Paginated<VehicleEntity>> {
+    const realm = dto?.resource_access['drakars-admin-api'];
+    const roles = realm?.roles;
+    if (roles && roles.length > 0) {
+      if (roles[0] === Role.EDITOR) {
+        const editor = await this.editorRepository.findOne(
+          {
+            id: dto.sub,
+          },
+          {
+            relations: ['office'],
+          },
+        );
+        const office = editor.office;
+        if (!office) {
+          return {
+            data: [],
+            meta: {
+              currentPage: 0,
+              itemsPerPage: 0,
+              totalPages: 0,
+              totalItems: 0,
+              search: '',
+              searchBy: ['id'],
+              sortBy: [['id', 'ASC']],
+            },
+            links: { current: '' },
+          };
+        }
+        const newQuery: PaginateQuery & {
+          relations: ('rents' | 'office' | 'ratings')[];
+          paginateOptions: PaginateConfig<VehicleEntity>;
+        } = {
+          ...query,
+          filter: {
+            'office.id': `${office.id}`,
+          },
+          relations: ['office'],
+        };
+        return this.paginateVehicleService.paginate(newQuery);
+      }
+    }
+    return this.paginateVehicleService.paginate(query);
   }
 }
