@@ -103,8 +103,11 @@ export class RentController {
     return this.rentCarService.editRent(dni, reference, dto);
   }
 
-  @Delete(':dni/:reference')
-  cancelRent(@Param('dni') dni: string, @Param('reference') reference: string) {
-    return this.cancelRentService.cancel(dni, reference);
+  @Delete(':email/:reference')
+  cancelRent(
+    @Param('email') email: string,
+    @Param('reference') reference: string,
+  ) {
+    return this.cancelRentService.cancel(email, reference);
   }
 }

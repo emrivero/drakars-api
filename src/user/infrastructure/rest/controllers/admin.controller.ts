@@ -29,6 +29,7 @@ import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/en
 import { PaginateAdminService } from '../../../application/admin/PaginateAdminService';
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
+import { PaginateRentService } from '../../../application/PaginateRentService';
 import { Role } from '../../../domain/types/role';
 import { EditorRepository } from '../../persistence/repository/editor.repository';
 import { AdminDto } from '../dtos/admin/admin-dto';
@@ -45,6 +46,7 @@ export class AdminController {
     private editorRepository: EditorRepository,
     private paginateService: PaginateAdminService,
     private paginateVehicleService: PaginateVehicleService,
+    private paginateRentService: PaginateRentService,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -140,6 +142,26 @@ export class AdminController {
       paginateOptions: PaginateConfig<VehicleEntity>;
     },
   ): Promise<Paginated<VehicleEntity>> {
+    const newQuery = await this.queryWithOffice(dto, query);
+    return this.paginateVehicleService.paginate(newQuery);
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Post('/rent/paginate')
+  @HttpCode(200)
+  async paginateRents(
+    @AuthenticatedUser() dto: AdminDto,
+    @Body()
+    query: PaginateQuery,
+  ) {
+    const office = await this.getOfficeFromUser(dto);
+    if (office) {
+      return this.paginateRentService.paginate(query, office.id);
+    }
+    return this.paginateRentService.paginate(query);
+  }
+
+  async getOfficeFromUser(dto: AdminDto) {
     const realm = dto?.resource_access['drakars-admin-api'];
     const roles = realm?.roles;
     if (roles && roles.length > 0) {
@@ -152,35 +174,32 @@ export class AdminController {
             relations: ['office'],
           },
         );
-        const office = editor.office;
-        if (!office) {
-          return {
-            data: [],
-            meta: {
-              currentPage: 0,
-              itemsPerPage: 0,
-              totalPages: 0,
-              totalItems: 0,
-              search: '',
-              searchBy: ['id'],
-              sortBy: [['id', 'ASC']],
-            },
-            links: { current: '' },
-          };
-        }
-        const newQuery: PaginateQuery & {
-          relations: ('rents' | 'office' | 'ratings')[];
-          paginateOptions: PaginateConfig<VehicleEntity>;
-        } = {
-          ...query,
-          filter: {
-            'office.id': `${office.id}`,
-          },
-          relations: ['office'],
-        };
-        return this.paginateVehicleService.paginate(newQuery);
+        return editor.office;
       }
     }
-    return this.paginateVehicleService.paginate(query);
+    return null;
+  }
+
+  private async queryWithOffice(
+    dto: AdminDto,
+    query: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    },
+  ) {
+    const office = await this.getOfficeFromUser(dto);
+    if (!office) {
+      return query;
+    }
+    const newQuery: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    } = {
+      ...query,
+      filter: {
+        'office.id': `${office.id}`,
+      },
+    };
+    return newQuery;
   }
 }

@@ -18,7 +18,6 @@ import { RentEntity } from '../../infrastructure/persistence/entity/rent.entity'
 import { RentRepository } from '../../infrastructure/persistence/repository/rent.repository';
 import { RentCardDto } from '../../infrastructure/rest/dto/rent-car';
 import { UpdateRentCardDto } from '../../infrastructure/rest/dto/update-rent-dto';
-import { GetRentServive } from '../get-rent';
 
 @Injectable()
 export class RentCarService {
@@ -34,7 +33,6 @@ export class RentCarService {
     private readonly rentRepository: RentRepository,
     private readonly vehicleRepository: VehicleMariadbRepository,
     private readonly findOrCreateService: FindOrCreateClientService,
-    private readonly getRentService: GetRentServive,
     private readonly getVehicleService: GetVehicleService,
   ) {}
 
@@ -139,10 +137,6 @@ export class RentCarService {
     }
     const createdRent = await this.rentRepository.save(rentEntity);
     return createdRent;
-    // return await this.getRentService.find(
-    //   createdRent.renterUser.dni,
-    //   createdRent.reference,
-    // );
   }
 
   private async isExtendable(

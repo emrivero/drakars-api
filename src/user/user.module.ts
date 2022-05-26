@@ -16,6 +16,7 @@ import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/
 import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
+import { PaginateRentService } from './application/PaginateRentService';
 import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
@@ -57,6 +58,7 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakRepository,
     PaginateAdminService,
     PaginateVehicleService,
+    PaginateRentService,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,

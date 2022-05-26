@@ -6,7 +6,7 @@ export class GetRentServive {
   constructor(private readonly rentRepository: RentRepository) {}
 
   async find(email: string, reference: string) {
-    return await this.rentRepository.findOne({
+    return this.rentRepository.findOne({
       where: {
         reference,
         renterUser: { email },
