@@ -84,7 +84,42 @@ export class AdminController {
           relations: ['office'],
         });
 
-        if (editor.office.id !== rent.originOffice.id) {
+        if (
+          editor.office.id !== rent.originOffice.id &&
+          editor.office.id !== rent.destinyOffice.id
+        ) {
+          throw new ConflictException();
+        }
+      }
+    }
+    return rent;
+  }
+
+  @Get('rent-by-reference/:reference')
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  async getRentByReference(
+    @AuthenticatedUser() dto: AdminDto,
+    @Param('reference') reference: string,
+  ) {
+    const rent = await this.rentRepository.getRentByReference(reference);
+    if (!rent) {
+      throw new NotFoundException();
+    }
+    const { resource_access, sub } = dto;
+    if (resource_access) {
+      const roles = resource_access['drakars-admin-api']?.roles;
+      if (roles.includes(Role.EDITOR)) {
+        const editor = await this.editorRepository.findOne({
+          where: {
+            id: sub,
+          },
+          relations: ['office'],
+        });
+
+        if (
+          editor.office.id !== rent.originOffice.id &&
+          editor.office.id !== rent.destinyOffice.id
+        ) {
           throw new ConflictException();
         }
       }

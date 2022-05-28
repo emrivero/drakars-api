@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { MoreThanOrEqual } from 'typeorm';
 import { RentRepository } from '../../infrastructure/persistence/repository/rent.repository';
 
 @Injectable()
@@ -7,10 +8,19 @@ export class GetRentServive {
 
   async find(email: string, reference: string) {
     return this.rentRepository.findOne({
-      where: {
-        reference,
-        renterUser: { email },
-      },
+      where: [
+        {
+          reference,
+          renterUser: { email },
+          status: 'pending',
+          startDate: MoreThanOrEqual(new Date()),
+        },
+        {
+          reference,
+          renterUser: { email },
+          status: 'checkedin',
+        },
+      ],
       relations: [
         'rentedVehicle',
         'renterUser',

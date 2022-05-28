@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -104,10 +105,14 @@ export class RentController {
   }
 
   @Delete(':email/:reference')
-  cancelRent(
+  async cancelRent(
     @Param('email') email: string,
     @Param('reference') reference: string,
   ) {
+    const rent = await this.getRentService.find(email, reference);
+    if (!rent || rent.status === 'checkedin' || rent.status === 'checkedout') {
+      throw new BadRequestException();
+    }
     return this.cancelRentService.cancel(email, reference);
   }
 }

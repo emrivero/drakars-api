@@ -19,7 +19,7 @@ export class PaginateRentService {
     },
     defaultLimit: 10,
     maxLimit: 50,
-    defaultSortBy: [['id', 'ASC']],
+    defaultSortBy: [['endDate', 'DESC']],
     relations: ['renterUser', 'rentedVehicle', 'originOffice', 'destinyOffice'],
   };
   constructor(private readonly rentRepository: RentRepository) {}

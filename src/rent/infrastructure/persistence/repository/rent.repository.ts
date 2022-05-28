@@ -89,6 +89,26 @@ export class RentRepository extends Repository<RentEntity> {
     });
   }
 
+  getRentByReference(reference: string) {
+    return this.findOne(
+      {
+        reference,
+      },
+      {
+        relations: [
+          'renterUser',
+          'rentedVehicle',
+          'destinyOffice',
+          'originOffice',
+          'destinyOffice.municipality',
+          'originOffice.municipality',
+          'destinyOffice.municipality.city',
+          'originOffice.municipality.city',
+        ],
+      },
+    );
+  }
+
   async checkIn(id: number) {
     const rent = await this.findOne(id);
     if (!rent) {
