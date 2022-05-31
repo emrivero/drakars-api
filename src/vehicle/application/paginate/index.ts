@@ -7,7 +7,7 @@ import {
 } from '../../../lib/paginate';
 
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
-import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb.repository';
 
 @Injectable()
 export class PaginateVehicleService {

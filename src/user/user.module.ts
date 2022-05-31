@@ -12,7 +12,7 @@ import { RentRepository } from '../rent/infrastructure/persistence/repository/re
 import { PaginateVehicleService } from '../vehicle/application/paginate';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
 import { VehicleEntity } from '../vehicle/infrastructure/persistence/entities/vehicle.entity';
-import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';

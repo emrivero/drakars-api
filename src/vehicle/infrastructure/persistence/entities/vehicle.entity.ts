@@ -5,6 +5,7 @@ import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/r
 import { MarkType } from '../../../domain/types/mark.type';
 import { TransmissionType } from '../../../domain/types/transmission';
 import { VehicleType } from '../../../domain/types/vehicle.type';
+import { VehicleImageEntity } from './vehicle-image';
 import { VehicleRatingEntity } from './vehicle-rating';
 
 @Entity()
@@ -55,11 +56,6 @@ export class VehicleEntity extends BaseEntity {
   @Column()
   fullName: string;
 
-  @Column({
-    nullable: true,
-  })
-  image?: string;
-
   @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle, {
     onDelete: 'SET NULL',
   })
@@ -70,6 +66,11 @@ export class VehicleEntity extends BaseEntity {
     onDelete: 'SET NULL',
   })
   office: OfficeEntity;
+
+  @ManyToOne(() => VehicleImageEntity, {
+    nullable: true,
+  })
+  image?: VehicleImageEntity;
 
   @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle, {
     onDelete: 'SET NULL',

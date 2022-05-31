@@ -1,4 +1,5 @@
 export enum MarkType {
+  ALFA_ROMEO = 'Alfa Romeo',
   AUDI = 'Audi',
   BMW = 'BMW',
   CITROËN = 'Citroën',

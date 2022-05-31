@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { OfficeRepository } from '../../../office/infrastructure/persistence/repository/office.mariadb.repository';
-import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb.repository';
 
 @Injectable()
 export class DeleteVehicleService {

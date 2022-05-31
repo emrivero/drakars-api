@@ -12,7 +12,7 @@ import { Role } from '../../../client/domain/types/role';
 import { PaymentStatus } from '../../../invoice/domain/types/invoice-status';
 import { OfficeEntity } from '../../../office/infrastructure/persistence/entity/office.entity';
 import { GetVehicleService } from '../../../vehicle/application/get-vehicle-by-id';
-import { VehicleMariadbRepository } from '../../../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../../../vehicle/infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { DateInterval } from '../../domain/DateInterval';
 import { RentEntity } from '../../infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../../infrastructure/persistence/repository/rent.repository';

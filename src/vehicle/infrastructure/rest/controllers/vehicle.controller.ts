@@ -8,9 +8,21 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
+import {
+  AuthenticatedUser,
+  AuthGuard,
+  RoleGuard,
+  RoleMatchingMode,
+  Roles,
+  Unprotected,
+} from 'nest-keycloak-connect';
 import { PaginateConfig, PaginateQuery } from '../../../../lib/paginate';
 import { DateInterval } from '../../../../rent/domain/DateInterval';
+import { Role } from '../../../../user/domain/types/role';
+import { EditorRepository } from '../../../../user/infrastructure/persistence/repository/editor.repository';
+import { AdminDto } from '../../../../user/infrastructure/rest/dtos/admin/admin-dto';
 import { CreateVehicleService } from '../../../application/create';
 import { DeleteVehicleService } from '../../../application/delete';
 import { GetVehicleService } from '../../../application/get-vehicle-by-id';
@@ -21,6 +33,7 @@ import { VehicleEntity } from '../../persistence/entities/vehicle.entity';
 import { AvailableVehicleDto } from '../dtos/available-vehicle';
 import { CreateVehicleDto } from '../dtos/create-vehicle';
 
+@UseGuards(AuthGuard, RoleGuard)
 @Controller('vehicle')
 export class VehicleController {
   constructor(
@@ -29,14 +42,34 @@ export class VehicleController {
     private getVehicleService: GetVehicleService,
     private updateVehicleService: UpdateVehicleService,
     private deleteVehicleService: DeleteVehicleService,
+    private editorRepository: EditorRepository,
   ) {}
 
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
   @Post()
-  create(@Body() vehicle: CreateVehicleDto) {
+  async create(
+    @AuthenticatedUser() user: AdminDto,
+    @Body() vehicle: CreateVehicleDto,
+  ) {
+    let office = vehicle.office;
+    if (user.resource_access['drakars-admin-api'].roles.includes(Role.EDITOR)) {
+      const editor = await this.editorRepository.findOne(
+        { id: user.sub },
+        { relations: ['office'] },
+      );
+      office = editor.office.id;
+    } else if (!office) {
+      throw new BadRequestException('Admin user does not select office id');
+    }
     const newVehicle = Vehicle.fromDto(vehicle);
-    return this.createVehicleService.create(newVehicle, vehicle.office);
+    return this.createVehicleService.create(
+      newVehicle,
+      office,
+      vehicle.imageId,
+    );
   }
 
+  @Unprotected()
   @Post('/paginate')
   @HttpCode(200)
   paginate(
@@ -49,6 +82,7 @@ export class VehicleController {
     return this.paginateVehicleService.paginate(query);
   }
 
+  @Unprotected()
   @Post('/available')
   @HttpCode(200)
   available(@Body() dto: AvailableVehicleDto & PaginateQuery) {
@@ -59,17 +93,20 @@ export class VehicleController {
     return this.getVehicleService.listAvailable(dto);
   }
 
+  @Unprotected()
   @Put('/:id')
   update(@Param('id') id: number, @Body() dto: CreateVehicleDto) {
     const updateVehicle = Vehicle.fromDto(dto);
     return this.updateVehicleService.update(id, updateVehicle);
   }
 
+  @Unprotected()
   @Get(':id')
   get(@Param('id') id: number) {
     return this.getVehicleService.getById(id);
   }
 
+  @Unprotected()
   @Delete(':id')
   delete(@Param('id') id: number) {
     return this.deleteVehicleService.delete(id);

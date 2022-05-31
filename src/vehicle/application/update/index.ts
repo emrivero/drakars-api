@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { OfficeRepository } from '../../../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { Vehicle } from '../../domain/models/vehicle';
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
-import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb.repository';
 
 @Injectable()
 export class UpdateVehicleService {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MunicipalityRepository } from '../city/infrastructure/persistence/repository/municipality.mariadb.repository';
-import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { CreateOfficeService } from './application/create';
 import { DeleteOfficeService } from './application/delete';
 import { GetOfficeService } from './application/get-by-id';

@@ -26,7 +26,7 @@ export class PaginateAdminService {
   };
   static PAGINATE_CLIENT_CONFIGURATION: PaginateConfig<ClientEntity> = {
     sortableColumns: ['id'],
-    searchableColumns: ['family_name', 'email', 'name'],
+    searchableColumns: ['family_name', 'email', 'name', 'dni'],
     defaultLimit: 10,
     maxLimit: 50,
     defaultSortBy: [['id', 'ASC']],

@@ -2,6 +2,7 @@ import {
   IsEnum,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsPositive,
   IsString,
 } from 'class-validator';
@@ -29,6 +30,7 @@ export class CreateVehicleDto {
   // readonly limitKM: number;
 
   @IsNumber()
+  @IsOptional()
   readonly office: number;
 
   @IsNumber()
@@ -42,4 +44,7 @@ export class CreateVehicleDto {
 
   @IsString()
   readonly fuel: string;
+
+  @IsNumber()
+  readonly imageId: number;
 }
