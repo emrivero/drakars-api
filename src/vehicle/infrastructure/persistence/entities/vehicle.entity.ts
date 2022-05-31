@@ -69,6 +69,7 @@ export class VehicleEntity extends BaseEntity {
 
   @ManyToOne(() => VehicleImageEntity, {
     nullable: true,
+    onDelete: 'SET NULL',
   })
   image?: VehicleImageEntity;
 

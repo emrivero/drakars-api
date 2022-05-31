@@ -53,7 +53,7 @@ export class GetVehicleService {
 
   getById(id: number) {
     return this.vehicleRepository.findOne(id, {
-      //   relations: ['office', 'rents', 'ratings'],
+      relations: ['office', 'image'],
     });
   }
 
@@ -66,6 +66,7 @@ export class GetVehicleService {
       .createQueryBuilder('vehicle')
       .select('vehicle')
       .leftJoin('vehicle.rents', 'rent')
+      .leftJoinAndSelect('vehicle.image', 'image')
       .where('vehicle.office=:office', { office })
       .andWhere(
         new Brackets((qb) => {

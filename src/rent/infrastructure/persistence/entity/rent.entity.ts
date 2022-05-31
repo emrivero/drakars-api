@@ -8,10 +8,14 @@ import { RentStatus } from '../../../domain/status';
 
 @Entity()
 export class RentEntity extends BaseEntity {
-  @ManyToOne(() => VehicleEntity, (vehicle) => vehicle.rents)
+  @ManyToOne(() => VehicleEntity, (vehicle) => vehicle.rents, {
+    onDelete: 'SET NULL',
+  })
   rentedVehicle: VehicleEntity;
 
-  @ManyToOne(() => ClientEntity, (user) => user.rents)
+  @ManyToOne(() => ClientEntity, (user) => user.rents, {
+    onDelete: 'SET NULL',
+  })
   renterUser: ClientEntity;
 
   @ManyToOne(() => OfficeEntity)

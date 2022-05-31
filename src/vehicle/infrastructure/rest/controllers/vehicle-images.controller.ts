@@ -42,12 +42,13 @@ export class VehicleImageController {
     @UploadedFile() image: Express.Multer.File,
     @Body() body: { name: string },
   ) {
+    const bodyName = body.name.toLowerCase();
     const type = image.mimetype.split('/')[1];
-    const name = `${body.name}.${type}`;
+    const name = `${bodyName}.${type}`;
     const data = image.buffer.toString('base64');
     const exists =
       (await this.vehicleImageRepository.count({
-        name: body.name.toLowerCase(),
+        name: bodyName,
       })) > 0;
 
     if (!body?.name || exists) {
@@ -68,7 +69,7 @@ export class VehicleImageController {
     );
 
     writeFileSync(pathFile, data, { encoding: 'base64' });
-    return this.vehicleImageRepository.uploadImage(body.name, type);
+    return this.vehicleImageRepository.uploadImage(bodyName, type);
   }
 
   @Delete(':name')

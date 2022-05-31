@@ -97,7 +97,7 @@ export class VehicleController {
   @Put('/:id')
   update(@Param('id') id: number, @Body() dto: CreateVehicleDto) {
     const updateVehicle = Vehicle.fromDto(dto);
-    return this.updateVehicleService.update(id, updateVehicle);
+    return this.updateVehicleService.update(id, updateVehicle, dto.imageId);
   }
 
   @Unprotected()

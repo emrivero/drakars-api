@@ -26,7 +26,7 @@ export class PaginateVehicleService {
     defaultLimit: 5000,
     maxLimit: 5000,
     defaultSortBy: [['id', 'ASC']],
-    relations: ['office'],
+    relations: ['office', 'image'],
   };
   constructor(private readonly vehicleRepository: VehicleMariadbRepository) {}
 
