@@ -3,7 +3,7 @@ import { randomBytes } from 'crypto';
 import { OfficeRepository } from '../../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { Admin } from '../domain/entities/admin';
 import { Editor } from '../domain/entities/editor';
-import { KeycloakRepository } from '../infrastructure/idp/keycloak/repositories/keycloak.repository';
+import { KeycloakAdminRepository } from '../infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminEntity } from '../infrastructure/persistence/entity/admin.entity';
 import { EditorEntity } from '../infrastructure/persistence/entity/editor.entity';
 import { AdminRepository } from '../infrastructure/persistence/repository/admin.repository';
@@ -17,7 +17,7 @@ export class CreateUserService {
     private editorRepository: EditorRepository,
     private adminRepository: AdminRepository,
     private officeRepository: OfficeRepository,
-    private kcRepository: KeycloakRepository,
+    private kcRepository: KeycloakAdminRepository,
   ) {}
 
   async createAdmin(dto: CreateAdminDto) {

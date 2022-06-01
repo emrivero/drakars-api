@@ -4,7 +4,7 @@ import { Issuer } from 'openid-client';
 import { KeycloakAdminConfigService } from '../../../../config/keycloak-admin/config.service';
 
 @Injectable()
-export class KeycloakConnector {
+export class KeycloakAdminConnector {
   private readonly INTERVAL_REFRESH_TOKEN = 60 * 1000;
   private readonly GRANT_TYPE = 'password';
   private kcAdminClient: KcAdminClient = null;

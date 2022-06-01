@@ -7,7 +7,7 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { KeycloakConfigService } from '../../../../../config/keycloak/config.service';
-import { User } from '../../../../domain/entities/user';
+import { UserModel } from '../../../../../user/domain/interface/user.model';
 import { UserKeycloakEntity } from '../entities/user.keycloak.entity';
 import { KeycloakConnector } from '../keycloak-connector';
 
@@ -91,7 +91,7 @@ export class KeycloakRepository {
     }
   }
 
-  private async setRole(id: string, user: User) {
+  private async setRole(id: string, user: UserModel) {
     try {
       const client = await this.getKcClient();
 
@@ -123,14 +123,14 @@ export class KeycloakRepository {
     }
   }
 
-  async createUser(user: User) {
+  async createUser(user: UserModel) {
     const client = await this.getKcClient();
     try {
       const { id } = await client.users.create({
         username: user.email,
         email: user.email,
         lastName: user.family_name,
-        firstName: user.given_name,
+        firstName: user.name,
         enabled: true,
         credentials: [
           {
@@ -202,7 +202,7 @@ export class KeycloakRepository {
     }
   }
 
-  async updateUser(id: string, user: User) {
+  async updateUser(id: string, user: UserModel) {
     try {
       const client = await this.getKcClient();
 
@@ -212,7 +212,7 @@ export class KeycloakRepository {
           username: user.email,
           email: user.email,
           lastName: user.family_name,
-          firstName: user.given_name,
+          firstName: user.name,
           enabled: true,
           attributes: {
             rol: user.role,

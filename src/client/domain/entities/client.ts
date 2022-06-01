@@ -5,7 +5,7 @@ import { Role } from '../types/role';
 
 export class Client extends BaseModel<ClientEntity> {
   constructor(
-    id: number,
+    id: string,
     createdAt: Date,
     updatedAt: Date,
     public readonly name: string,
@@ -26,7 +26,7 @@ export class Client extends BaseModel<ClientEntity> {
 
   static fromKCEntity(entity: UserRepresentation) {
     return new Client(
-      null,
+      entity.id,
       null,
       null,
       entity.firstName,

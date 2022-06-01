@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Not } from 'typeorm';
 import { ClientEntity } from '../../../client/infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../../../client/infrastructure/persistence/repository/client.repository';
 import { paginate, PaginateConfig, PaginateQuery } from '../../../lib/paginate';
@@ -37,15 +38,21 @@ export class PaginateAdminService {
     private readonly clientRepository: ClientRepository,
   ) {}
 
-  async paginateAdmin(query: PaginateQuery) {
+  async paginateAdmin(query: PaginateQuery, email: string) {
     return paginate(query, this.adminRepository, {
       ...PaginateAdminService.PAGINATE_ADMIN_CONFIGURATION,
+      where: {
+        email: Not(email),
+      },
     });
   }
 
-  async paginateEditor(query: PaginateQuery) {
+  async paginateEditor(query: PaginateQuery, email: string) {
     return paginate(query, this.editorRepository, {
       ...PaginateAdminService.PAGINATE_EDITOR_CONFIGURATION,
+      where: {
+        email: Not(email),
+      },
     });
   }
   async paginateClient(query: PaginateQuery) {

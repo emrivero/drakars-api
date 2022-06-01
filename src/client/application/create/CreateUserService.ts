@@ -24,26 +24,4 @@ export class CreateClientService {
     }
     return;
   }
-
-  // async createEditor(user: CreateUserDto) {
-  //   const newEditor = CreatedUser.create({
-  //     ...user,
-  //     email_verified: false,
-  //   });
-
-  //   this.saveUser(newEditor);
-  //   this.keycloakRepository.createUser(newEditor);
-  // }
-
-  // async getByRole(role: Role) {
-  //   return await this.clientRepository.findByRole(role);
-  // }
-
-  // private async saveUser(user: CreatedUser) {
-  //   const exists = await this.clientRepository.findOneBy('email', user.email);
-
-  //   if (!exists) {
-  //     this.clientRepository.save(user);
-  //   }
-  // }
 }

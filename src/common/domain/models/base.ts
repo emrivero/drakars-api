@@ -1,7 +1,10 @@
 import { instanceToPlain, plainToInstance } from 'class-transformer';
 import { AbstractEntity } from '../../infrastructure/entities/abstract-entity';
 
-export abstract class BaseModel<T extends AbstractEntity, ID = number> {
+export abstract class BaseModel<
+  T extends AbstractEntity,
+  ID = number | string,
+> {
   constructor(
     public id: ID,
     public createdAt: Date = null,

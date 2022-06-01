@@ -18,6 +18,7 @@ import {
   RoleMatchingMode,
   Roles,
 } from 'nest-keycloak-connect';
+import { DeleteClientService } from '../../../../client/application/delete';
 import {
   PaginateConfig,
   Paginated,
@@ -44,6 +45,7 @@ export class AdminController {
     private deleteService: DeleteUserService,
     private rentRepository: RentRepository,
     private editorRepository: EditorRepository,
+    private readonly deleteClientService: DeleteClientService,
     private paginateService: PaginateAdminService,
     private paginateVehicleService: PaginateVehicleService,
     private paginateRentService: PaginateRentService,
@@ -142,19 +144,21 @@ export class AdminController {
   @Roles({ roles: [Role.ADMIN], mode: RoleMatchingMode.ANY })
   @Post('paginate/editor')
   paginateEditor(
+    @AuthenticatedUser() dto: AdminDto,
     @Body()
     query: PaginateQuery,
   ) {
-    return this.paginateService.paginateEditor(query);
+    return this.paginateService.paginateEditor(query, dto.email);
   }
 
   @Roles({ roles: [Role.ADMIN], mode: RoleMatchingMode.ANY })
   @Post('paginate/admin')
   paginateAdmins(
+    @AuthenticatedUser() dto: AdminDto,
     @Body()
     query: PaginateQuery,
   ) {
-    return this.paginateService.paginateAdmin(query);
+    return this.paginateService.paginateAdmin(query, dto.email);
   }
 
   @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
@@ -194,6 +198,12 @@ export class AdminController {
       return this.paginateRentService.paginate(query, office.id);
     }
     return this.paginateRentService.paginate(query);
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Delete('/client/:id/:email')
+  async deleteClient(@Param('id') id: string, @Param('email') email: string) {
+    return this.deleteClientService.delete(id, email);
   }
 
   async getOfficeFromUser(dto: AdminDto) {

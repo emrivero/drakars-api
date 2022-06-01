@@ -10,14 +10,14 @@ import {
 import { KeycloakAdminConfigService } from '../../../../../config/keycloak-admin/config.service';
 import { UserModel } from '../../../../domain/interface/user.model';
 import { UserKeycloakEntity } from '../entities/user.keycloak.entity';
-import { KeycloakConnector } from '../keycloak-connector';
+import { KeycloakAdminConnector } from '../keycloak-connector';
 
 @Injectable()
-export class KeycloakRepository {
+export class KeycloakAdminRepository {
   private readonly SUPERADMIN_USER: UserKeycloakEntity = null;
 
   constructor(
-    private readonly kcConnector: KeycloakConnector,
+    private readonly kcConnector: KeycloakAdminConnector,
     private readonly kcConfig: KeycloakAdminConfigService,
   ) {}
 

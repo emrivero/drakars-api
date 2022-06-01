@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { KeycloakRepository } from '../infrastructure/idp/keycloak/repositories/keycloak.repository';
+import { KeycloakAdminRepository } from '../infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminRepository } from '../infrastructure/persistence/repository/admin.repository';
 import { EditorRepository } from '../infrastructure/persistence/repository/editor.repository';
 
@@ -8,7 +8,7 @@ export class DeleteUserService {
   constructor(
     private editorRepository: EditorRepository,
     private adminRepository: AdminRepository,
-    private kcRepository: KeycloakRepository,
+    private kcRepository: KeycloakAdminRepository,
   ) {}
 
   async deleteUser(id: string) {

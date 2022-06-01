@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
+import { DeleteClientService } from '../client/application/delete';
+import { KeycloakConnector } from '../client/infrastructure/idp/keycloak/keycloak-connector';
+import { KeycloakRepository } from '../client/infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { ClientEntity } from '../client/infrastructure/persistence/entity/client.entity';
 import { ClientRepository } from '../client/infrastructure/persistence/repository/client.repository';
 import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.module';
 import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.service';
+import { KeycloakConfigService } from '../config/keycloak/config.service';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
@@ -17,8 +21,8 @@ import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
 import { PaginateRentService } from './application/PaginateRentService';
-import { KeycloakConnector } from './infrastructure/idp/keycloak/keycloak-connector';
-import { KeycloakRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
+import { KeycloakAdminConnector } from './infrastructure/idp/keycloak/keycloak-connector';
+import { KeycloakAdminRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
 import { EditorEntity } from './infrastructure/persistence/entity/editor.entity';
 import { AdminRepository } from './infrastructure/persistence/repository/admin.repository';
@@ -54,11 +58,15 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     CreateUserService,
     DeleteUserService,
     KeycloakAdminConfigService,
-    KeycloakConnector,
-    KeycloakRepository,
+    KeycloakAdminConnector,
+    KeycloakAdminRepository,
     PaginateAdminService,
     PaginateVehicleService,
     PaginateRentService,
+    DeleteClientService,
+    KeycloakRepository,
+    KeycloakConnector,
+    KeycloakConfigService,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,

@@ -4,6 +4,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { randomBytes, randomUUID } from 'crypto';
 import * as moment from 'moment';
 import { MoreThan, Not } from 'typeorm';
 import { FindOrCreateClientService } from '../../../client/application/find-or-create';
@@ -81,7 +82,7 @@ export class RentCarService {
   ) {
     const { user } = dto;
     const client = Client.create([
-      null,
+      randomUUID(),
       null,
       null,
       user.name,
@@ -102,6 +103,7 @@ export class RentCarService {
     }
 
     const rentEntity: RentEntity = {
+      reference: randomBytes(8).toString('hex').toUpperCase(),
       paymentDate:
         dto.paymentStatus === PaymentStatus.PAID
           ? moment().format('YYYY-MM-DD')
@@ -141,7 +143,7 @@ export class RentCarService {
 
   private async isExtendable(
     rentedVehicle: number,
-    renterUser: number,
+    renterUser: string,
     endDate: string,
   ) {
     return (
