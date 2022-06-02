@@ -87,12 +87,9 @@ export class RentController {
     return { exist: !!rent?.id };
   }
 
-  @Get(':email/:reference')
-  getRent(
-    @Param('email') email: string,
-    @Param('reference') reference: string,
-  ) {
-    return this.getRentService.find(email, reference);
+  @Get(':reference')
+  getRent(@Param('reference') reference: string) {
+    return this.getRentService.find(reference);
   }
 
   @Patch(':dni/:reference')
@@ -104,15 +101,12 @@ export class RentController {
     return this.rentCarService.editRent(dni, reference, dto);
   }
 
-  @Delete(':email/:reference')
-  async cancelRent(
-    @Param('email') email: string,
-    @Param('reference') reference: string,
-  ) {
-    const rent = await this.getRentService.find(email, reference);
+  @Delete(':reference')
+  async cancelRent(@Param('reference') reference: string) {
+    const rent = await this.getRentService.find(reference);
     if (!rent || rent.status === 'checkedin' || rent.status === 'checkedout') {
       throw new BadRequestException();
     }
-    return this.cancelRentService.cancel(email, reference);
+    return this.cancelRentService.cancel(reference);
   }
 }

@@ -11,6 +11,8 @@ import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.serv
 import { KeycloakConfigService } from '../config/keycloak/config.service';
 import { OfficeEntity } from '../office/infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
+import { CancelRentService } from '../rent/application/cancel-rent';
+import { GetRentServive } from '../rent/application/get-rent';
 import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { PaginateVehicleService } from '../vehicle/application/paginate';
@@ -21,6 +23,7 @@ import { PaginateAdminService } from './application/admin/PaginateAdminService';
 import { CreateUserService } from './application/CreateUserService';
 import { DeleteUserService } from './application/DeleteUserService';
 import { PaginateRentService } from './application/PaginateRentService';
+import { RefreshStatusRentService } from './application/RefreshStatusRentService';
 import { KeycloakAdminConnector } from './infrastructure/idp/keycloak/keycloak-connector';
 import { KeycloakAdminRepository } from './infrastructure/idp/keycloak/repositories/keycloak.repository';
 import { AdminEntity } from './infrastructure/persistence/entity/admin.entity';
@@ -67,6 +70,9 @@ import { EditorController } from './infrastructure/rest/controllers/editor.contr
     KeycloakRepository,
     KeycloakConnector,
     KeycloakConfigService,
+    RefreshStatusRentService,
+    CancelRentService,
+    GetRentServive,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,

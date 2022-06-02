@@ -5,6 +5,8 @@ import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakAdminConfigModule } from '../config/keycloak-admin/config.module';
 import { KeycloakAdminConfigService } from '../config/keycloak-admin/config.service';
 import { OfficeRepository } from '../office/infrastructure/persistence/repository/office.mariadb.repository';
+import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
+import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { EditorEntity } from '../user/infrastructure/persistence/entity/editor.entity';
 import { EditorRepository } from '../user/infrastructure/persistence/repository/editor.repository';
 import { CreateVehicleService } from './application/create';
@@ -33,6 +35,8 @@ import { VehicleController } from './infrastructure/rest/controllers/vehicle.con
       VehicleImageRepository,
       EditorEntity,
       EditorRepository,
+      RentRepository,
+      RentEntity,
     ]),
     KeycloakConnectModule.registerAsync({
       useExisting: KeycloakAdminConfigService,

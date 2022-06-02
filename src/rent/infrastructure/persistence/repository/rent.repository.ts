@@ -11,7 +11,7 @@ export class RentRepository extends Repository<RentEntity> {
         renterUser: {
           email: email,
         },
-        status: In(['pending', 'checkedin']),
+        status: In(['pending', 'checkedin', 'delayed']),
       },
       order: {
         createdAt: 'DESC',
@@ -19,6 +19,7 @@ export class RentRepository extends Repository<RentEntity> {
       relations: [
         'renterUser',
         'rentedVehicle',
+        'rentedVehicle.image',
         'destinyOffice',
         'originOffice',
         'destinyOffice.municipality',
@@ -43,6 +44,7 @@ export class RentRepository extends Repository<RentEntity> {
       relations: [
         'renterUser',
         'rentedVehicle',
+        'rentedVehicle.image',
         'destinyOffice',
         'originOffice',
         'destinyOffice.municipality',

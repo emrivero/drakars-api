@@ -6,19 +6,21 @@ import { RentRepository } from '../../infrastructure/persistence/repository/rent
 export class GetRentServive {
   constructor(private readonly rentRepository: RentRepository) {}
 
-  async find(email: string, reference: string) {
+  async find(reference: string) {
     return this.rentRepository.findOne({
       where: [
         {
           reference,
-          renterUser: { email },
           status: 'pending',
           startDate: MoreThanOrEqual(new Date()),
         },
         {
           reference,
-          renterUser: { email },
           status: 'checkedin',
+        },
+        {
+          reference,
+          status: 'delayed',
         },
       ],
       relations: [

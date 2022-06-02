@@ -6,7 +6,7 @@ type Join<K, P> = K extends string
 
 type Prev = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ...0[]];
 
-export type Column<T, D extends number = 2> = [D] extends [never]
+export type Column<T, D extends number = 3> = [D] extends [never]
   ? never
   : T extends Record<string, any>
   ? {

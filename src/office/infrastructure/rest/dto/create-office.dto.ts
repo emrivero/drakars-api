@@ -1,13 +1,22 @@
-import { IsNumber, IsString, Matches, ValidateIf } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  Matches,
+  ValidateIf,
+} from 'class-validator';
 
 export class CreateOfficeDto {
   @IsString()
+  @IsNotEmpty()
   readonly name: string;
 
   @IsString()
+  @IsNotEmpty()
   readonly address: string;
 
   @IsString()
+  @IsNotEmpty()
   readonly zipCode: string;
 
   @IsNumber()

@@ -82,6 +82,17 @@ export class OfficeController {
 
   @Put(':id')
   update(@Param('id') id: number, @Body() dto: CreateOfficeDto) {
+    if (!validateHours(dto.morningOpeningTime, dto.morningClosingTime)) {
+      throw new BadRequestException(
+        'Morning opening time is greater than morning closing time',
+      );
+    }
+
+    if (!validateHours(dto.eveningOpeningTime, dto.eveningClosingTime)) {
+      throw new BadRequestException(
+        'Evening opening time is greater than morning closing time',
+      );
+    }
     const office = Office.fromDto(dto);
     return this.updateService.update(id, office);
   }

@@ -23,6 +23,9 @@ export class PaginateOfficeService {
         municipality: 'city',
       },
     ],
+    where: {
+      deleted: false,
+    },
   };
 
   static LIST_CONFIG: PaginateConfig<OfficeEntity> = {

@@ -9,6 +9,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
   UseGuards,
 } from '@nestjs/common';
 import {
@@ -24,6 +25,7 @@ import {
   Paginated,
   PaginateQuery,
 } from '../../../../lib/paginate';
+import { CancelRentService } from '../../../../rent/application/cancel-rent';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { PaginateVehicleService } from '../../../../vehicle/application/paginate';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
@@ -31,6 +33,7 @@ import { PaginateAdminService } from '../../../application/admin/PaginateAdminSe
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
 import { PaginateRentService } from '../../../application/PaginateRentService';
+import { RefreshStatusRentService } from '../../../application/RefreshStatusRentService';
 import { Role } from '../../../domain/types/role';
 import { EditorRepository } from '../../persistence/repository/editor.repository';
 import { AdminDto } from '../dtos/admin/admin-dto';
@@ -49,6 +52,8 @@ export class AdminController {
     private paginateService: PaginateAdminService,
     private paginateVehicleService: PaginateVehicleService,
     private paginateRentService: PaginateRentService,
+    private readonly refreshService: RefreshStatusRentService,
+    private readonly cancelRentService: CancelRentService,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -204,6 +209,18 @@ export class AdminController {
   @Delete('/client/:id/:email')
   async deleteClient(@Param('id') id: string, @Param('email') email: string) {
     return this.deleteClientService.delete(id, email);
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Post('/rent/refresh')
+  async refreshStatusRents() {
+    return this.refreshService.refresh();
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Put('/rent/cancel/:reference')
+  async cancelRent(@Param('reference') reference: string) {
+    return this.cancelRentService.cancel(reference);
   }
 
   async getOfficeFromUser(dto: AdminDto) {

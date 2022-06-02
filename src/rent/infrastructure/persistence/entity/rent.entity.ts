@@ -24,10 +24,6 @@ export class RentEntity extends BaseEntity {
   @ManyToOne(() => OfficeEntity)
   destinyOffice: OfficeEntity;
 
-  // @OneToOne(() => InvoiceEntity)
-  // @JoinColumn()
-  // invoice: InvoiceEntity;
-
   @Column({
     type: 'date',
   })

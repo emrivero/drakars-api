@@ -1,1 +1,6 @@
-export type RentStatus = 'pending' | 'checkedin' | 'checkedout';
+export type RentStatus =
+  | 'pending'
+  | 'checkedin'
+  | 'checkedout'
+  | 'canceled'
+  | 'delayed';

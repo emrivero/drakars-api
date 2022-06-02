@@ -30,7 +30,12 @@ export class GetOfficeService {
   }
 
   async getById(id: number) {
-    const office = await this.officeRepository.findOne(id);
+    const office = await this.officeRepository.findOne(id, {
+      where: {
+        deleted: false,
+      },
+      relations: ['municipality', 'municipality.city'],
+    });
     return office;
   }
 
@@ -39,9 +44,11 @@ export class GetOfficeService {
       relations: ['municipality', 'municipality.city'],
       where: [
         {
+          deleted: false,
           name: Like(`%${name}%`),
         },
         {
+          deleted: false,
           municipality: {
             city: {
               name: Like(`${name}%`),
@@ -49,9 +56,11 @@ export class GetOfficeService {
           },
         },
         {
+          deleted: false,
           zipCode: Like(`${name}%`),
         },
         {
+          deleted: false,
           municipality: {
             name: Like(`${name}%`),
           },

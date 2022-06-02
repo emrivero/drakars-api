@@ -27,6 +27,9 @@ export class OfficeEntity extends BaseEntity {
   @Column()
   eveningClosingTime: string;
 
+  @Column({ default: false })
+  deleted?: boolean;
+
   @ManyToOne(() => MunicipalityEntity, (municipality) => municipality.offices)
   municipality: MunicipalityEntity;
 

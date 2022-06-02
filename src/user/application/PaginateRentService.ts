@@ -12,7 +12,12 @@ import { RentRepository } from '../../rent/infrastructure/persistence/repository
 export class PaginateRentService {
   static PAGINATE_CONFIGURATION: PaginateConfig<RentEntity> = {
     sortableColumns: ['id'],
-    searchableColumns: ['reference', 'renterUser.email', 'renterUser.dni'],
+    searchableColumns: [
+      'reference',
+      'renterUser.email',
+      'renterUser.dni',
+      'rentedVehicle.id',
+    ],
     filterableColumns: {
       'originOffice.id': [FilterOperator.EQ],
       'destinyOffice.id': [FilterOperator.EQ],

@@ -12,6 +12,27 @@ export class DeleteClientService {
   ) {}
 
   async delete(id: string, email: string) {
+    const rent = await this.rentRepository.find({
+      where: [
+        {
+          renterUser: {
+            id,
+          },
+          status: 'checkedin',
+        },
+        {
+          renterUser: {
+            id,
+          },
+          status: 'delayed',
+        },
+      ],
+      relations: ['renterUser'],
+    });
+
+    if (rent.length > 0) {
+      throw new BadRequestException('User has a checked rent in');
+    }
     const user = await this.clientRepository.findOne({
       where: {
         email,
@@ -21,16 +42,6 @@ export class DeleteClientService {
       await this.keycloakRepository.deleteUser(id);
     } catch (e) {
       console.error(e);
-    }
-    const rent = await this.rentRepository.find({
-      status: 'checkedin',
-      renterUser: {
-        id,
-      },
-    });
-
-    if (rent.length > 0) {
-      throw new BadRequestException('User has a checked rent in');
     }
 
     return this.clientRepository.delete(user.id);

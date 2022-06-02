@@ -9,8 +9,15 @@ export class CancelRentService {
     private readonly getRentService: GetRentServive,
   ) {}
 
-  async cancel(dni: string, reference: string) {
-    const rentData = await this.getRentService.find(dni, reference);
-    return await this.rentRepository.remove(rentData);
+  async cancel(reference: string) {
+    const rentData = await this.rentRepository.findOne({
+      reference,
+      status: 'pending',
+    });
+    if (!rentData) {
+      return;
+    }
+    rentData.status = 'canceled';
+    return await this.rentRepository.save(rentData);
   }
 }

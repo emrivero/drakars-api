@@ -78,13 +78,21 @@ export class GetVehicleService {
                 endDate,
               });
             }),
-          ).orWhere(
-            new Brackets((qb) => {
-              qb.where('rent.endDate is null').andWhere(
-                'rent.startDate is null',
-              );
-            }),
-          );
+          )
+            .orWhere(
+              new Brackets((qb) => {
+                qb.where('rent.endDate is null').andWhere(
+                  'rent.startDate is null',
+                );
+              }),
+            )
+            .orWhere(
+              new Brackets((qb) => {
+                qb.where(
+                  `rent.status = 'canceled' or rent.status = 'checkedout'`,
+                );
+              }),
+            );
         }),
       );
 
