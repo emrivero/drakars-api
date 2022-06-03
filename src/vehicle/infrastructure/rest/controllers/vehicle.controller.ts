@@ -6,6 +6,7 @@ import {
   Get,
   HttpCode,
   Param,
+  Patch,
   Post,
   Put,
   UseGuards,
@@ -30,6 +31,7 @@ import { PaginateVehicleService } from '../../../application/paginate';
 import { UpdateVehicleService } from '../../../application/update';
 import { Vehicle } from '../../../domain/models/vehicle';
 import { VehicleEntity } from '../../persistence/entities/vehicle.entity';
+import { VehicleMariadbRepository } from '../../persistence/repositories/vehicle.mariadb.repository';
 import { AvailableVehicleDto } from '../dtos/available-vehicle';
 import { CreateVehicleDto } from '../dtos/create-vehicle';
 
@@ -43,6 +45,7 @@ export class VehicleController {
     private updateVehicleService: UpdateVehicleService,
     private deleteVehicleService: DeleteVehicleService,
     private editorRepository: EditorRepository,
+    private vehicleRepository: VehicleMariadbRepository,
   ) {}
 
   @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
@@ -110,5 +113,19 @@ export class VehicleController {
   @Delete(':id')
   delete(@Param('id') id: number) {
     return this.deleteVehicleService.delete(id);
+  }
+
+  @Unprotected()
+  @Patch(':id')
+  async changeActive(
+    @Param('id') id: number,
+    @Body() dto: { active: boolean },
+  ) {
+    if (dto && dto.active !== undefined && dto.active !== null) {
+      const active = !!dto.active;
+      const entity = await this.vehicleRepository.findOne({ id });
+      entity.active = active;
+      return this.vehicleRepository.save(entity);
+    }
   }
 }

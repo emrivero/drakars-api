@@ -223,6 +223,19 @@ export class AdminController {
     return this.cancelRentService.cancel(reference);
   }
 
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Put('rent/change-vehicle/:reference/:id')
+  async changeVehicle(
+    @Param('reference') reference: string,
+    @Param('id') id: number,
+  ) {
+    const rent = await this.rentRepository.findOne({ reference });
+    const newVehicle = new VehicleEntity();
+    newVehicle.id = id;
+    rent.rentedVehicle = newVehicle;
+    return this.rentRepository.save(rent);
+  }
+
   async getOfficeFromUser(dto: AdminDto) {
     const realm = dto?.resource_access['drakars-admin-api'];
     const roles = realm?.roles;

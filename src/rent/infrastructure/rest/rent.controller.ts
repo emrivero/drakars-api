@@ -8,11 +8,11 @@ import {
   Inject,
   NotFoundException,
   Param,
-  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
 import { AuthenticatedUser, AuthGuard, RoleGuard } from 'nest-keycloak-connect';
+import { MoreThanOrEqual } from 'typeorm';
 import { ClientDto } from '../../../client/infrastructure/rest/dtos/client.dto';
 import { GetOfficeService } from '../../../office/application/get-by-id';
 import { CancelRentService } from '../../application/cancel-rent';
@@ -20,7 +20,6 @@ import { GetRentServive } from '../../application/get-rent';
 import { RentCarService } from '../../application/rent-car';
 import { RentRepository } from '../persistence/repository/rent.repository';
 import { RentCardDto } from './dto/rent-car';
-import { UpdateRentCardDto } from './dto/update-rent-dto';
 
 @Controller('rent-car')
 export class RentController {
@@ -92,14 +91,51 @@ export class RentController {
     return this.getRentService.find(reference);
   }
 
-  @Patch(':dni/:reference')
-  updateRent(
-    @Param('dni') dni: string,
+  @Get('by-reference/:email/:reference')
+  getRentByReference(
+    @Param('email') email: string,
     @Param('reference') reference: string,
-    @Body() dto: UpdateRentCardDto,
   ) {
-    return this.rentCarService.editRent(dni, reference, dto);
+    return this.rentRepository.findOne({
+      where: [
+        {
+          renterUser: { email },
+          reference,
+          status: 'pending',
+          startDate: MoreThanOrEqual(new Date()),
+        },
+        {
+          renterUser: { email },
+          reference,
+          status: 'checkedin',
+        },
+        {
+          renterUser: { email },
+          reference,
+          status: 'delayed',
+        },
+      ],
+      relations: [
+        'rentedVehicle',
+        'renterUser',
+        'originOffice',
+        'destinyOffice',
+        'originOffice.municipality',
+        'destinyOffice.municipality',
+        'originOffice.municipality.city',
+        'destinyOffice.municipality.city',
+      ],
+    });
   }
+
+  // @Patch(':dni/:reference')
+  // updateRent(
+  //   @Param('dni') dni: string,
+  //   @Param('reference') reference: string,
+  //   @Body() dto: UpdateRentCardDto,
+  // ) {
+  //   return this.rentCarService.editRent(dni, reference, dto);
+  // }
 
   @Delete(':reference')
   async cancelRent(@Param('reference') reference: string) {

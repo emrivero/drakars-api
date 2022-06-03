@@ -39,6 +39,11 @@ export class VehicleEntity extends BaseEntity {
   })
   type: VehicleType;
 
+  @Column({
+    default: true,
+  })
+  active?: boolean;
+
   // @Column({
   //   nullable: true,
   // })

@@ -68,6 +68,7 @@ export class GetVehicleService {
       .leftJoin('vehicle.rents', 'rent')
       .leftJoinAndSelect('vehicle.image', 'image')
       .where('vehicle.office=:office', { office })
+      .andWhere('vehicle.active = :active', { active: true })
       .andWhere(
         new Brackets((qb) => {
           qb.where(
