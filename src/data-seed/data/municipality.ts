@@ -317,7 +317,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '012',
   },
   {
-    name: 'Ballestero, El',
+    name: 'Ballestero',
     city_code: '02',
     code: '014',
   },
@@ -347,7 +347,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '018',
   },
   {
-    name: 'Bonillo, El',
+    name: 'Bonillo',
     city_code: '02',
     code: '019',
   },
@@ -427,7 +427,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '034',
   },
   {
-    name: 'Gineta, La',
+    name: 'Gineta',
     city_code: '02',
     code: '035',
   },
@@ -442,7 +442,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '037',
   },
   {
-    name: 'Herrera, La',
+    name: 'Herrera',
     city_code: '02',
     code: '038',
   },
@@ -587,7 +587,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '065',
   },
   {
-    name: 'Recueja, La',
+    name: 'Recueja',
     city_code: '02',
     code: '066',
   },
@@ -602,7 +602,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '068',
   },
   {
-    name: 'Roda, La',
+    name: 'Roda',
     city_code: '02',
     code: '069',
   },
@@ -737,7 +737,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '010',
   },
   {
-    name: "Alfàs del Pi, l'",
+    name: 'Alfàs del Pi',
     city_code: '03',
     code: '011',
   },
@@ -767,7 +767,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '016',
   },
   {
-    name: "Alqueria d'Asnar, l'",
+    name: "Alqueria d'Asnar",
     city_code: '03',
     code: '017',
   },
@@ -782,7 +782,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '019',
   },
   {
-    name: "Atzúbia, l'",
+    name: 'Atzúbia',
     city_code: '03',
     code: '001',
   },
@@ -897,7 +897,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '041',
   },
   {
-    name: 'Benitachell/Poble Nou de Benitatxell, el',
+    name: 'Benitachell/Poble Nou de Benitatxell',
     city_code: '03',
     code: '042',
   },
@@ -937,12 +937,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '047',
   },
   {
-    name: 'Campello, el',
+    name: 'Campello',
     city_code: '03',
     code: '050',
   },
   {
-    name: 'Campo de Mirra/Camp de Mirra, el',
+    name: 'Campo de Mirra/Camp de Mirra',
     city_code: '03',
     code: '051',
   },
@@ -962,7 +962,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '054',
   },
   {
-    name: 'Castell de Guadalest, el',
+    name: 'Castell de Guadalest',
     city_code: '03',
     code: '075',
   },
@@ -1037,7 +1037,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '069',
   },
   {
-    name: 'Fondó de les Neus, el/Hondón de las Nieves',
+    name: 'Fondó de les Neus',
     city_code: '03',
     code: '077',
   },
@@ -1102,7 +1102,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '085',
   },
   {
-    name: "Lorcha/Orxa, l'",
+    name: 'Lorcha/Orxa',
     city_code: '03',
     code: '084',
   },
@@ -1122,7 +1122,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '089',
   },
   {
-    name: 'Montesinos, Los',
+    name: 'Montesinos',
     city_code: '03',
     code: '903',
   },
@@ -1147,7 +1147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '093',
   },
   {
-    name: 'Nucia, la',
+    name: 'Nucia',
     city_code: '03',
     code: '094',
   },
@@ -1207,7 +1207,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '902',
   },
   {
-    name: 'Pinós, el/Pinoso',
+    name: 'Pinós',
     city_code: '03',
     code: '105',
   },
@@ -1217,7 +1217,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '106',
   },
   {
-    name: 'Poblets, els',
+    name: 'Poblets',
     city_code: '03',
     code: '901',
   },
@@ -1237,7 +1237,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '109',
   },
   {
-    name: "Ràfol d'Almúnia, el",
+    name: "Ràfol d'Almúnia",
     city_code: '03',
     code: '110',
   },
@@ -1257,7 +1257,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '113',
   },
   {
-    name: 'Romana, la',
+    name: 'Romana',
     city_code: '03',
     code: '114',
   },
@@ -1347,7 +1347,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '131',
   },
   {
-    name: 'Torremanzanas/Torre de les Maçanes, la',
+    name: 'Torremanzanas/Torre de les Maçanes',
     city_code: '03',
     code: '132',
   },
@@ -1357,7 +1357,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '133',
   },
   {
-    name: "Vall d'Alcalà, la",
+    name: "Vall d'Alcalà",
     city_code: '03',
     code: '134',
   },
@@ -1367,22 +1367,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '136',
   },
   {
-    name: 'Vall de Laguar, la',
+    name: 'Vall de Laguar',
     city_code: '03',
     code: '137',
   },
   {
-    name: "Vall d'Ebo, la",
+    name: "Vall d'Ebo",
     city_code: '03',
     code: '135',
   },
   {
-    name: 'Verger, el',
+    name: 'Verger',
     city_code: '03',
     code: '138',
   },
   {
-    name: 'Villajoyosa/Vila Joiosa, la',
+    name: 'Villajoyosa/Vila Joiosa',
     city_code: '03',
     code: '139',
   },
@@ -1587,7 +1587,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '038',
   },
   {
-    name: 'Ejido, El',
+    name: 'Ejido',
     city_code: '04',
     code: '902',
   },
@@ -1622,7 +1622,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '047',
   },
   {
-    name: 'Gallardos, Los',
+    name: 'Gallardos',
     city_code: '04',
     code: '048',
   },
@@ -1707,7 +1707,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '064',
   },
   {
-    name: 'Mojonera, La',
+    name: 'Mojonera',
     city_code: '04',
     code: '903',
   },
@@ -1852,7 +1852,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '092',
   },
   {
-    name: 'Tres Villas, Las',
+    name: 'Tres Villas',
     city_code: '04',
     code: '901',
   },
@@ -1917,7 +1917,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '001',
   },
   {
-    name: 'Adrada, La',
+    name: 'Adrada',
     city_code: '05',
     code: '002',
   },
@@ -1937,7 +1937,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '008',
   },
   {
-    name: 'Aldehuela, La',
+    name: 'Aldehuela',
     city_code: '05',
     code: '010',
   },
@@ -1947,7 +1947,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '012',
   },
   {
-    name: 'Arenal, El',
+    name: 'Arenal',
     city_code: '05',
     code: '013',
   },
@@ -1982,12 +1982,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '019',
   },
   {
-    name: 'Barco de Ávila, El',
+    name: 'Barco de Ávila',
     city_code: '05',
     code: '021',
   },
   {
-    name: 'Barraco, El',
+    name: 'Barraco',
     city_code: '05',
     code: '022',
   },
@@ -2012,7 +2012,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '026',
   },
   {
-    name: 'Berlanas, Las',
+    name: 'Berlanas',
     city_code: '05',
     code: '027',
   },
@@ -2042,7 +2042,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Bohodón, El',
+    name: 'Bohodón',
     city_code: '05',
     code: '036',
   },
@@ -2112,7 +2112,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '049',
   },
   {
-    name: 'Carrera, La',
+    name: 'Carrera',
     city_code: '05',
     code: '051',
   },
@@ -2167,7 +2167,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '060',
   },
   {
-    name: 'Colilla, La',
+    name: 'Colilla',
     city_code: '05',
     code: '061',
   },
@@ -2232,7 +2232,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '075',
   },
   {
-    name: 'Fresno, El',
+    name: 'Fresno',
     city_code: '05',
     code: '076',
   },
@@ -2327,12 +2327,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '095',
   },
   {
-    name: 'Hija de Dios, La',
+    name: 'Hija de Dios',
     city_code: '05',
     code: '096',
   },
   {
-    name: 'Horcajada, La',
+    name: 'Horcajada',
     city_code: '05',
     code: '097',
   },
@@ -2342,12 +2342,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '099',
   },
   {
-    name: 'Hornillo, El',
+    name: 'Hornillo',
     city_code: '05',
     code: '100',
   },
   {
-    name: 'Hoyo de Pinares, El',
+    name: 'Hoyo de Pinares',
     city_code: '05',
     code: '102',
   },
@@ -2397,12 +2397,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '110',
   },
   {
-    name: 'Llanos de Tormes, Los',
+    name: 'Llanos de Tormes',
     city_code: '05',
     code: '113',
   },
   {
-    name: 'Losar del Barco, El',
+    name: 'Losar del Barco',
     city_code: '05',
     code: '112',
   },
@@ -2482,7 +2482,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '128',
   },
   {
-    name: 'Mirón, El',
+    name: 'Mirón',
     city_code: '05',
     code: '129',
   },
@@ -2662,7 +2662,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Navas del Marqués, Las',
+    name: 'Navas del Marqués',
     city_code: '05',
     code: '168',
   },
@@ -2697,7 +2697,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '174',
   },
   {
-    name: 'Oso, El',
+    name: 'Oso',
     city_code: '05',
     code: '175',
   },
@@ -2722,7 +2722,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '179',
   },
   {
-    name: 'Parral, El',
+    name: 'Parral',
     city_code: '05',
     code: '180',
   },
@@ -2982,7 +2982,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '230',
   },
   {
-    name: 'Serrada, La',
+    name: 'Serrada',
     city_code: '05',
     code: '232',
   },
@@ -3027,7 +3027,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '240',
   },
   {
-    name: 'Tiemblo, El',
+    name: 'Tiemblo',
     city_code: '05',
     code: '241',
   },
@@ -3052,7 +3052,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '245',
   },
   {
-    name: 'Torre, La',
+    name: 'Torre',
     city_code: '05',
     code: '247',
   },
@@ -3172,7 +3172,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '004',
   },
   {
-    name: 'Albuera, La',
+    name: 'Albuera',
     city_code: '06',
     code: '005',
   },
@@ -3307,7 +3307,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '031',
   },
   {
-    name: 'Carrascalejo, El',
+    name: 'Carrascalejo',
     city_code: '06',
     code: '032',
   },
@@ -3337,7 +3337,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '042',
   },
   {
-    name: 'Codosera, La',
+    name: 'Codosera',
     city_code: '06',
     code: '037',
   },
@@ -3347,7 +3347,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '038',
   },
   {
-    name: 'Coronada, La',
+    name: 'Coronada',
     city_code: '06',
     code: '039',
   },
@@ -3437,7 +3437,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '057',
   },
   {
-    name: 'Garrovilla, La',
+    name: 'Garrovilla',
     city_code: '06',
     code: '058',
   },
@@ -3457,7 +3457,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '060',
   },
   {
-    name: 'Haba, La',
+    name: 'Haba',
     city_code: '06',
     code: '061',
   },
@@ -3507,7 +3507,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '070',
   },
   {
-    name: 'Lapa, La',
+    name: 'Lapa',
     city_code: '06',
     code: '071',
   },
@@ -3597,12 +3597,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '088',
   },
   {
-    name: 'Morera, La',
+    name: 'Morera',
     city_code: '06',
     code: '089',
   },
   {
-    name: 'Nava de Santiago, La',
+    name: 'Nava de Santiago',
     city_code: '06',
     code: '090',
   },
@@ -3647,7 +3647,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '098',
   },
   {
-    name: 'Parra, La',
+    name: 'Parra',
     city_code: '06',
     code: '099',
   },
@@ -3732,7 +3732,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '114',
   },
   {
-    name: 'Roca de la Sierra, La',
+    name: 'Roca de la Sierra',
     city_code: '06',
     code: '115',
   },
@@ -3772,7 +3772,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '121',
   },
   {
-    name: 'Santos de Maimona, Los',
+    name: 'Santos de Maimona',
     city_code: '06',
     code: '122',
   },
@@ -3967,7 +3967,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '160',
   },
   {
-    name: 'Zarza, La',
+    name: 'Zarza',
     city_code: '06',
     code: '162',
   },
@@ -4052,7 +4052,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '014',
   },
   {
-    name: 'Castell, Es',
+    name: 'Castell',
     city_code: '07',
     code: '064',
   },
@@ -4167,12 +4167,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '036',
   },
   {
-    name: 'Mercadal, Es',
+    name: 'Mercadal',
     city_code: '07',
     code: '037',
   },
   {
-    name: 'Migjorn Gran, Es',
+    name: 'Migjorn Gran',
     city_code: '07',
     code: '902',
   },
@@ -4197,7 +4197,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '041',
   },
   {
-    name: 'Pobla, Sa',
+    name: 'Pobla',
     city_code: '07',
     code: '044',
   },
@@ -4217,7 +4217,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '045',
   },
   {
-    name: 'Salines, Ses',
+    name: 'Salines',
     city_code: '07',
     code: '059',
   },
@@ -4337,7 +4337,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '004',
   },
   {
-    name: "Ametlla del Vallès, L'",
+    name: 'Ametlla del Vallès',
     city_code: '08',
     code: '005',
   },
@@ -4442,17 +4442,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '024',
   },
   {
-    name: 'Bruc, El',
+    name: 'Bruc',
     city_code: '08',
     code: '025',
   },
   {
-    name: 'Brull, El',
+    name: 'Brull',
     city_code: '08',
     code: '026',
   },
   {
-    name: 'Cabanyes, Les',
+    name: 'Cabanyes',
     city_code: '08',
     code: '027',
   },
@@ -4717,17 +4717,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '077',
   },
   {
-    name: "Espunyola, L'",
+    name: 'Espunyola',
     city_code: '08',
     code: '078',
   },
   {
-    name: "Esquirol, L'",
+    name: 'Esquirol',
     city_code: '08',
     code: '254',
   },
   {
-    name: "Estany, L'",
+    name: 'Estany',
     city_code: '08',
     code: '079',
   },
@@ -4767,7 +4767,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '085',
   },
   {
-    name: 'Franqueses del Vallès, Les',
+    name: 'Franqueses del Vallès',
     city_code: '08',
     code: '086',
   },
@@ -4782,7 +4782,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '087',
   },
   {
-    name: 'Garriga, La',
+    name: 'Garriga',
     city_code: '08',
     code: '088',
   },
@@ -4807,7 +4807,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '093',
   },
   {
-    name: 'Granada, La',
+    name: 'Granada',
     city_code: '08',
     code: '094',
   },
@@ -4837,12 +4837,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '100',
   },
   {
-    name: "Hospitalet de Llobregat, L'",
+    name: 'Hospitalet de Llobregat',
     city_code: '08',
     code: '101',
   },
   {
-    name: 'Hostalets de Pierola, Els',
+    name: 'Hostalets de Pierola',
     city_code: '08',
     code: '162',
   },
@@ -4857,12 +4857,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '103',
   },
   {
-    name: 'Llacuna, La',
+    name: 'Llacuna',
     city_code: '08',
     code: '104',
   },
   {
-    name: 'Llagosta, La',
+    name: 'Llagosta',
     city_code: '08',
     code: '105',
   },
@@ -4922,17 +4922,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '115',
   },
   {
-    name: 'Masies de Roda, Les',
+    name: 'Masies de Roda',
     city_code: '08',
     code: '116',
   },
   {
-    name: 'Masies de Voltregà, Les',
+    name: 'Masies de Voltregà',
     city_code: '08',
     code: '117',
   },
   {
-    name: 'Masnou, El',
+    name: 'Masnou',
     city_code: '08',
     code: '118',
   },
@@ -5047,7 +5047,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '141',
   },
   {
-    name: 'Nou de Berguedà, La',
+    name: 'Nou de Berguedà',
     city_code: '08',
     code: '142',
   },
@@ -5127,12 +5127,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '157',
   },
   {
-    name: 'Palma de Cervelló, La',
+    name: 'Palma de Cervelló',
     city_code: '08',
     code: '905',
   },
   {
-    name: 'Papiol, El',
+    name: 'Papiol',
     city_code: '08',
     code: '158',
   },
@@ -5157,17 +5157,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '163',
   },
   {
-    name: 'Pla del Penedès, El',
+    name: 'Pla del Penedès',
     city_code: '08',
     code: '164',
   },
   {
-    name: 'Pobla de Claramunt, La',
+    name: 'Pobla de Claramunt',
     city_code: '08',
     code: '165',
   },
   {
-    name: 'Pobla de Lillet, La',
+    name: 'Pobla de Lillet',
     city_code: '08',
     code: '166',
   },
@@ -5177,7 +5177,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Pont de Vilomara i Rocafort, El',
+    name: 'Pont de Vilomara i Rocafort',
     city_code: '08',
     code: '182',
   },
@@ -5187,7 +5187,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '168',
   },
   {
-    name: 'Prat de Llobregat, El',
+    name: 'Prat de Llobregat',
     city_code: '08',
     code: '169',
   },
@@ -5197,7 +5197,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '171',
   },
   {
-    name: 'Prats de Rei, Els',
+    name: 'Prats de Rei',
     city_code: '08',
     code: '170',
   },
@@ -5227,7 +5227,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '176',
   },
   {
-    name: 'Quar, La',
+    name: 'Quar',
     city_code: '08',
     code: '177',
   },
@@ -5247,7 +5247,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '180',
   },
   {
-    name: 'Roca del Vallès, La',
+    name: 'Roca del Vallès',
     city_code: '08',
     code: '181',
   },
@@ -5737,7 +5737,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '285',
   },
   {
-    name: 'Torre de Claramunt, La',
+    name: 'Torre de Claramunt',
     city_code: '08',
     code: '286',
   },
@@ -5917,7 +5917,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '013',
   },
   {
-    name: 'Altos, Los',
+    name: 'Altos',
     city_code: '09',
     code: '014',
   },
@@ -5987,7 +5987,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '029',
   },
   {
-    name: 'Ausines, Los',
+    name: 'Ausines',
     city_code: '09',
     code: '030',
   },
@@ -6002,7 +6002,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '033',
   },
   {
-    name: 'Balbases, Los',
+    name: 'Balbases',
     city_code: '09',
     code: '034',
   },
@@ -6037,7 +6037,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '041',
   },
   {
-    name: 'Barrios de Bureba, Los',
+    name: 'Barrios de Bureba',
     city_code: '09',
     code: '043',
   },
@@ -6332,7 +6332,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '115',
   },
   {
-    name: 'Cueva de Roa, La',
+    name: 'Cueva de Roa',
     city_code: '09',
     code: '117',
   },
@@ -6447,7 +6447,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '143',
   },
   {
-    name: 'Gallega, La',
+    name: 'Gallega',
     city_code: '09',
     code: '144',
   },
@@ -6507,7 +6507,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '163',
   },
   {
-    name: 'Hormazas, Las',
+    name: 'Hormazas',
     city_code: '09',
     code: '166',
   },
@@ -6517,7 +6517,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Horra, La',
+    name: 'Horra',
     city_code: '09',
     code: '168',
   },
@@ -6942,7 +6942,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '275',
   },
   {
-    name: 'Puebla de Arganzón, La',
+    name: 'Puebla de Arganzón',
     city_code: '09',
     code: '276',
   },
@@ -7017,7 +7017,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '301',
   },
   {
-    name: 'Quintanillas, Las',
+    name: 'Quintanillas',
     city_code: '09',
     code: '297',
   },
@@ -7077,7 +7077,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '316',
   },
   {
-    name: 'Revilla y Ahedo, La',
+    name: 'Revilla y Ahedo',
     city_code: '09',
     code: '312',
   },
@@ -7257,7 +7257,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '363',
   },
   {
-    name: 'Sequera de Haza, La',
+    name: 'Sequera de Haza',
     city_code: '09',
     code: '365',
   },
@@ -7487,12 +7487,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '407',
   },
   {
-    name: 'Vid de Bureba, La',
+    name: 'Vid de Bureba',
     city_code: '09',
     code: '422',
   },
   {
-    name: 'Vid y Barrios, La',
+    name: 'Vid y Barrios',
     city_code: '09',
     code: '421',
   },
@@ -7782,7 +7782,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '012',
   },
   {
-    name: 'Aldea del Obispo, La',
+    name: 'Aldea del Obispo',
     city_code: '10',
     code: '013',
   },
@@ -8067,7 +8067,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '068',
   },
   {
-    name: 'Cumbre, La',
+    name: 'Cumbre',
     city_code: '10',
     code: '069',
   },
@@ -8112,7 +8112,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '079',
   },
   {
-    name: 'Garganta, La',
+    name: 'Garganta',
     city_code: '10',
     code: '078',
   },
@@ -8142,12 +8142,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '084',
   },
   {
-    name: 'Gordo, El',
+    name: 'Gordo',
     city_code: '10',
     code: '085',
   },
   {
-    name: 'Granja, La',
+    name: 'Granja',
     city_code: '10',
     code: '086',
   },
@@ -8437,7 +8437,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '143',
   },
   {
-    name: 'Pesga, La',
+    name: 'Pesga',
     city_code: '10',
     code: '144',
   },
@@ -8652,7 +8652,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '183',
   },
   {
-    name: 'Torno, El',
+    name: 'Torno',
     city_code: '10',
     code: '184',
   },
@@ -8872,7 +8872,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '007',
   },
   {
-    name: 'Barrios, Los',
+    name: 'Barrios',
     city_code: '11',
     code: '008',
   },
@@ -8892,7 +8892,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '010',
   },
   {
-    name: 'Bosque, El',
+    name: 'Bosque',
     city_code: '11',
     code: '011',
   },
@@ -8927,7 +8927,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Gastor, El',
+    name: 'Gastor',
     city_code: '11',
     code: '018',
   },
@@ -8947,7 +8947,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '021',
   },
   {
-    name: 'Línea de la Concepción, La',
+    name: 'Línea de la Concepción',
     city_code: '11',
     code: '022',
   },
@@ -8972,7 +8972,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '026',
   },
   {
-    name: 'Puerto de Santa María, El',
+    name: 'Puerto de Santa María',
     city_code: '11',
     code: '027',
   },
@@ -9077,7 +9077,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '004',
   },
   {
-    name: "Alcora, l'",
+    name: 'Alcora',
     city_code: '12',
     code: '005',
   },
@@ -9112,7 +9112,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '011',
   },
   {
-    name: 'Alqueries, les/Alquerías del Niño Perdido',
+    name: 'Alqueries',
     city_code: '12',
     code: '901',
   },
@@ -9302,7 +9302,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '049',
   },
   {
-    name: 'Coves de Vinromà, les',
+    name: 'Coves de Vinromà',
     city_code: '12',
     code: '050',
   },
@@ -9367,7 +9367,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '069',
   },
   {
-    name: 'Jana, la',
+    name: 'Jana',
     city_code: '12',
     code: '070',
   },
@@ -9377,7 +9377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '071',
   },
   {
-    name: 'Llosa, la',
+    name: 'Llosa',
     city_code: '12',
     code: '074',
   },
@@ -9392,7 +9392,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '073',
   },
   {
-    name: 'Mata de Morella, la',
+    name: 'Mata de Morella',
     city_code: '12',
     code: '075',
   },
@@ -9467,12 +9467,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '090',
   },
   {
-    name: 'Pobla de Benifassà, la',
+    name: 'Pobla de Benifassà',
     city_code: '12',
     code: '093',
   },
   {
-    name: 'Pobla Tornesa, la',
+    name: 'Pobla Tornesa',
     city_code: '12',
     code: '094',
   },
@@ -9502,7 +9502,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '097',
   },
   {
-    name: 'Salzadella, la',
+    name: 'Salzadella',
     city_code: '12',
     code: '098',
   },
@@ -9537,7 +9537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '104',
   },
   {
-    name: 'Serratella, la',
+    name: 'Serratella',
     city_code: '12',
     code: '103',
   },
@@ -9592,7 +9592,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '114',
   },
   {
-    name: 'Toro, El',
+    name: 'Toro',
     city_code: '12',
     code: '115',
   },
@@ -9602,12 +9602,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '116',
   },
   {
-    name: "Torre d'En Besora, la",
+    name: "Torre d'En Besora",
     city_code: '12',
     code: '119',
   },
   {
-    name: "Torre d'en Doménec, la",
+    name: "Torre d'en Doménec",
     city_code: '12',
     code: '120',
   },
@@ -9627,7 +9627,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '121',
   },
   {
-    name: 'Useras/Useres, les',
+    name: 'Useras/Useres',
     city_code: '12',
     code: '122',
   },
@@ -9642,7 +9642,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '125',
   },
   {
-    name: "Vall d'Uixó, la",
+    name: "Vall d'Uixó",
     city_code: '12',
     code: '126',
   },
@@ -9682,7 +9682,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '135',
   },
   {
-    name: 'Vilavella, la',
+    name: 'Vilavella',
     city_code: '12',
     code: '136',
   },
@@ -9922,7 +9922,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Cortijos, Los',
+    name: 'Cortijos',
     city_code: '13',
     code: '036',
   },
@@ -9987,7 +9987,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '049',
   },
   {
-    name: 'Labores, Las',
+    name: 'Labores',
     city_code: '13',
     code: '050',
   },
@@ -10077,7 +10077,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '066',
   },
   {
-    name: 'Pozuelos de Calatrava, Los',
+    name: 'Pozuelos de Calatrava',
     city_code: '13',
     code: '067',
   },
@@ -10107,7 +10107,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '072',
   },
   {
-    name: 'Robledo, El',
+    name: 'Robledo',
     city_code: '13',
     code: '901',
   },
@@ -10152,7 +10152,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '080',
   },
   {
-    name: 'Solana, La',
+    name: 'Solana',
     city_code: '13',
     code: '079',
   },
@@ -10297,7 +10297,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '010',
   },
   {
-    name: 'Blázquez, Los',
+    name: 'Blázquez',
     city_code: '14',
     code: '011',
   },
@@ -10327,12 +10327,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '016',
   },
   {
-    name: 'Carlota, La',
+    name: 'Carlota',
     city_code: '14',
     code: '017',
   },
   {
-    name: 'Carpio, El',
+    name: 'Carpio',
     city_code: '14',
     code: '018',
   },
@@ -10407,7 +10407,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '031',
   },
   {
-    name: 'Granjuela, La',
+    name: 'Granjuela',
     city_code: '14',
     code: '032',
   },
@@ -10417,12 +10417,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '033',
   },
   {
-    name: 'Guijarrosa, La',
+    name: 'Guijarrosa',
     city_code: '14',
     code: '902',
   },
   {
-    name: 'Guijo, El',
+    name: 'Guijo',
     city_code: '14',
     code: '034',
   },
@@ -10537,7 +10537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '056',
   },
   {
-    name: 'Rambla, La',
+    name: 'Rambla',
     city_code: '14',
     code: '057',
   },
@@ -10577,7 +10577,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '064',
   },
   {
-    name: 'Victoria, La',
+    name: 'Victoria',
     city_code: '14',
     code: '065',
   },
@@ -10622,7 +10622,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '073',
   },
   {
-    name: 'Viso, El',
+    name: 'Viso',
     city_code: '14',
     code: '074',
   },
@@ -10662,7 +10662,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '006',
   },
   {
-    name: 'Baña, A',
+    name: 'Baña',
     city_code: '15',
     code: '007',
   },
@@ -10717,7 +10717,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Capela, A',
+    name: 'Capela',
     city_code: '15',
     code: '018',
   },
@@ -10777,7 +10777,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '029',
   },
   {
-    name: 'Coruña, A',
+    name: 'Coruña',
     city_code: '15',
     code: '030',
   },
@@ -10827,7 +10827,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '039',
   },
   {
-    name: 'Laracha, A',
+    name: 'Laracha',
     city_code: '15',
     code: '041',
   },
@@ -10957,12 +10957,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '065',
   },
   {
-    name: 'Pino, O',
+    name: 'Pino',
     city_code: '15',
     code: '066',
   },
   {
-    name: 'Pobra do Caramiñal, A',
+    name: 'Pobra do Caramiñal',
     city_code: '15',
     code: '067',
   },
@@ -10977,7 +10977,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '069',
   },
   {
-    name: 'Pontes de García Rodríguez, As',
+    name: 'Pontes de García Rodríguez',
     city_code: '15',
     code: '070',
   },
@@ -11032,7 +11032,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '080',
   },
   {
-    name: 'Somozas, As',
+    name: 'Somozas',
     city_code: '15',
     code: '081',
   },
@@ -11102,7 +11102,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '001',
   },
   {
-    name: 'Acebrón, El',
+    name: 'Acebrón',
     city_code: '16',
     code: '002',
   },
@@ -11127,7 +11127,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '006',
   },
   {
-    name: 'Alberca de Záncara, La',
+    name: 'Alberca de Záncara',
     city_code: '16',
     code: '007',
   },
@@ -11167,7 +11167,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '014',
   },
   {
-    name: 'Almarcha, La',
+    name: 'Almarcha',
     city_code: '16',
     code: '015',
   },
@@ -11327,7 +11327,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '048',
   },
   {
-    name: 'Cañavate, El',
+    name: 'Cañavate',
     city_code: '16',
     code: '049',
   },
@@ -11447,7 +11447,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '081',
   },
   {
-    name: 'Cierva, La',
+    name: 'Cierva',
     city_code: '16',
     code: '074',
   },
@@ -11477,7 +11477,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '084',
   },
   {
-    name: 'Frontera, La',
+    name: 'Frontera',
     city_code: '16',
     code: '085',
   },
@@ -11542,22 +11542,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '097',
   },
   {
-    name: 'Herrumblar, El',
+    name: 'Herrumblar',
     city_code: '16',
     code: '098',
   },
   {
-    name: 'Hinojosa, La',
+    name: 'Hinojosa',
     city_code: '16',
     code: '099',
   },
   {
-    name: 'Hinojosos, Los',
+    name: 'Hinojosos',
     city_code: '16',
     code: '100',
   },
   {
-    name: 'Hito, El',
+    name: 'Hito',
     city_code: '16',
     code: '101',
   },
@@ -11642,7 +11642,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '119',
   },
   {
-    name: 'Majadas, Las',
+    name: 'Majadas',
     city_code: '16',
     code: '121',
   },
@@ -11657,7 +11657,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '123',
   },
   {
-    name: 'Mesas, Las',
+    name: 'Mesas',
     city_code: '16',
     code: '124',
   },
@@ -11777,37 +11777,37 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '151',
   },
   {
-    name: 'Parra de las Vegas, La',
+    name: 'Parra de las Vegas',
     city_code: '16',
     code: '152',
   },
   {
-    name: 'Pedernoso, El',
+    name: 'Pedernoso',
     city_code: '16',
     code: '153',
   },
   {
-    name: 'Pedroñeras, Las',
+    name: 'Pedroñeras',
     city_code: '16',
     code: '154',
   },
   {
-    name: 'Peral, El',
+    name: 'Peral',
     city_code: '16',
     code: '155',
   },
   {
-    name: 'Peraleja, La',
+    name: 'Peraleja',
     city_code: '16',
     code: '156',
   },
   {
-    name: 'Pesquera, La',
+    name: 'Pesquera',
     city_code: '16',
     code: '157',
   },
   {
-    name: 'Picazo, El',
+    name: 'Picazo',
     city_code: '16',
     code: '158',
   },
@@ -11857,7 +11857,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Pozuelo, El',
+    name: 'Pozuelo',
     city_code: '16',
     code: '169',
   },
@@ -11867,7 +11867,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '170',
   },
   {
-    name: 'Provencio, El',
+    name: 'Provencio',
     city_code: '16',
     code: '171',
   },
@@ -12052,7 +12052,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '219',
   },
   {
-    name: 'Valdecolmenas, Los',
+    name: 'Valdecolmenas',
     city_code: '16',
     code: '906',
   },
@@ -12082,7 +12082,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '902',
   },
   {
-    name: 'Valeras, Las',
+    name: 'Valeras',
     city_code: '16',
     code: '903',
   },
@@ -12092,7 +12092,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '231',
   },
   {
-    name: 'Valle de Altomira, El',
+    name: 'Valle de Altomira',
     city_code: '16',
     code: '173',
   },
@@ -12332,7 +12332,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '010',
   },
   {
-    name: "Armentera, L'",
+    name: 'Armentera',
     city_code: '17',
     code: '011',
   },
@@ -12377,7 +12377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '021',
   },
   {
-    name: "Bisbal d'Empordà, La",
+    name: "Bisbal d'Empordà",
     city_code: '17',
     code: '022',
   },
@@ -12507,7 +12507,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '048',
   },
   {
-    name: 'Cellera de Ter, La',
+    name: 'Cellera de Ter',
     city_code: '17',
     code: '189',
   },
@@ -12552,7 +12552,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '058',
   },
   {
-    name: "Cruïlles, Monells i Sant Sadurní de l'Heura",
+    name: 'Cruïlles',
     city_code: '17',
     code: '901',
   },
@@ -12567,7 +12567,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '061',
   },
   {
-    name: "Escala, L'",
+    name: 'Escala',
     city_code: '17',
     code: '062',
   },
@@ -12587,7 +12587,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '065',
   },
   {
-    name: "Far d'Empordà, El",
+    name: "Far d'Empordà",
     city_code: '17',
     code: '005',
   },
@@ -12692,7 +12692,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '085',
   },
   {
-    name: 'Jonquera, La',
+    name: 'Jonquera',
     city_code: '17',
     code: '086',
   },
@@ -12742,7 +12742,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '095',
   },
   {
-    name: 'Llosses, Les',
+    name: 'Llosses',
     city_code: '17',
     code: '096',
   },
@@ -12887,7 +12887,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '129',
   },
   {
-    name: 'Pera, La',
+    name: 'Pera',
     city_code: '17',
     code: '130',
   },
@@ -12897,7 +12897,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '132',
   },
   {
-    name: "Planes d'Hostoles, Les",
+    name: "Planes d'Hostoles",
     city_code: '17',
     code: '133',
   },
@@ -12922,7 +12922,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '137',
   },
   {
-    name: 'Port de la Selva, El',
+    name: 'Port de la Selva',
     city_code: '17',
     code: '140',
   },
@@ -12932,7 +12932,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '138',
   },
   {
-    name: 'Preses, Les',
+    name: 'Preses',
     city_code: '17',
     code: '139',
   },
@@ -13162,12 +13162,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '186',
   },
   {
-    name: 'Saus, Camallera i Llampaies',
+    name: 'Saus',
     city_code: '17',
     code: '187',
   },
   {
-    name: 'Selva de Mar, La',
+    name: 'Selva de Mar',
     city_code: '17',
     code: '188',
   },
@@ -13202,7 +13202,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '194',
   },
   {
-    name: "Tallada d'Empordà, La",
+    name: "Tallada d'Empordà",
     city_code: '17',
     code: '195',
   },
@@ -13262,17 +13262,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '206',
   },
   {
-    name: 'Vajol, La',
+    name: 'Vajol',
     city_code: '17',
     code: '014',
   },
   {
-    name: 'Vall de Bianya, La',
+    name: 'Vall de Bianya',
     city_code: '17',
     code: '208',
   },
   {
-    name: "Vall d'en Bas, La",
+    name: "Vall d'en Bas",
     city_code: '17',
     code: '207',
   },
@@ -13552,7 +13552,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '036',
   },
   {
-    name: 'Calahorra, La',
+    name: 'Calahorra',
     city_code: '18',
     code: '114',
   },
@@ -13747,7 +13747,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '079',
   },
   {
-    name: 'Gabias, Las',
+    name: 'Gabias',
     city_code: '18',
     code: '905',
   },
@@ -13792,7 +13792,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '089',
   },
   {
-    name: 'Guájares, Los',
+    name: 'Guájares',
     city_code: '18',
     code: '906',
   },
@@ -13932,7 +13932,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '124',
   },
   {
-    name: 'Malahá, La',
+    name: 'Malahá',
     city_code: '18',
     code: '126',
   },
@@ -14052,12 +14052,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '153',
   },
   {
-    name: 'Peza, La',
+    name: 'Peza',
     city_code: '18',
     code: '154',
   },
   {
-    name: 'Pinar, El',
+    name: 'Pinar',
     city_code: '18',
     code: '910',
   },
@@ -14147,7 +14147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '177',
   },
   {
-    name: 'Taha, La',
+    name: 'Taha',
     city_code: '18',
     code: '901',
   },
@@ -14192,7 +14192,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '907',
   },
   {
-    name: 'Valle, El',
+    name: 'Valle',
     city_code: '18',
     code: '902',
   },
@@ -14252,7 +14252,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '913',
   },
   {
-    name: 'Zubia, La',
+    name: 'Zubia',
     city_code: '18',
     code: '193',
   },
@@ -14477,7 +14477,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '051',
   },
   {
-    name: 'Bodera, La',
+    name: 'Bodera',
     city_code: '19',
     code: '052',
   },
@@ -14537,7 +14537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '066',
   },
   {
-    name: 'Cardoso de la Sierra, El',
+    name: 'Cardoso de la Sierra',
     city_code: '19',
     code: '067',
   },
@@ -14547,7 +14547,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '070',
   },
   {
-    name: 'Casar, El',
+    name: 'Casar',
     city_code: '19',
     code: '071',
   },
@@ -14677,7 +14677,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '099',
   },
   {
-    name: 'Cubillo de Uceda, El',
+    name: 'Cubillo de Uceda',
     city_code: '19',
     code: '102',
   },
@@ -14847,7 +14847,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '145',
   },
   {
-    name: 'Huerce, La',
+    name: 'Huerce',
     city_code: '19',
     code: '146',
   },
@@ -14882,7 +14882,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '153',
   },
   {
-    name: 'Inviernas, Las',
+    name: 'Inviernas',
     city_code: '19',
     code: '154',
   },
@@ -15007,7 +15007,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '181',
   },
   {
-    name: 'Mierla, La',
+    name: 'Mierla',
     city_code: '19',
     code: '182',
   },
@@ -15022,7 +15022,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '183',
   },
   {
-    name: 'Miñosa, La',
+    name: 'Miñosa',
     city_code: '19',
     code: '185',
   },
@@ -15082,7 +15082,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '196',
   },
   {
-    name: 'Navas de Jadraque, Las',
+    name: 'Navas de Jadraque',
     city_code: '19',
     code: '197',
   },
@@ -15097,7 +15097,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '199',
   },
   {
-    name: 'Olivar, El',
+    name: 'Olivar',
     city_code: '19',
     code: '200',
   },
@@ -15107,12 +15107,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '201',
   },
   {
-    name: 'Olmeda de Jadraque, La',
+    name: 'Olmeda de Jadraque',
     city_code: '19',
     code: '202',
   },
   {
-    name: 'Ordial, El',
+    name: 'Ordial',
     city_code: '19',
     code: '203',
   },
@@ -15147,7 +15147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '212',
   },
   {
-    name: 'Pedregal, El',
+    name: 'Pedregal',
     city_code: '19',
     code: '213',
   },
@@ -15192,7 +15192,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '221',
   },
   {
-    name: 'Pobo de Dueñas, El',
+    name: 'Pobo de Dueñas',
     city_code: '19',
     code: '222',
   },
@@ -15242,7 +15242,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '231',
   },
   {
-    name: 'Recuenco, El',
+    name: 'Recuenco',
     city_code: '19',
     code: '232',
   },
@@ -15377,7 +15377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '259',
   },
   {
-    name: 'Sotillo, El',
+    name: 'Sotillo',
     city_code: '19',
     code: '260',
   },
@@ -15422,7 +15422,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '268',
   },
   {
-    name: 'Toba, La',
+    name: 'Toba',
     city_code: '19',
     code: '269',
   },
@@ -15682,7 +15682,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '331',
   },
   {
-    name: 'Yunta, La',
+    name: 'Yunta',
     city_code: '19',
     code: '332',
   },
@@ -16152,7 +16152,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '002',
   },
   {
-    name: 'Almendro, El',
+    name: 'Almendro',
     city_code: '21',
     code: '003',
   },
@@ -16227,7 +16227,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Campillo, El',
+    name: 'Campillo',
     city_code: '21',
     code: '018',
   },
@@ -16252,7 +16252,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '022',
   },
   {
-    name: 'Cerro de Andévalo, El',
+    name: 'Cerro de Andévalo',
     city_code: '21',
     code: '023',
   },
@@ -16317,12 +16317,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Granada de Río-Tinto, La',
+    name: 'Granada de Río-Tinto',
     city_code: '21',
     code: '036',
   },
   {
-    name: 'Granado, El',
+    name: 'Granado',
     city_code: '21',
     code: '037',
   },
@@ -16377,7 +16377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '047',
   },
   {
-    name: 'Marines, Los',
+    name: 'Marines',
     city_code: '21',
     code: '048',
   },
@@ -16392,7 +16392,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '050',
   },
   {
-    name: 'Nava, La',
+    name: 'Nava',
     city_code: '21',
     code: '051',
   },
@@ -16407,7 +16407,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '053',
   },
   {
-    name: 'Palma del Condado, La',
+    name: 'Palma del Condado',
     city_code: '21',
     code: '054',
   },
@@ -16532,7 +16532,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '078',
   },
   {
-    name: 'Zarza-Perrunal, La',
+    name: 'Zarza-Perrunal',
     city_code: '21',
     code: '902',
   },
@@ -17002,7 +17002,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '112',
   },
   {
-    name: 'Fueva, La',
+    name: 'Fueva',
     city_code: '22',
     code: '113',
   },
@@ -17012,7 +17012,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '114',
   },
   {
-    name: 'Grado, El',
+    name: 'Grado',
     city_code: '22',
     code: '115',
   },
@@ -17212,7 +17212,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '172',
   },
   {
-    name: 'Peñas de Riglos, Las',
+    name: 'Peñas de Riglos',
     city_code: '22',
     code: '173',
   },
@@ -17262,7 +17262,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '186',
   },
   {
-    name: 'Puebla de Castro, La',
+    name: 'Puebla de Castro',
     city_code: '22',
     code: '187',
   },
@@ -17282,7 +17282,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '189',
   },
   {
-    name: 'Pueyo de Araguás, El',
+    name: 'Pueyo de Araguás',
     city_code: '22',
     code: '190',
   },
@@ -17417,7 +17417,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '223',
   },
   {
-    name: 'Sotonera, La',
+    name: 'Sotonera',
     city_code: '22',
     code: '904',
   },
@@ -17667,7 +17667,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '901',
   },
   {
-    name: 'Carolina, La',
+    name: 'Carolina',
     city_code: '23',
     code: '024',
   },
@@ -17732,7 +17732,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '037',
   },
   {
-    name: 'Guardia de Jaén, La',
+    name: 'Guardia de Jaén',
     city_code: '23',
     code: '038',
   },
@@ -17772,7 +17772,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '046',
   },
   {
-    name: 'Iruela, La',
+    name: 'Iruela',
     city_code: '23',
     code: '047',
   },
@@ -17897,7 +17897,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '071',
   },
   {
-    name: 'Puerta de Segura, La',
+    name: 'Puerta de Segura',
     city_code: '23',
     code: '072',
   },
@@ -18022,7 +18022,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '098',
   },
   {
-    name: 'Villares, Los',
+    name: 'Villares',
     city_code: '23',
     code: '099',
   },
@@ -18057,7 +18057,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '004',
   },
   {
-    name: 'Antigua, La',
+    name: 'Antigua',
     city_code: '24',
     code: '005',
   },
@@ -18082,7 +18082,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '009',
   },
   {
-    name: 'Bañeza, La',
+    name: 'Bañeza',
     city_code: '24',
     code: '010',
   },
@@ -18092,7 +18092,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '011',
   },
   {
-    name: 'Barrios de Luna, Los',
+    name: 'Barrios de Luna',
     city_code: '24',
     code: '012',
   },
@@ -18147,7 +18147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '023',
   },
   {
-    name: 'Burgo Ranero, El',
+    name: 'Burgo Ranero',
     city_code: '24',
     code: '024',
   },
@@ -18352,7 +18352,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '067',
   },
   {
-    name: 'Ercina, La',
+    name: 'Ercina',
     city_code: '24',
     code: '068',
   },
@@ -18517,7 +18517,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '103',
   },
   {
-    name: 'Omañas, Las',
+    name: 'Omañas',
     city_code: '24',
     code: '104',
   },
@@ -18562,7 +18562,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '113',
   },
   {
-    name: 'Pola de Gordón, La',
+    name: 'Pola de Gordón',
     city_code: '24',
     code: '114',
   },
@@ -18652,7 +18652,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '133',
   },
   {
-    name: 'Robla, La',
+    name: 'Robla',
     city_code: '24',
     code: '134',
   },
@@ -18922,7 +18922,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '190',
   },
   {
-    name: 'Vecilla, La',
+    name: 'Vecilla',
     city_code: '24',
     code: '193',
   },
@@ -19112,7 +19112,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '038',
   },
   {
-    name: 'Alamús, Els',
+    name: 'Alamús',
     city_code: '25',
     code: '004',
   },
@@ -19122,7 +19122,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '005',
   },
   {
-    name: "Albagés, L'",
+    name: 'Albagés',
     city_code: '25',
     code: '006',
   },
@@ -19137,7 +19137,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '008',
   },
   {
-    name: "Albi, L'",
+    name: 'Albi',
     city_code: '25',
     code: '009',
   },
@@ -19247,7 +19247,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '036',
   },
   {
-    name: 'Avellanes i Santa Linya, Les',
+    name: 'Avellanes i Santa Linya',
     city_code: '25',
     code: '037',
   },
@@ -19267,7 +19267,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '041',
   },
   {
-    name: 'Baronia de Rialb, La',
+    name: 'Baronia de Rialb',
     city_code: '25',
     code: '042',
   },
@@ -19332,12 +19332,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '055',
   },
   {
-    name: 'Bòrdes, Es',
+    name: 'Bòrdes',
     city_code: '25',
     code: '057',
   },
   {
-    name: 'Borges Blanques, Les',
+    name: 'Borges Blanques',
     city_code: '25',
     code: '058',
   },
@@ -19427,7 +19427,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '075',
   },
   {
-    name: 'Cogul, El',
+    name: 'Cogul',
     city_code: '25',
     code: '076',
   },
@@ -19437,7 +19437,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '077',
   },
   {
-    name: 'Coma i la Pedra, La',
+    name: 'Coma i la Pedra',
     city_code: '25',
     code: '163',
   },
@@ -19457,7 +19457,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '079',
   },
   {
-    name: "Espluga Calba, L'",
+    name: 'Espluga Calba',
     city_code: '25',
     code: '081',
   },
@@ -19497,7 +19497,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '908',
   },
   {
-    name: 'Floresta, La',
+    name: 'Floresta',
     city_code: '25',
     code: '092',
   },
@@ -19512,7 +19512,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '094',
   },
   {
-    name: 'Fuliola, La',
+    name: 'Fuliola',
     city_code: '25',
     code: '096',
   },
@@ -19542,12 +19542,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '100',
   },
   {
-    name: 'Granadella, La',
+    name: 'Granadella',
     city_code: '25',
     code: '101',
   },
   {
-    name: "Granja d'Escarp, La",
+    name: "Granja d'Escarp",
     city_code: '25',
     code: '102',
   },
@@ -19572,7 +19572,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '109',
   },
   {
-    name: "Guingueta d'Àneu, La",
+    name: "Guingueta d'Àneu",
     city_code: '25',
     code: '903',
   },
@@ -19707,7 +19707,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '137',
   },
   {
-    name: 'Molsosa, La',
+    name: 'Molsosa',
     city_code: '25',
     code: '136',
   },
@@ -19777,17 +19777,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '151',
   },
   {
-    name: 'Oluges, Les',
+    name: 'Oluges',
     city_code: '25',
     code: '152',
   },
   {
-    name: 'Omellons, Els',
+    name: 'Omellons',
     city_code: '25',
     code: '153',
   },
   {
-    name: 'Omells de na Gaia, Els',
+    name: 'Omells de na Gaia',
     city_code: '25',
     code: '154',
   },
@@ -19807,7 +19807,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '157',
   },
   {
-    name: "Palau d'Anglesola, El",
+    name: "Palau d'Anglesola",
     city_code: '25',
     code: '158',
   },
@@ -19832,32 +19832,32 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Plans de Sió, Els',
+    name: 'Plans de Sió',
     city_code: '25',
     code: '911',
   },
   {
-    name: 'Poal, El',
+    name: 'Poal',
     city_code: '25',
     code: '168',
   },
   {
-    name: 'Pobla de Cérvoles, La',
+    name: 'Pobla de Cérvoles',
     city_code: '25',
     code: '169',
   },
   {
-    name: 'Pobla de Segur, La',
+    name: 'Pobla de Segur',
     city_code: '25',
     code: '171',
   },
   {
-    name: 'Pont de Bar, El',
+    name: 'Pont de Bar',
     city_code: '25',
     code: '030',
   },
   {
-    name: 'Pont de Suert, El',
+    name: 'Pont de Suert',
     city_code: '25',
     code: '173',
   },
@@ -19867,7 +19867,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '172',
   },
   {
-    name: 'Portella, La',
+    name: 'Portella',
     city_code: '25',
     code: '174',
   },
@@ -19992,7 +19992,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '202',
   },
   {
-    name: 'Sentiu de Sió, La',
+    name: 'Sentiu de Sió',
     city_code: '25',
     code: '035',
   },
@@ -20002,7 +20002,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '204',
   },
   {
-    name: "Seu d'Urgell, La",
+    name: "Seu d'Urgell",
     city_code: '25',
     code: '203',
   },
@@ -20012,7 +20012,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '205',
   },
   {
-    name: 'Soleràs, El',
+    name: 'Soleràs',
     city_code: '25',
     code: '206',
   },
@@ -20092,7 +20092,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '223',
   },
   {
-    name: 'Torms, Els',
+    name: 'Torms',
     city_code: '25',
     code: '224',
   },
@@ -20102,7 +20102,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '225',
   },
   {
-    name: 'Torre de Cabdella, La',
+    name: 'Torre de Cabdella',
     city_code: '25',
     code: '227',
   },
@@ -20147,7 +20147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '234',
   },
   {
-    name: 'Vall de Boí, La',
+    name: 'Vall de Boí',
     city_code: '25',
     code: '043',
   },
@@ -20167,17 +20167,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '240',
   },
   {
-    name: "Valls d'Aguilar, Les",
+    name: "Valls d'Aguilar",
     city_code: '25',
     code: '906',
   },
   {
-    name: 'Valls de Valira, Les',
+    name: 'Valls de Valira',
     city_code: '25',
     code: '239',
   },
   {
-    name: 'Vansa i Fórnols, La',
+    name: 'Vansa i Fórnols',
     city_code: '25',
     code: '909',
   },
@@ -20237,7 +20237,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '252',
   },
   {
-    name: 'Vilosell, El',
+    name: 'Vilosell',
     city_code: '25',
     code: '253',
   },
@@ -20832,12 +20832,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '121',
   },
   {
-    name: 'Rasillo de Cameros, El',
+    name: 'Rasillo de Cameros',
     city_code: '26',
     code: '122',
   },
   {
-    name: 'Redal, El',
+    name: 'Redal',
     city_code: '26',
     code: '123',
   },
@@ -21052,7 +21052,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '169',
   },
   {
-    name: 'Villar de Arnedo, El',
+    name: 'Villar de Arnedo',
     city_code: '26',
     code: '170',
   },
@@ -21197,7 +21197,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '016',
   },
   {
-    name: 'Corgo, O',
+    name: 'Corgo',
     city_code: '27',
     code: '014',
   },
@@ -21212,7 +21212,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Fonsagrada, A',
+    name: 'Fonsagrada',
     city_code: '27',
     code: '018',
   },
@@ -21237,7 +21237,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '023',
   },
   {
-    name: 'Incio, O',
+    name: 'Incio',
     city_code: '27',
     code: '024',
   },
@@ -21292,7 +21292,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Nogais, As',
+    name: 'Nogais',
     city_code: '27',
     code: '037',
   },
@@ -21322,12 +21322,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '042',
   },
   {
-    name: 'Páramo, O',
+    name: 'Páramo',
     city_code: '27',
     code: '043',
   },
   {
-    name: 'Pastoriza, A',
+    name: 'Pastoriza',
     city_code: '27',
     code: '044',
   },
@@ -21337,7 +21337,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '045',
   },
   {
-    name: 'Pobra do Brollón, A',
+    name: 'Pobra do Brollón',
     city_code: '27',
     code: '047',
   },
@@ -21347,7 +21347,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '046',
   },
   {
-    name: 'Pontenova, A',
+    name: 'Pontenova',
     city_code: '27',
     code: '048',
   },
@@ -21397,7 +21397,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '057',
   },
   {
-    name: 'Saviñao, O',
+    name: 'Saviñao',
     city_code: '27',
     code: '058',
   },
@@ -21422,12 +21422,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '062',
   },
   {
-    name: 'Valadouro, O',
+    name: 'Valadouro',
     city_code: '27',
     code: '063',
   },
   {
-    name: 'Vicedo, O',
+    name: 'Vicedo',
     city_code: '27',
     code: '064',
   },
@@ -21452,7 +21452,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '025',
   },
   {
-    name: 'Acebeda, La',
+    name: 'Acebeda',
     city_code: '28',
     code: '001',
   },
@@ -21467,7 +21467,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '003',
   },
   {
-    name: 'Álamo, El',
+    name: 'Álamo',
     city_code: '28',
     code: '004',
   },
@@ -21527,7 +21527,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '015',
   },
   {
-    name: 'Atazar, El',
+    name: 'Atazar',
     city_code: '28',
     code: '016',
   },
@@ -21547,7 +21547,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '019',
   },
   {
-    name: 'Berrueco, El',
+    name: 'Berrueco',
     city_code: '28',
     code: '021',
   },
@@ -21562,7 +21562,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '022',
   },
   {
-    name: 'Boalo, El',
+    name: 'Boalo',
     city_code: '28',
     code: '023',
   },
@@ -21597,7 +21597,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '029',
   },
   {
-    name: 'Cabrera, La',
+    name: 'Cabrera',
     city_code: '28',
     code: '030',
   },
@@ -21717,7 +21717,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '053',
   },
   {
-    name: 'Escorial, El',
+    name: 'Escorial',
     city_code: '28',
     code: '054',
   },
@@ -21792,7 +21792,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '068',
   },
   {
-    name: 'Hiruela, La',
+    name: 'Hiruela',
     city_code: '28',
     code: '069',
   },
@@ -21872,12 +21872,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '085',
   },
   {
-    name: 'Molar, El',
+    name: 'Molar',
     city_code: '28',
     code: '086',
   },
   {
-    name: 'Molinos, Los',
+    name: 'Molinos',
     city_code: '28',
     code: '087',
   },
@@ -22067,7 +22067,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '126',
   },
   {
-    name: 'Rozas de Madrid, Las',
+    name: 'Rozas de Madrid',
     city_code: '28',
     code: '127',
   },
@@ -22117,12 +22117,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '136',
   },
   {
-    name: 'Santos de la Humosa, Los',
+    name: 'Santos de la Humosa',
     city_code: '28',
     code: '137',
   },
   {
-    name: 'Serna del Monte, La',
+    name: 'Serna del Monte',
     city_code: '28',
     code: '138',
   },
@@ -22267,7 +22267,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '167',
   },
   {
-    name: 'Vellón, El',
+    name: 'Vellón',
     city_code: '28',
     code: '168',
   },
@@ -22492,12 +22492,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '029',
   },
   {
-    name: 'Borge, El',
+    name: 'Borge',
     city_code: '29',
     code: '030',
   },
   {
-    name: 'Burgo, El',
+    name: 'Burgo',
     city_code: '29',
     code: '031',
   },
@@ -22887,7 +22887,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '005',
   },
   {
-    name: 'Alcázares, Los',
+    name: 'Alcázares',
     city_code: '30',
     code: '902',
   },
@@ -23057,7 +23057,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '037',
   },
   {
-    name: 'Torres de Cotillas, Las',
+    name: 'Torres de Cotillas',
     city_code: '30',
     code: '038',
   },
@@ -23072,7 +23072,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '040',
   },
   {
-    name: 'Unión, La',
+    name: 'Unión',
     city_code: '30',
     code: '041',
   },
@@ -23227,7 +23227,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '028',
   },
   {
-    name: 'Arcos, Los',
+    name: 'Arcos',
     city_code: '31',
     code: '029',
   },
@@ -23422,7 +23422,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '060',
   },
   {
-    name: 'Busto, El',
+    name: 'Busto',
     city_code: '31',
     code: '061',
   },
@@ -24457,7 +24457,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '002',
   },
   {
-    name: 'Arnoia, A',
+    name: 'Arnoia',
     city_code: '32',
     code: '003',
   },
@@ -24487,7 +24487,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '008',
   },
   {
-    name: 'Barco de Valdeorras, O',
+    name: 'Barco de Valdeorras',
     city_code: '32',
     code: '009',
   },
@@ -24502,7 +24502,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '011',
   },
   {
-    name: 'Blancos, Os',
+    name: 'Blancos',
     city_code: '32',
     code: '012',
   },
@@ -24512,12 +24512,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '013',
   },
   {
-    name: 'Bola, A',
+    name: 'Bola',
     city_code: '32',
     code: '014',
   },
   {
-    name: 'Bolo, O',
+    name: 'Bolo',
     city_code: '32',
     code: '015',
   },
@@ -24537,7 +24537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Carballiño, O',
+    name: 'Carballiño',
     city_code: '32',
     code: '019',
   },
@@ -24607,12 +24607,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '033',
   },
   {
-    name: 'Gudiña, A',
+    name: 'Gudiña',
     city_code: '32',
     code: '034',
   },
   {
-    name: 'Irixo, O',
+    name: 'Irixo',
     city_code: '32',
     code: '035',
   },
@@ -24662,12 +24662,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '046',
   },
   {
-    name: 'Merca, A',
+    name: 'Merca',
     city_code: '32',
     code: '047',
   },
   {
-    name: 'Mezquita, A',
+    name: 'Mezquita',
     city_code: '32',
     code: '048',
   },
@@ -24717,12 +24717,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '057',
   },
   {
-    name: 'Pereiro de Aguiar, O',
+    name: 'Pereiro de Aguiar',
     city_code: '32',
     code: '058',
   },
   {
-    name: 'Peroxa, A',
+    name: 'Peroxa',
     city_code: '32',
     code: '059',
   },
@@ -24737,7 +24737,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '061',
   },
   {
-    name: 'Pobra de Trives, A',
+    name: 'Pobra de Trives',
     city_code: '32',
     code: '063',
   },
@@ -24782,7 +24782,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '071',
   },
   {
-    name: 'Rúa, A',
+    name: 'Rúa',
     city_code: '32',
     code: '072',
   },
@@ -24827,7 +24827,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '079',
   },
   {
-    name: 'Teixeira, A',
+    name: 'Teixeira',
     city_code: '32',
     code: '080',
   },
@@ -24842,7 +24842,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '082',
   },
   {
-    name: 'Veiga, A',
+    name: 'Veiga',
     city_code: '32',
     code: '083',
   },
@@ -25017,7 +25017,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '022',
   },
   {
-    name: 'Franco, El',
+    name: 'Franco',
     city_code: '33',
     code: '023',
   },
@@ -25167,7 +25167,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '053',
   },
   {
-    name: 'Regueras, Las',
+    name: 'Regueras',
     city_code: '33',
     code: '054',
   },
@@ -25797,7 +25797,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '127',
   },
   {
-    name: 'Pernía, La',
+    name: 'Pernía',
     city_code: '34',
     code: '904',
   },
@@ -25852,7 +25852,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '139',
   },
   {
-    name: 'Puebla de Valdavia, La',
+    name: 'Puebla de Valdavia',
     city_code: '34',
     code: '140',
   },
@@ -25972,7 +25972,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '174',
   },
   {
-    name: 'Serna, La',
+    name: 'Serna',
     city_code: '34',
     code: '175',
   },
@@ -26067,7 +26067,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '201',
   },
   {
-    name: 'Vid de Ojeda, La',
+    name: 'Vid de Ojeda',
     city_code: '34',
     code: '093',
   },
@@ -26262,7 +26262,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '002',
   },
   {
-    name: 'Aldea de San Nicolás, La',
+    name: 'Aldea de San Nicolás',
     city_code: '35',
     code: '020',
   },
@@ -26322,7 +26322,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '013',
   },
   {
-    name: 'Oliva, La',
+    name: 'Oliva',
     city_code: '35',
     code: '014',
   },
@@ -26332,7 +26332,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '015',
   },
   {
-    name: 'Palmas de Gran Canaria, Las',
+    name: 'Palmas de Gran Canaria',
     city_code: '35',
     code: '016',
   },
@@ -26467,7 +26467,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '008',
   },
   {
-    name: 'Cañiza, A',
+    name: 'Cañiza',
     city_code: '36',
     code: '009',
   },
@@ -26502,7 +26502,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '016',
   },
   {
-    name: 'Estrada, A',
+    name: 'Estrada',
     city_code: '36',
     code: '017',
   },
@@ -26522,17 +26522,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '021',
   },
   {
-    name: 'Grove, O',
+    name: 'Grove',
     city_code: '36',
     code: '022',
   },
   {
-    name: 'Guarda, A',
+    name: 'Guarda',
     city_code: '36',
     code: '023',
   },
   {
-    name: 'Illa de Arousa, A',
+    name: 'Illa de Arousa',
     city_code: '36',
     code: '901',
   },
@@ -26542,7 +26542,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '024',
   },
   {
-    name: 'Lama, A',
+    name: 'Lama',
     city_code: '36',
     code: '025',
   },
@@ -26587,7 +26587,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '033',
   },
   {
-    name: 'Neves, As',
+    name: 'Neves',
     city_code: '36',
     code: '034',
   },
@@ -26632,7 +26632,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '038',
   },
   {
-    name: 'Porriño, O',
+    name: 'Porriño',
     city_code: '36',
     code: '039',
   },
@@ -26657,7 +26657,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '047',
   },
   {
-    name: 'Rosal, O',
+    name: 'Rosal',
     city_code: '36',
     code: '048',
   },
@@ -26747,12 +26747,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '004',
   },
   {
-    name: 'Alameda de Gardón, La',
+    name: 'Alameda de Gardón',
     city_code: '37',
     code: '005',
   },
   {
-    name: 'Alamedilla, La',
+    name: 'Alamedilla',
     city_code: '37',
     code: '006',
   },
@@ -26772,12 +26772,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '009',
   },
   {
-    name: 'Alberca, La',
+    name: 'Alberca',
     city_code: '37',
     code: '010',
   },
   {
-    name: 'Alberguería de Argañán, La',
+    name: 'Alberguería de Argañán',
     city_code: '37',
     code: '011',
   },
@@ -26892,7 +26892,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '033',
   },
   {
-    name: 'Arco, El',
+    name: 'Arco',
     city_code: '37',
     code: '034',
   },
@@ -26902,7 +26902,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Atalaya, La',
+    name: 'Atalaya',
     city_code: '37',
     code: '037',
   },
@@ -26937,7 +26937,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '044',
   },
   {
-    name: 'Bastida, La',
+    name: 'Bastida',
     city_code: '37',
     code: '045',
   },
@@ -26972,7 +26972,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '052',
   },
   {
-    name: 'Bodón, El',
+    name: 'Bodón',
     city_code: '37',
     code: '054',
   },
@@ -26982,7 +26982,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '055',
   },
   {
-    name: 'Bouza, La',
+    name: 'Bouza',
     city_code: '37',
     code: '056',
   },
@@ -27007,12 +27007,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '060',
   },
   {
-    name: 'Cabaco, El',
+    name: 'Cabaco',
     city_code: '37',
     code: '061',
   },
   {
-    name: 'Cabeza de Béjar, La',
+    name: 'Cabeza de Béjar',
     city_code: '37',
     code: '063',
   },
@@ -27047,7 +27047,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '070',
   },
   {
-    name: 'Calzada de Béjar, La',
+    name: 'Calzada de Béjar',
     city_code: '37',
     code: '071',
   },
@@ -27067,7 +27067,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '074',
   },
   {
-    name: 'Campo de Peñaranda, El',
+    name: 'Campo de Peñaranda',
     city_code: '37',
     code: '077',
   },
@@ -27127,7 +27127,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '089',
   },
   {
-    name: 'Casas del Conde, Las',
+    name: 'Casas del Conde',
     city_code: '37',
     code: '090',
   },
@@ -27177,7 +27177,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '101',
   },
   {
-    name: 'Cerro, El',
+    name: 'Cerro',
     city_code: '37',
     code: '102',
   },
@@ -27227,7 +27227,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '112',
   },
   {
-    name: 'Cubo de Don Sancho, El',
+    name: 'Cubo de Don Sancho',
     city_code: '37',
     code: '113',
   },
@@ -27257,7 +27257,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '120',
   },
   {
-    name: 'Encina, La',
+    name: 'Encina',
     city_code: '37',
     code: '119',
   },
@@ -27317,7 +27317,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '131',
   },
   {
-    name: 'Fregeneda, La',
+    name: 'Fregeneda',
     city_code: '37',
     code: '132',
   },
@@ -27332,7 +27332,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '134',
   },
   {
-    name: 'Fuente de San Esteban, La',
+    name: 'Fuente de San Esteban',
     city_code: '37',
     code: '135',
   },
@@ -27467,7 +27467,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '162',
   },
   {
-    name: 'Hoya, La',
+    name: 'Hoya',
     city_code: '37',
     code: '163',
   },
@@ -27537,7 +27537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '176',
   },
   {
-    name: 'Maíllo, El',
+    name: 'Maíllo',
     city_code: '37',
     code: '177',
   },
@@ -27552,7 +27552,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '179',
   },
   {
-    name: 'Manzano, El',
+    name: 'Manzano',
     city_code: '37',
     code: '180',
   },
@@ -27577,7 +27577,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '184',
   },
   {
-    name: 'Mata de Ledesma, La',
+    name: 'Mata de Ledesma',
     city_code: '37',
     code: '186',
   },
@@ -27587,7 +27587,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '187',
   },
   {
-    name: 'Maya, La',
+    name: 'Maya',
     city_code: '37',
     code: '188',
   },
@@ -27602,7 +27602,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '190',
   },
   {
-    name: 'Milano, El',
+    name: 'Milano',
     city_code: '37',
     code: '191',
   },
@@ -27757,7 +27757,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '223',
   },
   {
-    name: 'Orbada, La',
+    name: 'Orbada',
     city_code: '37',
     code: '224',
   },
@@ -27802,7 +27802,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '233',
   },
   {
-    name: 'Payo, El',
+    name: 'Payo',
     city_code: '37',
     code: '234',
   },
@@ -27827,7 +27827,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '238',
   },
   {
-    name: 'Pedroso de la Armuña, El',
+    name: 'Pedroso de la Armuña',
     city_code: '37',
     code: '239',
   },
@@ -27847,7 +27847,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '242',
   },
   {
-    name: 'Peña, La',
+    name: 'Peña',
     city_code: '37',
     code: '243',
   },
@@ -27897,7 +27897,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '252',
   },
   {
-    name: 'Pino de Tormes, El',
+    name: 'Pino de Tormes',
     city_code: '37',
     code: '253',
   },
@@ -27962,7 +27962,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '265',
   },
   {
-    name: 'Redonda, La',
+    name: 'Redonda',
     city_code: '37',
     code: '266',
   },
@@ -27972,7 +27972,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '267',
   },
   {
-    name: 'Rinconada de la Sierra, La',
+    name: 'Rinconada de la Sierra',
     city_code: '37',
     code: '268',
   },
@@ -27997,12 +27997,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '272',
   },
   {
-    name: 'Sagrada, La',
+    name: 'Sagrada',
     city_code: '37',
     code: '273',
   },
   {
-    name: 'Sahugo, El',
+    name: 'Sahugo',
     city_code: '37',
     code: '303',
   },
@@ -28137,7 +28137,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '299',
   },
   {
-    name: 'Santos, Los',
+    name: 'Santos',
     city_code: '37',
     code: '300',
   },
@@ -28172,7 +28172,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '307',
   },
   {
-    name: 'Sierpe, La',
+    name: 'Sierpe',
     city_code: '37',
     code: '309',
   },
@@ -28202,7 +28202,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '314',
   },
   {
-    name: 'Tala, La',
+    name: 'Tala',
     city_code: '37',
     code: '315',
   },
@@ -28222,7 +28222,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '318',
   },
   {
-    name: 'Tejado, El',
+    name: 'Tejado',
     city_code: '37',
     code: '319',
   },
@@ -28252,7 +28252,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '324',
   },
   {
-    name: 'Tornadizo, El',
+    name: 'Tornadizo',
     city_code: '37',
     code: '325',
   },
@@ -28352,12 +28352,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '345',
   },
   {
-    name: 'Veguillas, Las',
+    name: 'Veguillas',
     city_code: '37',
     code: '346',
   },
   {
-    name: 'Vellés, La',
+    name: 'Vellés',
     city_code: '37',
     code: '347',
   },
@@ -28367,7 +28367,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '348',
   },
   {
-    name: 'Vídola, La',
+    name: 'Vídola',
     city_code: '37',
     code: '349',
   },
@@ -28527,7 +28527,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '380',
   },
   {
-    name: 'Zarza de Pumareda, La',
+    name: 'Zarza de Pumareda',
     city_code: '37',
     code: '381',
   },
@@ -28622,7 +28622,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '017',
   },
   {
-    name: 'Guancha, La',
+    name: 'Guancha',
     city_code: '38',
     code: '018',
   },
@@ -28647,27 +28647,27 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '022',
   },
   {
-    name: 'Llanos de Aridane, Los',
+    name: 'Llanos de Aridane',
     city_code: '38',
     code: '024',
   },
   {
-    name: 'Matanza de Acentejo, La',
+    name: 'Matanza de Acentejo',
     city_code: '38',
     code: '025',
   },
   {
-    name: 'Orotava, La',
+    name: 'Orotava',
     city_code: '38',
     code: '026',
   },
   {
-    name: 'Paso, El',
+    name: 'Paso',
     city_code: '38',
     code: '027',
   },
   {
-    name: 'Pinar de El Hierro, El',
+    name: 'Pinar de El Hierro',
     city_code: '38',
     code: '901',
   },
@@ -28687,12 +28687,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '030',
   },
   {
-    name: 'Realejos, Los',
+    name: 'Realejos',
     city_code: '38',
     code: '031',
   },
   {
-    name: 'Rosario, El',
+    name: 'Rosario',
     city_code: '38',
     code: '032',
   },
@@ -28742,12 +28742,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '040',
   },
   {
-    name: 'Sauzal, El',
+    name: 'Sauzal',
     city_code: '38',
     code: '041',
   },
   {
-    name: 'Silos, Los',
+    name: 'Silos',
     city_code: '38',
     code: '042',
   },
@@ -28757,7 +28757,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '043',
   },
   {
-    name: 'Tanque, El',
+    name: 'Tanque',
     city_code: '38',
     code: '044',
   },
@@ -28792,7 +28792,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '048',
   },
   {
-    name: 'Victoria de Acentejo, La',
+    name: 'Victoria de Acentejo',
     city_code: '38',
     code: '051',
   },
@@ -28842,7 +28842,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '007',
   },
   {
-    name: 'Astillero, El',
+    name: 'Astillero',
     city_code: '39',
     code: '008',
   },
@@ -28932,7 +28932,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '024',
   },
   {
-    name: 'Corrales de Buelna, Los',
+    name: 'Corrales de Buelna',
     city_code: '39',
     code: '025',
   },
@@ -29127,7 +29127,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '064',
   },
   {
-    name: 'Rozas de Valdearroyo, Las',
+    name: 'Rozas de Valdearroyo',
     city_code: '39',
     code: '065',
   },
@@ -29232,7 +29232,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '085',
   },
   {
-    name: 'Tojos, Los',
+    name: 'Tojos',
     city_code: '39',
     code: '086',
   },
@@ -29662,7 +29662,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '075',
   },
   {
-    name: 'Espinar, El',
+    name: 'Espinar',
     city_code: '40',
     code: '076',
   },
@@ -29772,7 +29772,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '101',
   },
   {
-    name: 'Huertos, Los',
+    name: 'Huertos',
     city_code: '40',
     code: '103',
   },
@@ -29817,12 +29817,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '111',
   },
   {
-    name: 'Lastrilla, La',
+    name: 'Lastrilla',
     city_code: '40',
     code: '112',
   },
   {
-    name: 'Losa, La',
+    name: 'Losa',
     city_code: '40',
     code: '113',
   },
@@ -29872,7 +29872,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '123',
   },
   {
-    name: 'Matilla, La',
+    name: 'Matilla',
     city_code: '40',
     code: '125',
   },
@@ -30392,7 +30392,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '006',
   },
   {
-    name: 'Algaba, La',
+    name: 'Algaba',
     city_code: '41',
     code: '007',
   },
@@ -30457,7 +30457,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '019',
   },
   {
-    name: 'Cabezas de San Juan, Las',
+    name: 'Cabezas de San Juan',
     city_code: '41',
     code: '020',
   },
@@ -30467,7 +30467,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '021',
   },
   {
-    name: 'Campana, La',
+    name: 'Campana',
     city_code: '41',
     code: '022',
   },
@@ -30517,7 +30517,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '030',
   },
   {
-    name: 'Castillo de las Guardas, El',
+    name: 'Castillo de las Guardas',
     city_code: '41',
     code: '031',
   },
@@ -30542,17 +30542,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '035',
   },
   {
-    name: 'Coronil, El',
+    name: 'Coronil',
     city_code: '41',
     code: '036',
   },
   {
-    name: 'Corrales, Los',
+    name: 'Corrales',
     city_code: '41',
     code: '037',
   },
   {
-    name: 'Cuervo de Sevilla, El',
+    name: 'Cuervo de Sevilla',
     city_code: '41',
     code: '903',
   },
@@ -30582,7 +30582,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '042',
   },
   {
-    name: 'Garrobo, El',
+    name: 'Garrobo',
     city_code: '41',
     code: '043',
   },
@@ -30652,12 +30652,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '055',
   },
   {
-    name: 'Luisiana, La',
+    name: 'Luisiana',
     city_code: '41',
     code: '056',
   },
   {
-    name: 'Madroño, El',
+    name: 'Madroño',
     city_code: '41',
     code: '057',
   },
@@ -30687,7 +30687,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '062',
   },
   {
-    name: 'Molares, Los',
+    name: 'Molares',
     city_code: '41',
     code: '063',
   },
@@ -30702,7 +30702,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '065',
   },
   {
-    name: 'Navas de la Concepción, Las',
+    name: 'Navas de la Concepción',
     city_code: '41',
     code: '066',
   },
@@ -30717,12 +30717,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '068',
   },
   {
-    name: 'Palacios y Villafranca, Los',
+    name: 'Palacios y Villafranca',
     city_code: '41',
     code: '069',
   },
   {
-    name: 'Palmar de Troya, El',
+    name: 'Palmar de Troya',
     city_code: '41',
     code: '904',
   },
@@ -30742,7 +30742,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '072',
   },
   {
-    name: 'Pedroso, El',
+    name: 'Pedroso',
     city_code: '41',
     code: '073',
   },
@@ -30762,42 +30762,42 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '076',
   },
   {
-    name: 'Puebla de Cazalla, La',
+    name: 'Puebla de Cazalla',
     city_code: '41',
     code: '077',
   },
   {
-    name: 'Puebla de los Infantes, La',
+    name: 'Puebla de los Infantes',
     city_code: '41',
     code: '078',
   },
   {
-    name: 'Puebla del Río, La',
+    name: 'Puebla del Río',
     city_code: '41',
     code: '079',
   },
   {
-    name: 'Real de la Jara, El',
+    name: 'Real de la Jara',
     city_code: '41',
     code: '080',
   },
   {
-    name: 'Rinconada, La',
+    name: 'Rinconada',
     city_code: '41',
     code: '081',
   },
   {
-    name: 'Roda de Andalucía, La',
+    name: 'Roda de Andalucía',
     city_code: '41',
     code: '082',
   },
   {
-    name: 'Ronquillo, El',
+    name: 'Ronquillo',
     city_code: '41',
     code: '083',
   },
   {
-    name: 'Rubio, El',
+    name: 'Rubio',
     city_code: '41',
     code: '084',
   },
@@ -30827,7 +30827,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '089',
   },
   {
-    name: 'Saucejo, El',
+    name: 'Saucejo',
     city_code: '41',
     code: '090',
   },
@@ -30887,7 +30887,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '101',
   },
   {
-    name: 'Viso del Alcor, El',
+    name: 'Viso del Alcor',
     city_code: '41',
     code: '102',
   },
@@ -30947,7 +30947,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '013',
   },
   {
-    name: 'Aldehuelas, Las',
+    name: 'Aldehuelas',
     city_code: '42',
     code: '014',
   },
@@ -31347,7 +31347,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '105',
   },
   {
-    name: 'Losilla, La',
+    name: 'Losilla',
     city_code: '42',
     code: '106',
   },
@@ -31477,7 +31477,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '140',
   },
   {
-    name: 'Póveda de Soria, La',
+    name: 'Póveda de Soria',
     city_code: '42',
     code: '141',
   },
@@ -31502,7 +31502,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '148',
   },
   {
-    name: 'Rábanos, Los',
+    name: 'Rábanos',
     city_code: '42',
     code: '149',
   },
@@ -31537,7 +31537,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '156',
   },
   {
-    name: 'Riba de Escalote, La',
+    name: 'Riba de Escalote',
     city_code: '42',
     code: '157',
   },
@@ -31552,7 +31552,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '159',
   },
   {
-    name: 'Royo, El',
+    name: 'Royo',
     city_code: '42',
     code: '160',
   },
@@ -31767,7 +31767,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '209',
   },
   {
-    name: 'Villares de Soria, Los',
+    name: 'Villares de Soria',
     city_code: '42',
     code: '211',
   },
@@ -31817,7 +31817,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '002',
   },
   {
-    name: "Albiol, L'",
+    name: 'Albiol',
     city_code: '43',
     code: '003',
   },
@@ -31832,7 +31832,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '005',
   },
   {
-    name: "Aldea, L'",
+    name: 'Aldea',
     city_code: '43',
     code: '904',
   },
@@ -31842,7 +31842,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '006',
   },
   {
-    name: "Aleixar, L'",
+    name: 'Aleixar',
     city_code: '43',
     code: '007',
   },
@@ -31872,12 +31872,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '012',
   },
   {
-    name: "Ametlla de Mar, L'",
+    name: 'Ametlla de Mar',
     city_code: '43',
     code: '013',
   },
   {
-    name: "Ampolla, L'",
+    name: 'Ampolla',
     city_code: '43',
     code: '906',
   },
@@ -31887,7 +31887,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '014',
   },
   {
-    name: "Arboç, L'",
+    name: 'Arboç',
     city_code: '43',
     code: '016',
   },
@@ -31897,7 +31897,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '015',
   },
   {
-    name: "Argentera, L'",
+    name: 'Argentera',
     city_code: '43',
     code: '017',
   },
@@ -31947,12 +31947,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '026',
   },
   {
-    name: 'Bisbal de Falset, La',
+    name: 'Bisbal de Falset',
     city_code: '43',
     code: '027',
   },
   {
-    name: 'Bisbal del Penedès, La',
+    name: 'Bisbal del Penedès',
     city_code: '43',
     code: '028',
   },
@@ -31967,7 +31967,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '030',
   },
   {
-    name: 'Borges del Camp, Les',
+    name: 'Borges del Camp',
     city_code: '43',
     code: '031',
   },
@@ -32012,7 +32012,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '038',
   },
   {
-    name: 'Canonja, La',
+    name: 'Canonja',
     city_code: '43',
     code: '907',
   },
@@ -32037,7 +32037,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '042',
   },
   {
-    name: 'Catllar, El',
+    name: 'Catllar',
     city_code: '43',
     code: '043',
   },
@@ -32087,7 +32087,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '053',
   },
   {
-    name: "Espluga de Francolí, L'",
+    name: 'Espluga de Francolí',
     city_code: '43',
     code: '054',
   },
@@ -32097,17 +32097,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '055',
   },
   {
-    name: 'Fatarella, La',
+    name: 'Fatarella',
     city_code: '43',
     code: '056',
   },
   {
-    name: 'Febró, La',
+    name: 'Febró',
     city_code: '43',
     code: '057',
   },
   {
-    name: 'Figuera, La',
+    name: 'Figuera',
     city_code: '43',
     code: '058',
   },
@@ -32132,7 +32132,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '062',
   },
   {
-    name: 'Galera, La',
+    name: 'Galera',
     city_code: '43',
     code: '063',
   },
@@ -32147,7 +32147,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '065',
   },
   {
-    name: 'Garidells, Els',
+    name: 'Garidells',
     city_code: '43',
     code: '066',
   },
@@ -32167,7 +32167,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '069',
   },
   {
-    name: 'Guiamets, Els',
+    name: 'Guiamets',
     city_code: '43',
     code: '070',
   },
@@ -32177,7 +32177,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '071',
   },
   {
-    name: 'Lloar, El',
+    name: 'Lloar',
     city_code: '43',
     code: '072',
   },
@@ -32217,7 +32217,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '079',
   },
   {
-    name: 'Masó, La',
+    name: 'Masó',
     city_code: '43',
     code: '080',
   },
@@ -32227,12 +32227,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '081',
   },
   {
-    name: 'Masroig, El',
+    name: 'Masroig',
     city_code: '43',
     code: '082',
   },
   {
-    name: 'Milà, El',
+    name: 'Milà',
     city_code: '43',
     code: '083',
   },
@@ -32242,7 +32242,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '084',
   },
   {
-    name: 'Molar, El',
+    name: 'Molar',
     city_code: '43',
     code: '085',
   },
@@ -32262,7 +32262,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '089',
   },
   {
-    name: 'Montmell, El',
+    name: 'Montmell',
     city_code: '43',
     code: '090',
   },
@@ -32287,17 +32287,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '094',
   },
   {
-    name: 'Morell, El',
+    name: 'Morell',
     city_code: '43',
     code: '095',
   },
   {
-    name: 'Morera de Montsant, La',
+    name: 'Morera de Montsant',
     city_code: '43',
     code: '096',
   },
   {
-    name: 'Nou de Gaià, La',
+    name: 'Nou de Gaià',
     city_code: '43',
     code: '097',
   },
@@ -32307,12 +32307,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '098',
   },
   {
-    name: 'Pallaresos, Els',
+    name: 'Pallaresos',
     city_code: '43',
     code: '100',
   },
   {
-    name: "Palma d'Ebre, La",
+    name: "Palma d'Ebre",
     city_code: '43',
     code: '099',
   },
@@ -32332,17 +32332,17 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '103',
   },
   {
-    name: 'Perelló, El',
+    name: 'Perelló',
     city_code: '43',
     code: '104',
   },
   {
-    name: 'Piles, Les',
+    name: 'Piles',
     city_code: '43',
     code: '105',
   },
   {
-    name: 'Pinell de Brai, El',
+    name: 'Pinell de Brai',
     city_code: '43',
     code: '106',
   },
@@ -32352,22 +32352,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '107',
   },
   {
-    name: 'Pla de Santa Maria, El',
+    name: 'Pla de Santa Maria',
     city_code: '43',
     code: '108',
   },
   {
-    name: 'Pobla de Mafumet, La',
+    name: 'Pobla de Mafumet',
     city_code: '43',
     code: '109',
   },
   {
-    name: 'Pobla de Massaluca, La',
+    name: 'Pobla de Massaluca',
     city_code: '43',
     code: '110',
   },
   {
-    name: 'Pobla de Montornès, La',
+    name: 'Pobla de Montornès',
     city_code: '43',
     code: '111',
   },
@@ -32377,7 +32377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '112',
   },
   {
-    name: "Pont d'Armentera, El",
+    name: "Pont d'Armentera",
     city_code: '43',
     code: '113',
   },
@@ -32437,7 +32437,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '123',
   },
   {
-    name: 'Riba, La',
+    name: 'Riba',
     city_code: '43',
     code: '124',
   },
@@ -32447,7 +32447,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '125',
   },
   {
-    name: 'Riera de Gaià, La',
+    name: 'Riera de Gaià',
     city_code: '43',
     code: '126',
   },
@@ -32487,7 +32487,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '133',
   },
   {
-    name: 'Rourell, El',
+    name: 'Rourell',
     city_code: '43',
     code: '134',
   },
@@ -32542,12 +32542,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '143',
   },
   {
-    name: 'Secuita, La',
+    name: 'Secuita',
     city_code: '43',
     code: '144',
   },
   {
-    name: 'Selva del Camp, La',
+    name: 'Selva del Camp',
     city_code: '43',
     code: '145',
   },
@@ -32557,7 +32557,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '146',
   },
   {
-    name: 'Sénia, La',
+    name: 'Sénia',
     city_code: '43',
     code: '044',
   },
@@ -32582,12 +32582,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '150',
   },
   {
-    name: 'Torre de Fontaubella, La',
+    name: 'Torre de Fontaubella',
     city_code: '43',
     code: '151',
   },
   {
-    name: "Torre de l'Espanyol, La",
+    name: "Torre de l'Espanyol",
     city_code: '43',
     code: '152',
   },
@@ -32642,7 +32642,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '162',
   },
   {
-    name: 'Vendrell, El',
+    name: 'Vendrell',
     city_code: '43',
     code: '163',
   },
@@ -32697,12 +32697,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '172',
   },
   {
-    name: 'Vilella Alta, La',
+    name: 'Vilella Alta',
     city_code: '43',
     code: '173',
   },
   {
-    name: 'Vilella Baixa, La',
+    name: 'Vilella Baixa',
     city_code: '43',
     code: '174',
   },
@@ -33007,7 +33007,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '060',
   },
   {
-    name: 'Cañada de Verich, La',
+    name: 'Cañada de Verich',
     city_code: '44',
     code: '061',
   },
@@ -33037,7 +33037,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '066',
   },
   {
-    name: 'Castellar, El',
+    name: 'Castellar',
     city_code: '44',
     code: '070',
   },
@@ -33072,12 +33072,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '076',
   },
   {
-    name: 'Cerollera, La',
+    name: 'Cerollera',
     city_code: '44',
     code: '077',
   },
   {
-    name: 'Codoñera, La',
+    name: 'Codoñera',
     city_code: '44',
     code: '080',
   },
@@ -33107,7 +33107,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '087',
   },
   {
-    name: 'Cuba, La',
+    name: 'Cuba',
     city_code: '44',
     code: '088',
   },
@@ -33122,7 +33122,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '090',
   },
   {
-    name: 'Cuervo, El',
+    name: 'Cuervo',
     city_code: '44',
     code: '092',
   },
@@ -33187,7 +33187,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '107',
   },
   {
-    name: 'Fresneda, La',
+    name: 'Fresneda',
     city_code: '44',
     code: '108',
   },
@@ -33237,7 +33237,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '117',
   },
   {
-    name: 'Ginebrosa, La',
+    name: 'Ginebrosa',
     city_code: '44',
     code: '118',
   },
@@ -33267,7 +33267,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '123',
   },
   {
-    name: 'Hoz de la Vieja, La',
+    name: 'Hoz de la Vieja',
     city_code: '44',
     code: '124',
   },
@@ -33277,7 +33277,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '125',
   },
   {
-    name: 'Iglesuela del Cid, La',
+    name: 'Iglesuela del Cid',
     city_code: '44',
     code: '126',
   },
@@ -33362,7 +33362,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '145',
   },
   {
-    name: 'Mata de los Olmos, La',
+    name: 'Mata de los Olmos',
     city_code: '44',
     code: '146',
   },
@@ -33482,7 +33482,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '172',
   },
   {
-    name: 'Olmos, Los',
+    name: 'Olmos',
     city_code: '44',
     code: '173',
   },
@@ -33507,7 +33507,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '177',
   },
   {
-    name: 'Parras de Castellote, Las',
+    name: 'Parras de Castellote',
     city_code: '44',
     code: '178',
   },
@@ -33542,12 +33542,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '184',
   },
   {
-    name: 'Pobo, El',
+    name: 'Pobo',
     city_code: '44',
     code: '185',
   },
   {
-    name: 'Portellada, La',
+    name: 'Portellada',
     city_code: '44',
     code: '187',
   },
@@ -33562,12 +33562,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '190',
   },
   {
-    name: 'Puebla de Híjar, La',
+    name: 'Puebla de Híjar',
     city_code: '44',
     code: '191',
   },
   {
-    name: 'Puebla de Valverde, La',
+    name: 'Puebla de Valverde',
     city_code: '44',
     code: '192',
   },
@@ -33827,7 +33827,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '247',
   },
   {
-    name: 'Vallecillo, El',
+    name: 'Vallecillo',
     city_code: '44',
     code: '249',
   },
@@ -33902,7 +33902,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '267',
   },
   {
-    name: 'Zoma, La',
+    name: 'Zoma',
     city_code: '44',
     code: '268',
   },
@@ -34067,7 +34067,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '032',
   },
   {
-    name: 'Campillo de la Jara, El',
+    name: 'Campillo de la Jara',
     city_code: '45',
     code: '033',
   },
@@ -34087,7 +34087,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '036',
   },
   {
-    name: 'Carpio de Tajo, El',
+    name: 'Carpio de Tajo',
     city_code: '45',
     code: '037',
   },
@@ -34102,7 +34102,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '039',
   },
   {
-    name: 'Casar de Escalona, El',
+    name: 'Casar de Escalona',
     city_code: '45',
     code: '040',
   },
@@ -34137,7 +34137,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '047',
   },
   {
-    name: 'Cerralbos, Los',
+    name: 'Cerralbos',
     city_code: '45',
     code: '048',
   },
@@ -34222,7 +34222,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '064',
   },
   {
-    name: 'Estrella, La',
+    name: 'Estrella',
     city_code: '45',
     code: '065',
   },
@@ -34252,12 +34252,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '070',
   },
   {
-    name: 'Guardia, La',
+    name: 'Guardia',
     city_code: '45',
     code: '071',
   },
   {
-    name: 'Herencias, Las',
+    name: 'Herencias',
     city_code: '45',
     code: '072',
   },
@@ -34292,7 +34292,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '078',
   },
   {
-    name: 'Iglesuela del Tiétar, La',
+    name: 'Iglesuela del Tiétar',
     city_code: '45',
     code: '079',
   },
@@ -34372,7 +34372,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '094',
   },
   {
-    name: 'Mata, La',
+    name: 'Mata',
     city_code: '45',
     code: '095',
   },
@@ -34437,7 +34437,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '107',
   },
   {
-    name: 'Nava de Ricomalillo, La',
+    name: 'Nava de Ricomalillo',
     city_code: '45',
     code: '108',
   },
@@ -34457,12 +34457,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '111',
   },
   {
-    name: 'Navalmorales, Los',
+    name: 'Navalmorales',
     city_code: '45',
     code: '112',
   },
   {
-    name: 'Navalucillos, Los',
+    name: 'Navalucillos',
     city_code: '45',
     code: '113',
   },
@@ -34572,22 +34572,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '134',
   },
   {
-    name: 'Puebla de Almoradiel, La',
+    name: 'Puebla de Almoradiel',
     city_code: '45',
     code: '135',
   },
   {
-    name: 'Puebla de Montalbán, La',
+    name: 'Puebla de Montalbán',
     city_code: '45',
     code: '136',
   },
   {
-    name: 'Pueblanueva, La',
+    name: 'Pueblanueva',
     city_code: '45',
     code: '137',
   },
   {
-    name: 'Puente del Arzobispo, El',
+    name: 'Puente del Arzobispo',
     city_code: '45',
     code: '138',
   },
@@ -34617,7 +34617,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '143',
   },
   {
-    name: 'Real de San Vicente, El',
+    name: 'Real de San Vicente',
     city_code: '45',
     code: '144',
   },
@@ -34642,7 +34642,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '148',
   },
   {
-    name: 'Romeral, El',
+    name: 'Romeral',
     city_code: '45',
     code: '149',
   },
@@ -34737,7 +34737,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '166',
   },
   {
-    name: 'Toboso, El',
+    name: 'Toboso',
     city_code: '45',
     code: '167',
   },
@@ -34752,7 +34752,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '169',
   },
   {
-    name: 'Torre de Esteban Hambrán, La',
+    name: 'Torre de Esteban Hambrán',
     city_code: '45',
     code: '171',
   },
@@ -34807,22 +34807,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '181',
   },
   {
-    name: 'Ventas con Peña Aguilera, Las',
+    name: 'Ventas con Peña Aguilera',
     city_code: '45',
     code: '182',
   },
   {
-    name: 'Ventas de Retamosa, Las',
+    name: 'Ventas de Retamosa',
     city_code: '45',
     code: '183',
   },
   {
-    name: 'Ventas de San Julián, Las',
+    name: 'Ventas de San Julián',
     city_code: '45',
     code: '184',
   },
   {
-    name: 'Villa de Don Fadrique, La',
+    name: 'Villa de Don Fadrique',
     city_code: '45',
     code: '186',
   },
@@ -34892,12 +34892,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '198',
   },
   {
-    name: 'Viso de San Juan, El',
+    name: 'Viso de San Juan',
     city_code: '45',
     code: '199',
   },
   {
-    name: 'Yébenes, Los',
+    name: 'Yébenes',
     city_code: '45',
     code: '200',
   },
@@ -35017,12 +35017,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '018',
   },
   {
-    name: "Alcúdia de Crespins, l'",
+    name: 'Alcúdia de Crespins',
     city_code: '46',
     code: '020',
   },
   {
-    name: "Alcúdia, l'",
+    name: 'Alcúdia',
     city_code: '46',
     code: '019',
   },
@@ -35107,7 +35107,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '036',
   },
   {
-    name: "Alqueria de la Comtessa, l'",
+    name: 'Alqueria de la Comtessa',
     city_code: '46',
     code: '037',
   },
@@ -35487,7 +35487,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '115',
   },
   {
-    name: "Eliana, l'",
+    name: 'Eliana',
     city_code: '46',
     code: '116',
   },
@@ -35502,7 +35502,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '118',
   },
   {
-    name: "Ènova, l'",
+    name: 'Ènova',
     city_code: '46',
     code: '119',
   },
@@ -35532,12 +35532,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '126',
   },
   {
-    name: 'Font de la Figuera, la',
+    name: 'Font de la Figuera',
     city_code: '46',
     code: '128',
   },
   {
-    name: "Font d'En Carròs, la",
+    name: "Font d'En Carròs",
     city_code: '46',
     code: '127',
   },
@@ -35572,7 +35572,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '130',
   },
   {
-    name: 'Genovés, el',
+    name: 'Genovés',
     city_code: '46',
     code: '132',
   },
@@ -35597,7 +35597,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '136',
   },
   {
-    name: 'Granja de la Costera, la',
+    name: 'Granja de la Costera',
     city_code: '46',
     code: '137',
   },
@@ -35667,7 +35667,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '156',
   },
   {
-    name: 'Llosa de Ranes, la',
+    name: 'Llosa de Ranes',
     city_code: '46',
     code: '157',
   },
@@ -35807,7 +35807,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '181',
   },
   {
-    name: "Olleria, l'",
+    name: 'Olleria',
     city_code: '46',
     code: '183',
   },
@@ -35842,7 +35842,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '188',
   },
   {
-    name: 'Palomar, el',
+    name: 'Palomar',
     city_code: '46',
     code: '189',
   },
@@ -35882,22 +35882,22 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '196',
   },
   {
-    name: 'Pobla de Farnals, la',
+    name: 'Pobla de Farnals',
     city_code: '46',
     code: '199',
   },
   {
-    name: 'Pobla de Vallbona, la',
+    name: 'Pobla de Vallbona',
     city_code: '46',
     code: '202',
   },
   {
-    name: 'Pobla del Duc, la',
+    name: 'Pobla del Duc',
     city_code: '46',
     code: '200',
   },
   {
-    name: 'Pobla Llarga, la',
+    name: 'Pobla Llarga',
     city_code: '46',
     code: '203',
   },
@@ -35922,7 +35922,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '201',
   },
   {
-    name: 'Puig de Santa Maria, el',
+    name: 'Puig de Santa Maria',
     city_code: '46',
     code: '204',
   },
@@ -35977,7 +35977,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '212',
   },
   {
-    name: 'Real de Gandia, el',
+    name: 'Real de Gandia',
     city_code: '46',
     code: '211',
   },
@@ -36247,7 +36247,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '261',
   },
   {
-    name: 'Yesa, La',
+    name: 'Yesa',
     city_code: '46',
     code: '262',
   },
@@ -36407,7 +36407,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '030',
   },
   {
-    name: 'Campillo, El',
+    name: 'Campillo',
     city_code: '47',
     code: '031',
   },
@@ -36742,7 +36742,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '098',
   },
   {
-    name: 'Mudarra, La',
+    name: 'Mudarra',
     city_code: '47',
     code: '099',
   },
@@ -36787,12 +36787,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '109',
   },
   {
-    name: 'Parrilla, La',
+    name: 'Parrilla',
     city_code: '47',
     code: '110',
   },
   {
-    name: 'Pedraja de Portillo, La',
+    name: 'Pedraja de Portillo',
     city_code: '47',
     code: '111',
   },
@@ -37017,7 +37017,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '157',
   },
   {
-    name: 'Seca, La',
+    name: 'Seca',
     city_code: '47',
     code: '158',
   },
@@ -37107,7 +37107,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '175',
   },
   {
-    name: 'Unión de Campos, La',
+    name: 'Unión de Campos',
     city_code: '47',
     code: '176',
   },
@@ -37377,7 +37377,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '231',
   },
   {
-    name: 'Zarza, La',
+    name: 'Zarza',
     city_code: '47',
     code: '232',
   },
@@ -38052,7 +38052,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '023',
   },
   {
-    name: 'Bóveda de Toro, La',
+    name: 'Bóveda de Toro',
     city_code: '49',
     code: '024',
   },
@@ -38207,7 +38207,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '057',
   },
   {
-    name: 'Cubo de Tierra del Vino, El',
+    name: 'Cubo de Tierra del Vino',
     city_code: '49',
     code: '058',
   },
@@ -38362,7 +38362,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '094',
   },
   {
-    name: 'Hiniesta, La',
+    name: 'Hiniesta',
     city_code: '49',
     code: '095',
   },
@@ -38397,7 +38397,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '101',
   },
   {
-    name: 'Maderal, El',
+    name: 'Maderal',
     city_code: '49',
     code: '102',
   },
@@ -38602,7 +38602,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '145',
   },
   {
-    name: 'Pego, El',
+    name: 'Pego',
     city_code: '49',
     code: '146',
   },
@@ -38627,7 +38627,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '150',
   },
   {
-    name: 'Perdigón, El',
+    name: 'Perdigón',
     city_code: '49',
     code: '151',
   },
@@ -38662,7 +38662,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '157',
   },
   {
-    name: 'Piñero, El',
+    name: 'Piñero',
     city_code: '49',
     code: '158',
   },
@@ -38917,7 +38917,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '219',
   },
   {
-    name: 'Torre del Valle, La',
+    name: 'Torre del Valle',
     city_code: '49',
     code: '220',
   },
@@ -39287,7 +39287,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '021',
   },
   {
-    name: 'Almolda, La',
+    name: 'Almolda',
     city_code: '50',
     code: '022',
   },
@@ -39302,7 +39302,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '024',
   },
   {
-    name: 'Almunia de Doña Godina, La',
+    name: 'Almunia de Doña Godina',
     city_code: '50',
     code: '025',
   },
@@ -39487,12 +39487,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '061',
   },
   {
-    name: 'Burgo de Ebro, El',
+    name: 'Burgo de Ebro',
     city_code: '50',
     code: '062',
   },
   {
-    name: 'Buste, El',
+    name: 'Buste',
     city_code: '50',
     code: '063',
   },
@@ -39642,7 +39642,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '090',
   },
   {
-    name: 'Cuerlas, Las',
+    name: 'Cuerlas',
     city_code: '50',
     code: '091',
   },
@@ -39697,7 +39697,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '105',
   },
   {
-    name: 'Fayos, Los',
+    name: 'Fayos',
     city_code: '50',
     code: '106',
   },
@@ -39712,12 +39712,12 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '108',
   },
   {
-    name: 'Frago, El',
+    name: 'Frago',
     city_code: '50',
     code: '109',
   },
   {
-    name: 'Frasno, El',
+    name: 'Frasno',
     city_code: '50',
     code: '110',
   },
@@ -39817,7 +39817,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '131',
   },
   {
-    name: 'Joyosa, La',
+    name: 'Joyosa',
     city_code: '50',
     code: '132',
   },
@@ -40062,7 +40062,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '181',
   },
   {
-    name: 'Muela, La',
+    name: 'Muela',
     city_code: '50',
     code: '182',
   },
@@ -40177,7 +40177,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '204',
   },
   {
-    name: 'Pedrosas, Las',
+    name: 'Pedrosas',
     city_code: '50',
     code: '205',
   },
@@ -40202,7 +40202,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '209',
   },
   {
-    name: 'Pintanos, Los',
+    name: 'Pintanos',
     city_code: '50',
     code: '210',
   },
@@ -40247,7 +40247,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '218',
   },
   {
-    name: 'Puebla de Alfindén, La',
+    name: 'Puebla de Alfindén',
     city_code: '50',
     code: '219',
   },
@@ -40622,7 +40622,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '294',
   },
   {
-    name: 'Vilueña, La',
+    name: 'Vilueña',
     city_code: '50',
     code: '282',
   },
@@ -40632,7 +40632,7 @@ export const dataMunicipalities: Partial<MunicipalityEntity>[] = [
     code: '295',
   },
   {
-    name: 'Zaida, La',
+    name: 'Zaida',
     city_code: '50',
     code: '296',
   },

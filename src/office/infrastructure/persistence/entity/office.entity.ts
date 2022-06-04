@@ -30,6 +30,9 @@ export class OfficeEntity extends BaseEntity {
   @Column({ default: false })
   deleted?: boolean;
 
+  @Column({ default: '900 870 987' })
+  phone: string;
+
   @ManyToOne(() => MunicipalityEntity, (municipality) => municipality.offices)
   municipality: MunicipalityEntity;
 

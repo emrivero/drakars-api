@@ -16,4 +16,8 @@ export class DateModel {
   after(date: DateModel) {
     return this.value.isAfter(date.value);
   }
+
+  equal(date: DateModel) {
+    return this.value.format('DD-MM-YYYY') === date.value.format('DD-MM-YYYY');
+  }
 }

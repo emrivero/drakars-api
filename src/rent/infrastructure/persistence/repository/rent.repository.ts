@@ -111,8 +111,35 @@ export class RentRepository extends Repository<RentEntity> {
     );
   }
 
-  async checkIn(id: number) {
-    const rent = await this.findOne(id);
+  manageRent(reference: string) {
+    return this.findOne({
+      where: [
+        {
+          status: In(['checkedin', 'delayed', 'pending']),
+          renterUser: {
+            email: reference,
+          },
+        },
+        {
+          reference,
+          status: In(['checkedin', 'delayed', 'pending']),
+        },
+      ],
+      relations: [
+        'renterUser',
+        'rentedVehicle',
+        'destinyOffice',
+        'originOffice',
+        'destinyOffice.municipality',
+        'originOffice.municipality',
+        'destinyOffice.municipality.city',
+        'originOffice.municipality.city',
+      ],
+    });
+  }
+
+  async checkIn(id: string) {
+    const rent = await this.findOne({ reference: id });
     if (!rent) {
       throw new NotFoundException();
     }
@@ -122,8 +149,8 @@ export class RentRepository extends Repository<RentEntity> {
     return rent;
   }
 
-  async checkOut(id: number) {
-    const rent = await this.findOne(id);
+  async checkOut(id: string) {
+    const rent = await this.findOne({ reference: id });
     if (!rent) {
       throw new NotFoundException();
     }

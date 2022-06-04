@@ -27,6 +27,8 @@ export class CreateOfficeDto {
 
   @Matches(/([0-1][0-9]|2[0-3]):[0-5][0-9]/)
   readonly morningClosingTime: string;
+  @Matches(/9[0-9]{8}/)
+  readonly phone: string;
 
   @ValidateIf((dto: CreateOfficeDto) => !!dto.eveningClosingTime)
   @Matches(/([0-1][0-9]|2[0-3]):[0-5][0-9]/)

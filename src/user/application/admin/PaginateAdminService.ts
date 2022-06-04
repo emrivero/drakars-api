@@ -23,7 +23,13 @@ export class PaginateAdminService {
     defaultLimit: 10,
     maxLimit: 50,
     defaultSortBy: [['id', 'ASC']],
-    relations: ['office'],
+    deepRelations: [
+      {
+        office: {
+          municipality: 'city',
+        },
+      },
+    ],
   };
   static PAGINATE_CLIENT_CONFIGURATION: PaginateConfig<ClientEntity> = {
     sortableColumns: ['id'],

@@ -17,7 +17,7 @@ export class RefreshStatusRentService {
       })
       .where('status = :status ', { status: 'pending' })
       .andWhere('startDate < :today', {
-        today: moment().format('YYYY-MM-DD'),
+        today: moment().add(2, 'h').format('YYYY-MM-DD'),
       })
       .execute();
 
@@ -28,7 +28,7 @@ export class RefreshStatusRentService {
       })
       .where('status = :status ', { status: 'checkedin' })
       .andWhere('endDate < :today', {
-        today: moment().format('YYYY-MM-DD'),
+        today: moment().add(2, 'h').format('YYYY-MM-DD'),
       })
       .execute();
   }

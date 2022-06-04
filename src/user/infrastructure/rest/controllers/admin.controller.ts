@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   ConflictException,
   Controller,
@@ -19,16 +20,19 @@ import {
   RoleMatchingMode,
   Roles,
 } from 'nest-keycloak-connect';
+import { Not } from 'typeorm';
 import { DeleteClientService } from '../../../../client/application/delete';
 import {
   PaginateConfig,
   Paginated,
   PaginateQuery,
 } from '../../../../lib/paginate';
+import { OfficeRepository } from '../../../../office/infrastructure/persistence/repository/office.mariadb.repository';
 import { CancelRentService } from '../../../../rent/application/cancel-rent';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { PaginateVehicleService } from '../../../../vehicle/application/paginate';
 import { VehicleEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle.entity';
+import { VehicleMariadbRepository } from '../../../../vehicle/infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { PaginateAdminService } from '../../../application/admin/PaginateAdminService';
 import { CreateUserService } from '../../../application/CreateUserService';
 import { DeleteUserService } from '../../../application/DeleteUserService';
@@ -39,6 +43,7 @@ import { EditorRepository } from '../../persistence/repository/editor.repository
 import { AdminDto } from '../dtos/admin/admin-dto';
 import { CreateAdminDto } from '../dtos/admin/create-admin-dto';
 import { CreateEditorDto } from '../dtos/editor/create-editor-dto';
+import { RentInfoVm } from '../vms/RentInfoVm';
 
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('admin')
@@ -54,6 +59,8 @@ export class AdminController {
     private paginateRentService: PaginateRentService,
     private readonly refreshService: RefreshStatusRentService,
     private readonly cancelRentService: CancelRentService,
+    private readonly officeRepository: OfficeRepository,
+    private readonly vehicleRepository: VehicleMariadbRepository,
   ) {}
   @Post('create')
   createEditor(@Body() dto: CreateAdminDto) {
@@ -134,16 +141,66 @@ export class AdminController {
     return rent;
   }
 
+  @Get('manage-rent/:reference')
+  @Roles({ roles: [Role.EDITOR], mode: RoleMatchingMode.ANY })
+  async manageRent(
+    @AuthenticatedUser() dto: AdminDto,
+    @Param('reference') reference: string,
+  ) {
+    const rent = await this.rentRepository.manageRent(reference);
+    if (!rent) {
+      throw new NotFoundException();
+    }
+    const { resource_access, sub } = dto;
+    if (resource_access) {
+      const roles = resource_access['drakars-admin-api']?.roles;
+      if (roles.includes(Role.EDITOR)) {
+        const editor = await this.editorRepository.findOne({
+          where: {
+            id: sub,
+          },
+          relations: ['office'],
+        });
+
+        if (
+          editor.office.id !== rent.originOffice.id &&
+          editor.office.id !== rent.destinyOffice.id
+        ) {
+          throw new ConflictException();
+        }
+        const delayed = await this.rentRepository.findOne({
+          where: {
+            rentedVehicle: { id: rent.rentedVehicle.id },
+            status: 'delayed',
+            reference: Not(rent.reference),
+          },
+          relations: ['rentedVehicle'],
+        });
+        return new RentInfoVm(rent, editor.office.id, !!delayed);
+      }
+    }
+  }
+
   @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
   @Patch('rent/checkIn/:id')
-  checkInRent(@Param('id') id: number) {
+  checkInRent(@Param('id') id: string) {
     return this.rentRepository.checkIn(id);
   }
 
   @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
   @Patch('rent/checkOut/:id')
-  checkOutRent(@Param('id') id: number) {
-    return this.rentRepository.checkOut(id);
+  async checkOutRent(@Param('id') id: string) {
+    const rent = await this.rentRepository.findOne(
+      { reference: id },
+      {
+        relations: ['rentedVehicle', 'destinyOffice'],
+      },
+    );
+    const vehicle = rent.rentedVehicle;
+    vehicle.office = rent.destinyOffice;
+    const checkOut = await this.rentRepository.checkOut(id);
+    await this.vehicleRepository.save(vehicle);
+    return checkOut;
   }
 
   @Roles({ roles: [Role.ADMIN], mode: RoleMatchingMode.ANY })
@@ -234,6 +291,26 @@ export class AdminController {
     newVehicle.id = id;
     rent.rentedVehicle = newVehicle;
     return this.rentRepository.save(rent);
+  }
+
+  @Roles({ roles: [Role.ADMIN, Role.EDITOR], mode: RoleMatchingMode.ANY })
+  @Put('editor/change-office/:editorId/:officeId')
+  async changeOffice(
+    @Param('editorId') editorId: string,
+    @Param('officeId') officeId: number,
+  ) {
+    if (!editorId || !officeId) {
+      throw new BadRequestException();
+    }
+    const editor = await this.editorRepository.findOne({ id: editorId });
+    if (editor) {
+      const office = await this.officeRepository.findOne({ id: officeId });
+      if (office) {
+        editor.office = office;
+
+        return this.editorRepository.save(editor);
+      }
+    }
   }
 
   async getOfficeFromUser(dto: AdminDto) {
