@@ -1,6 +1,8 @@
 import { classes } from '@automapper/classes';
 import { CamelCaseNamingConvention } from '@automapper/core';
 import { AutomapperModule } from '@automapper/nestjs';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -17,8 +19,30 @@ import { OfficeModule } from './office/office.module';
 import { RentModule } from './rent/rent.module';
 import { UserModule } from './user/user.module';
 import { VehicleModule } from './vehicle/vehicle.module';
+
 @Module({
   imports: [
+    MailerModule.forRoot({
+      transport: {
+        host: 'smtp-mail.outlook.com',
+        port: 587,
+        secure: false, // upgrade later with STARTTLS
+        auth: {
+          user: 'drakars@outlook.es',
+          pass: 'VcTw1YtMg0xGhw',
+        },
+      },
+      defaults: {
+        from: '"Reserva de Drakars" <drakars@outlook.es>',
+      },
+      template: {
+        dir: process.cwd() + '/src/public/templates/',
+        adapter: new HandlebarsAdapter(), // or new PugAdapter()
+        options: {
+          strict: true,
+        },
+      },
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'public', 'resources'),
       exclude: ['/api/*', '/static/*'],

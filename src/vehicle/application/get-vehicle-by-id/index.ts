@@ -6,13 +6,17 @@ import {
   PaginateConfig,
   PaginateQuery,
 } from '../../../lib/paginate';
+import { RentRepository } from '../../../rent/infrastructure/persistence/repository/rent.repository';
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { AvailableVehicleDto } from '../../infrastructure/rest/dtos/available-vehicle';
 
 @Injectable()
 export class GetVehicleService {
-  constructor(private readonly vehicleRepository: VehicleMariadbRepository) {}
+  constructor(
+    private readonly vehicleRepository: VehicleMariadbRepository,
+    private readonly rentRepository: RentRepository,
+  ) {}
   static PAGINATE_CONFIGURATION: PaginateConfig<VehicleEntity> = {
     sortableColumns: ['id', 'year', 'pricePerDay'],
     searchableColumns: ['fullName'],
@@ -31,16 +35,14 @@ export class GetVehicleService {
   };
 
   async isAvailable(query: AvailableVehicleDto, vehicleId: number) {
-    const isAvailable = this.getAvailableQuery(
-      query.office,
-      query.startDate,
-      query.endDate,
+    const isAvailable = (
+      await this.getAvailableQuery(query.office, query.startDate, query.endDate)
     ).andWhere('vehicle.id=:id', { id: vehicleId });
     return (await isAvailable.getCount()) > 0;
   }
 
-  listAvailable(query: AvailableVehicleDto & PaginateQuery) {
-    const queryBuilder = this.getAvailableQuery(
+  async listAvailable(query: AvailableVehicleDto & PaginateQuery) {
+    const queryBuilder = await this.getAvailableQuery(
       query.office,
       query.startDate,
       query.endDate,
@@ -57,46 +59,64 @@ export class GetVehicleService {
     });
   }
 
-  private getAvailableQuery(
+  private async getAvailableQuery(
     office: number,
     startDate: string,
     endDate: string,
   ) {
-    const queryBuilder = this.vehicleRepository
-      .createQueryBuilder('vehicle')
-      .select('vehicle')
-      .leftJoin('vehicle.rents', 'rent')
-      .leftJoinAndSelect('vehicle.image', 'image')
-      .where('vehicle.office=:office', { office })
-      .andWhere('vehicle.active = :active', { active: true })
+    const subquery = this.rentRepository
+      .createQueryBuilder('rent')
+      .leftJoin('rent.rentedVehicle', 'Vehicle')
+      .select('Vehicle.id')
+      .where('rent.originOffice = :originOffice', { originOffice: office })
+      .andWhere(
+        new Brackets((qb) => {
+          qb.where(`rent.status != :canceled AND rent.status != :checkedout`, {
+            canceled: 'canceled',
+            checkedout: 'checkedout',
+          });
+        }),
+      )
       .andWhere(
         new Brackets((qb) => {
           qb.where(
-            new Brackets((qb) => {
-              qb.where('rent.endDate < :startDate', {
-                startDate,
-              }).orWhere('rent.startDate > :endDate', {
-                endDate,
-              });
-            }),
+            'rent.startDate <= :startDate AND rent.endDate >= :startDate',
+            {
+              startDate,
+            },
           )
             .orWhere(
-              new Brackets((qb) => {
-                qb.where('rent.endDate is null').andWhere(
-                  'rent.startDate is null',
-                );
-              }),
+              'rent.startDate <= :endDate AND rent.endDate >= :endDate',
+              {
+                endDate,
+              },
             )
             .orWhere(
-              new Brackets((qb) => {
-                qb.where(
-                  `rent.status = 'canceled' or rent.status = 'checkedout'`,
-                );
-              }),
+              'rent.startDate >= :startDate AND rent.endDate <= :endDate',
+              {
+                startDate,
+                endDate,
+              },
             );
         }),
       );
 
+    const queryBuilder = this.vehicleRepository
+      .createQueryBuilder('vehicle')
+      .select('vehicle')
+      .leftJoinAndSelect('vehicle.image', 'image')
+      .where('vehicle.office=:office', { office })
+      .andWhere('vehicle.active=:active', { active: true })
+      .andWhere(`vehicle.id NOT IN (${subquery.getQuery()})`)
+      .setParameters(subquery.getParameters());
+
     return queryBuilder;
   }
 }
+
+// SELECT * FROM drakars.vehicle_entity v where v.officeId = 197 AND v.active = true AND v.id NOT IN
+
+// (SELECT r.rentedVehicleId FROM drakars.rent_entity r
+// where ( (r.startDate <='2022-05-10' and  r.endDate >='2022-05-10')  or (r.startDate <='2022-06-30' and  r.endDate >='2022-06-30') or
+// (r.startDate >='2022-05-10' and r.endDate <='2022-06-30') )
+// and (r.status != 'canceled' and r.status != 'checkedout') and r.originOfficeId = 197);

@@ -19,7 +19,7 @@ export class MariaDBConfigService implements TypeOrmOptionsFactory {
       database: this.db,
       synchronize: true,
       autoLoadEntities: true,
-      logging: false,
+      // logging: true,
       // entities: [VehicleEntity],
     };
 

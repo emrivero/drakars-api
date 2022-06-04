@@ -9,6 +9,7 @@ import {
   NotFoundException,
   Param,
   Post,
+  Response,
   UseGuards,
 } from '@nestjs/common';
 import { AuthenticatedUser, AuthGuard, RoleGuard } from 'nest-keycloak-connect';
@@ -16,7 +17,9 @@ import { MoreThanOrEqual } from 'typeorm';
 import { ClientDto } from '../../../client/infrastructure/rest/dtos/client.dto';
 import { GetOfficeService } from '../../../office/application/get-by-id';
 import { CancelRentService } from '../../application/cancel-rent';
+import { CreateInvoiceService } from '../../application/create-invoice';
 import { GetRentServive } from '../../application/get-rent';
+import { NodeMailerService } from '../../application/mailer/MailerService';
 import { RentCarService } from '../../application/rent-car';
 import { RentRepository } from '../persistence/repository/rent.repository';
 import { RentCardDto } from './dto/rent-car';
@@ -30,6 +33,8 @@ export class RentController {
     private readonly cancelRentService: CancelRentService,
     @Inject(RentRepository)
     private readonly rentRepository: RentRepository,
+    private readonly createInvoiceService: CreateInvoiceService,
+    private readonly mailer: NodeMailerService,
   ) {}
 
   @Post()
@@ -51,7 +56,9 @@ export class RentController {
       throw new ForbiddenException('This user already have a rent');
     }
 
-    return await this.rentCarService.rent(dto, origin, destiny);
+    const rent = await this.rentCarService.rent(dto, origin, destiny);
+    this.mailer.sendRentConfirmation(rent);
+    return rent;
   }
 
   @Post('/logged')
@@ -76,7 +83,9 @@ export class RentController {
       throw new ForbiddenException('This user already have a rent');
     }
 
-    return await this.rentCarService.rent(dto, origin, destiny);
+    const rent = await this.rentCarService.rent(dto, origin, destiny);
+    this.mailer.sendRentConfirmation(rent);
+    return rent;
   }
 
   @Get('exist-active-rent/:email')
@@ -144,5 +153,38 @@ export class RentController {
       throw new BadRequestException();
     }
     return this.cancelRentService.cancel(reference);
+  }
+
+  @Get('download/:reference')
+  async downloadReference(
+    @Param('reference') reference: string,
+    @Response() res,
+  ) {
+    const rent = await this.rentRepository.findOne(
+      {
+        reference,
+      },
+      {
+        relations: [
+          'renterUser',
+          'rentedVehicle',
+          'rentedVehicle.image',
+          'destinyOffice',
+          'originOffice',
+          'destinyOffice.municipality',
+          'originOffice.municipality',
+          'destinyOffice.municipality.city',
+          'originOffice.municipality.city',
+        ],
+      },
+    );
+    const pdf = this.createInvoiceService.create(rent);
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="${reference}.pdf"`,
+    });
+    pdf.pipe(res);
+    pdf.end();
+    return res;
   }
 }

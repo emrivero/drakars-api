@@ -13,7 +13,9 @@ import { GetVehicleService } from '../vehicle/application/get-vehicle-by-id';
 import { VehicleEntity } from '../vehicle/infrastructure/persistence/entities/vehicle.entity';
 import { VehicleMariadbRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle.mariadb.repository';
 import { CancelRentService } from './application/cancel-rent';
+import { CreateInvoiceService } from './application/create-invoice';
 import { GetRentServive } from './application/get-rent';
+import { NodeMailerService } from './application/mailer/MailerService';
 import { RentCarService } from './application/rent-car';
 import { RentEntity } from './infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from './infrastructure/persistence/repository/rent.repository';
@@ -44,6 +46,8 @@ import { RentController } from './infrastructure/rest/rent.controller';
     GetOfficeService,
     GetRentServive,
     CancelRentService,
+    CreateInvoiceService,
+    NodeMailerService,
   ],
   controllers: [RentController],
 })

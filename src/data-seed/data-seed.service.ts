@@ -12,7 +12,7 @@ import { VehicleImageEntity } from '../vehicle/infrastructure/persistence/entiti
 import { VehicleImageRepository } from '../vehicle/infrastructure/persistence/repositories/vehicle-images.repository';
 import { dataCities } from './data/city';
 import { dataMunicipalities } from './data/municipality';
-import { dataVehicles, VehicleData } from './data/vehicle';
+import { VehicleData } from './data/vehicle';
 
 @Injectable()
 export class DataSeedingService implements OnApplicationBootstrap {
@@ -64,10 +64,14 @@ export class DataSeedingService implements OnApplicationBootstrap {
 
   private async importVehicles() {
     const offices = await this.officeRepository.find();
+    const vehicles = await this.vehicleRepository.find({
+      relations: ['office', 'image'],
+    });
     // await this.vehicleRepository.delete({});
-    const vehiclesWithOffice: VehicleData[] = dataVehicles.map((data) => ({
+    const vehiclesWithOffice: VehicleData[] = vehicles.map((data) => ({
       ...data,
       office: offices[random(0, offices.length)],
+      id: null,
     }));
     await this.vehicleRepository.insert(vehiclesWithOffice);
   }
