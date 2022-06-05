@@ -19,7 +19,14 @@ export class PaginateAdminService {
   };
   static PAGINATE_EDITOR_CONFIGURATION: PaginateConfig<EditorEntity> = {
     sortableColumns: ['id'],
-    searchableColumns: ['family_name', 'email', 'name'],
+    searchableColumns: [
+      'family_name',
+      'email',
+      'name',
+      'office.name',
+      'office.municipality.name',
+      'office.municipality.city.name',
+    ],
     defaultLimit: 10,
     maxLimit: 50,
     defaultSortBy: [['id', 'ASC']],
