@@ -24,9 +24,13 @@ import { VehicleModule } from './vehicle/vehicle.module';
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: 'mailer',
-        port: 1025,
-        secure: false, // upgrade later with STARTTLS
+        host: 'info@drakars.es',
+        port: 587,
+        secure: true,
+        auth: {
+          user: 'info@drakars.es',
+          pass: 'txZNUU835EpfeqZ_',
+        },
       },
       defaults: {
         from: '"Reserva de Drakars" <no-reply@drakars.es>',
