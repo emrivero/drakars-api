@@ -6,7 +6,6 @@ import { MarkType } from '../../../domain/types/mark.type';
 import { TransmissionType } from '../../../domain/types/transmission';
 import { VehicleType } from '../../../domain/types/vehicle.type';
 import { VehicleImageEntity } from './vehicle-image';
-import { VehicleRatingEntity } from './vehicle-rating';
 
 @Entity()
 export class VehicleEntity extends BaseEntity {
@@ -77,9 +76,4 @@ export class VehicleEntity extends BaseEntity {
     onDelete: 'SET NULL',
   })
   image?: VehicleImageEntity;
-
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle, {
-    onDelete: 'SET NULL',
-  })
-  ratings: VehicleRatingEntity[];
 }

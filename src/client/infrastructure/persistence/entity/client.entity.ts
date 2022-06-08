@@ -1,7 +1,6 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/rent.entity';
 import { UserEntity } from '../../../../user/infrastructure/persistence/entity/user.entity';
-import { VehicleRatingEntity } from '../../../../vehicle/infrastructure/persistence/entities/vehicle-rating';
 
 @Entity()
 export class ClientEntity extends UserEntity {
@@ -28,11 +27,6 @@ export class ClientEntity extends UserEntity {
     onDelete: 'SET NULL',
   })
   rents: RentEntity[];
-
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.user, {
-    onDelete: 'SET NULL',
-  })
-  ratings: VehicleRatingEntity[];
 
   @Column({
     type: 'enum',

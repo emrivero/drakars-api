@@ -24,10 +24,4 @@ export abstract class UserEntity extends AbstractEntity {
     nullable: true,
   })
   role?: Role;
-
-  @Column({
-    type: 'blob',
-    nullable: true,
-  })
-  profileImage?: string;
 }
