@@ -26,7 +26,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
       transport: {
         host: 'smtp.zoho.eu',
         port: 587,
-        secure: true,
+        secure: false,
         auth: {
           user: 'info@drakars.es',
           pass: 'txZNUU835EpfeqZ_',
