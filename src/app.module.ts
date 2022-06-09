@@ -24,7 +24,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: 'info@drakars.es',
+        host: 'smtp.zoho.eu',
         port: 587,
         secure: true,
         auth: {
