@@ -33,7 +33,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
         },
       },
       defaults: {
-        from: '"Reserva de Drakars" <no-reply@drakars.es>',
+        from: '"Reserva de Drakars" <info@drakars.es>',
       },
       template: {
         dir: process.cwd() + '/src/public/templates/',

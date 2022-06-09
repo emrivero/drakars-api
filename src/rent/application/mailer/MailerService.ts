@@ -12,7 +12,6 @@ export class NodeMailerService {
     this.mailerService
       .sendMail({
         to: rent.renterUser.email,
-        from: 'drakars@outlook.es',
         subject: 'Confirmación de Reserva',
         template: 'index', // The `.pug` or `.hbs` extension is appended automatically.
         context: {
