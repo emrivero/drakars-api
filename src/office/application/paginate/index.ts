@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { paginate, PaginateConfig, PaginateQuery } from 'nestjs-paginate';
 import { Like } from 'typeorm';
+import { paginate, PaginateConfig, PaginateQuery } from '../../../lib/paginate';
 import { OfficeEntity } from '../../infrastructure/persistence/entity/office.entity';
 import { OfficeRepository } from '../../infrastructure/persistence/repository/office.mariadb.repository';
 
@@ -8,11 +8,24 @@ import { OfficeRepository } from '../../infrastructure/persistence/repository/of
 export class PaginateOfficeService {
   static PAGINATE_CONFIG: PaginateConfig<OfficeEntity> = {
     sortableColumns: ['id', 'name'],
-    searchableColumns: ['name', 'zipCode', 'municipality.name'],
+    searchableColumns: [
+      'name',
+      'zipCode',
+      'municipality.name',
+      'municipality.city.name',
+    ],
     defaultLimit: 10,
     maxLimit: 20,
     defaultSortBy: [['id', 'ASC']],
-    relations: ['municipality'],
+    // relations: ['municipality'],
+    deepRelations: [
+      {
+        municipality: 'city',
+      },
+    ],
+    where: {
+      deleted: false,
+    },
   };
 
   static LIST_CONFIG: PaginateConfig<OfficeEntity> = {

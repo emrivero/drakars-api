@@ -12,6 +12,11 @@ export class Office extends BaseModel<OfficeEntity> {
     public name: string,
     public address: string,
     public zipCode: string,
+    public morningOpeningTime: string,
+    public morningClosingTime: string,
+    public eveningOpeningTime: string,
+    public eveningClosingTime: string,
+    public phone: string,
     municipalityId: number = null,
   ) {
     super(id, createdAt, updatedAt);
@@ -21,7 +26,19 @@ export class Office extends BaseModel<OfficeEntity> {
   }
 
   static create(id: number) {
-    return new Office(id, null, null, null, null, null);
+    return new Office(
+      id,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    );
   }
 
   static fromDto(dto: CreateOfficeDto): Office {
@@ -32,6 +49,11 @@ export class Office extends BaseModel<OfficeEntity> {
       dto.name,
       dto.address,
       dto.zipCode,
+      dto.morningOpeningTime,
+      dto.morningClosingTime,
+      dto.eveningOpeningTime,
+      dto.eveningClosingTime,
+      dto.phone,
       dto.municipality,
     );
   }

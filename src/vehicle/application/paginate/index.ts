@@ -4,15 +4,22 @@ import {
   paginate,
   PaginateConfig,
   PaginateQuery,
-} from 'nestjs-paginate';
+} from '../../../lib/paginate';
+
 import { VehicleEntity } from '../../infrastructure/persistence/entities/vehicle.entity';
-import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb,repository';
+import { VehicleMariadbRepository } from '../../infrastructure/persistence/repositories/vehicle.mariadb.repository';
 
 @Injectable()
 export class PaginateVehicleService {
   static PAGINATE_CONFIGURATION: PaginateConfig<VehicleEntity> = {
     sortableColumns: ['id', 'year', 'pricePerDay'],
-    searchableColumns: ['fullName'],
+    searchableColumns: [
+      'id',
+      'fullName',
+      'office.name',
+      'office.municipality.name',
+      'office.municipality.city.name',
+    ],
     filterableColumns: {
       fuel: [FilterOperator.EQ],
       type: [FilterOperator.EQ],
@@ -25,15 +32,27 @@ export class PaginateVehicleService {
     defaultLimit: 5000,
     maxLimit: 5000,
     defaultSortBy: [['id', 'ASC']],
-    relations: ['office'],
+    relations: ['image'],
+    deepRelations: [
+      {
+        office: {
+          municipality: 'city',
+        },
+      },
+    ],
   };
   constructor(private readonly vehicleRepository: VehicleMariadbRepository) {}
 
   async paginate(
-    query: PaginateQuery & { relations: ('rents' | 'office' | 'ratings')[] },
+    query: PaginateQuery & {
+      relations: ('rents' | 'office' | 'ratings')[];
+      paginateOptions: PaginateConfig<VehicleEntity>;
+    },
   ) {
+    const { paginateOptions } = query;
     return paginate(query, this.vehicleRepository, {
       ...PaginateVehicleService.PAGINATE_CONFIGURATION,
+      ...paginateOptions,
     });
   }
 }

@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -8,8 +9,9 @@ import {
   Patch,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
-import { PaginateQuery } from 'nestjs-paginate';
+import { PaginateQuery } from '../../../../lib/paginate';
 import { CreateOfficeService } from '../../../application/create';
 import { DeleteOfficeService } from '../../../application/delete';
 import { GetOfficeService } from '../../../application/get-by-id';
@@ -18,6 +20,8 @@ import { TransferOfficeVehiclesService } from '../../../application/transfer-veh
 import { UpdateOfficeService } from '../../../application/update';
 import { Office } from '../../../domain/models/office';
 import { CreateOfficeDto } from '../dto/create-office.dto';
+import { hoursFormatValidator } from '../validator/hours-format-validator';
+import { validateHours } from '../validator/hours-validator';
 
 @Controller('office')
 export class OfficeController {
@@ -32,6 +36,17 @@ export class OfficeController {
 
   @Post()
   create(@Body() dto: CreateOfficeDto) {
+    if (!validateHours(dto.morningOpeningTime, dto.morningClosingTime)) {
+      throw new BadRequestException(
+        'Morning opening time is greater than morning closing time',
+      );
+    }
+
+    if (!validateHours(dto.eveningOpeningTime, dto.eveningClosingTime)) {
+      throw new BadRequestException(
+        'Evening opening time is greater than morning closing time',
+      );
+    }
     const office = Office.fromDto(dto);
     return this.createService.create(office, dto.municipality);
   }
@@ -56,8 +71,28 @@ export class OfficeController {
     return office;
   }
 
+  @Get('search/:name')
+  async search(@Param('name') name: string) {
+    if (name && name.length > 1) {
+      const offices = await this.getService.search(name);
+      return offices;
+    }
+    return [];
+  }
+
   @Put(':id')
   update(@Param('id') id: number, @Body() dto: CreateOfficeDto) {
+    if (!validateHours(dto.morningOpeningTime, dto.morningClosingTime)) {
+      throw new BadRequestException(
+        'Morning opening time is greater than morning closing time',
+      );
+    }
+
+    if (!validateHours(dto.eveningOpeningTime, dto.eveningClosingTime)) {
+      throw new BadRequestException(
+        'Evening opening time is greater than morning closing time',
+      );
+    }
     const office = Office.fromDto(dto);
     return this.updateService.update(id, office);
   }
@@ -73,5 +108,14 @@ export class OfficeController {
     @Param('newOfficeId') newOfficeId: number,
   ) {
     return this.transferService.transfer(oldOfficeId, newOfficeId);
+  }
+
+  @Get('valid-hour/:id')
+  async inHour(@Param('id') id: number, @Query('hour') hour: string) {
+    if (!hoursFormatValidator(hour)) {
+      throw new BadRequestException('Start hour should be in format HH:MM');
+    }
+
+    return { result: await this.getService.hoursInRange(id, hour) };
   }
 }

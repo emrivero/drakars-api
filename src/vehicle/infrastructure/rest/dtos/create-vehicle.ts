@@ -1,10 +1,10 @@
 import {
-  IsBoolean,
   IsEnum,
   IsNotEmpty,
   IsNumber,
   IsOptional,
   IsPositive,
+  IsString,
 } from 'class-validator';
 import { MarkType } from '../../../domain/types/mark.type';
 import { TransmissionType } from '../../../domain/types/transmission';
@@ -27,9 +27,10 @@ export class CreateVehicleDto {
   @IsEnum(VehicleType)
   readonly type: VehicleType;
 
-  readonly limitKM: number;
+  // readonly limitKM: number;
 
   @IsNumber()
+  @IsOptional()
   readonly office: number;
 
   @IsNumber()
@@ -38,7 +39,12 @@ export class CreateVehicleDto {
   @IsNumber()
   readonly pricePerDay: number;
 
-  @IsBoolean()
-  @IsOptional()
-  readonly rented: boolean;
+  @IsNumber()
+  readonly doors: number;
+
+  @IsString()
+  readonly fuel: string;
+
+  @IsNumber()
+  readonly imageId: number;
 }

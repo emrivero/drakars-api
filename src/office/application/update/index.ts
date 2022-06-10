@@ -23,6 +23,7 @@ export class UpdateOfficeService {
     }
 
     const entity = office.toEntity(OfficeEntity);
+    entity.id = id;
     return this.officeRepository.update(id, entity);
   }
 }

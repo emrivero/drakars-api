@@ -17,12 +17,13 @@ export class Vehicle extends BaseModel<VehicleEntity> {
     public model: string,
     public mark: MarkType,
     public seats: number,
-    public limitKM: number,
+    // public limitKM: number,
     public pricePerDay: number,
     officeId: number,
     public transmission: TransmissionType,
     public type: VehicleType,
-    public rented = false,
+    public doors: number,
+    public fuel: string,
   ) {
     super(id, createdAt, updatedAt);
     this.office = Office.create(officeId);
@@ -41,12 +42,13 @@ export class Vehicle extends BaseModel<VehicleEntity> {
       dto.model,
       dto.mark,
       dto.seats,
-      dto.limitKM,
+      // dto.limitKM,
       dto.pricePerDay,
       dto.office,
       dto.transmission,
       dto.type,
-      dto.rented,
+      dto.doors,
+      dto.fuel,
     );
   }
 

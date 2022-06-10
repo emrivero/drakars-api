@@ -1,20 +1,16 @@
-import { Column, Entity } from 'typeorm';
-import { BaseEntity } from '../../../../common/infrastructure/entities/base-entity';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { AbstractEntity } from '../../../../common/infrastructure/entities/abstract-entity';
 import { Role } from '../../../domain/types/role';
 
 @Entity()
-export abstract class UserEntity extends BaseEntity {
-  @Column()
-  email_verified: boolean;
+export abstract class UserEntity extends AbstractEntity {
+  @PrimaryColumn({
+    type: 'uuid',
+  })
+  id: string;
 
   @Column()
   name: string;
-
-  @Column()
-  preferred_username: string;
-
-  @Column()
-  given_name: string;
 
   @Column()
   family_name: string;
@@ -25,12 +21,7 @@ export abstract class UserEntity extends BaseEntity {
   @Column({
     type: 'enum',
     enum: Role,
-  })
-  role: Role;
-
-  @Column({
-    type: 'blob',
     nullable: true,
   })
-  profileImage: string;
+  role?: Role;
 }

@@ -5,7 +5,7 @@ import { RentEntity } from '../../../../rent/infrastructure/persistence/entity/r
 import { MarkType } from '../../../domain/types/mark.type';
 import { TransmissionType } from '../../../domain/types/transmission';
 import { VehicleType } from '../../../domain/types/vehicle.type';
-import { VehicleRatingEntity } from './vehicle-rating';
+import { VehicleImageEntity } from './vehicle-image';
 
 @Entity()
 export class VehicleEntity extends BaseEntity {
@@ -39,9 +39,14 @@ export class VehicleEntity extends BaseEntity {
   type: VehicleType;
 
   @Column({
-    nullable: true,
+    default: true,
   })
-  limitKM: number;
+  active?: boolean;
+
+  // @Column({
+  //   nullable: true,
+  // })
+  // limitKM: number;
 
   @Column({ type: 'float' })
   pricePerDay: number;
@@ -55,23 +60,20 @@ export class VehicleEntity extends BaseEntity {
   @Column()
   fullName: string;
 
-  @Column({
-    nullable: true,
-  })
-  image?: string;
-
   @OneToMany(() => RentEntity, (rent) => rent.rentedVehicle, {
     onDelete: 'SET NULL',
   })
   rents: RentEntity[];
 
   @ManyToOne(() => OfficeEntity, (office) => office.vehicles, {
-    nullable: false,
+    nullable: true,
+    onDelete: 'SET NULL',
   })
   office: OfficeEntity;
 
-  @OneToMany(() => VehicleRatingEntity, (rating) => rating.vehicle, {
+  @ManyToOne(() => VehicleImageEntity, {
+    nullable: true,
     onDelete: 'SET NULL',
   })
-  ratings: VehicleRatingEntity[];
+  image?: VehicleImageEntity;
 }

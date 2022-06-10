@@ -1,4 +1,5 @@
 export enum MarkType {
+  ALFA_ROMEO = 'Alfa Romeo',
   AUDI = 'Audi',
   BMW = 'BMW',
   CITROËN = 'Citroën',
@@ -20,4 +21,8 @@ export enum MarkType {
   TOYOTA = 'Toyota',
   VOLKSWAGEN = 'Volkswagen',
   VOLVO = 'Volvo',
+  MINI = 'Mini',
+  MITSUBISHI = 'Mitsubishi',
+  FERRARI = 'Ferrari',
+  MAZDA = 'Mazda',
 }

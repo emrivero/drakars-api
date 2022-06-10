@@ -1,5 +1,4 @@
-export enum InvoiceStatus {
-  PREPAID = 'prepaid',
+export enum PaymentStatus {
   PENDING = 'pending',
   PAID = 'paid',
 }
