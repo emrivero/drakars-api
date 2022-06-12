@@ -14,12 +14,14 @@ import {
   RoleGuard,
   Roles,
 } from 'nest-keycloak-connect';
+import { NodeMailerService } from '../../../../rent/application/mailer/MailerService';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
 import { CreateClientService } from '../../../application/create/CreateUserService';
 import { DeleteClientService } from '../../../application/delete';
 import { GetClientService } from '../../../application/find';
 import { UpdateClientService } from '../../../application/update';
 import { ClientDto } from '../dtos/client.dto';
+import { ContactDto } from '../dtos/contact.dto';
 import { UpdateClientDto } from '../dtos/update-client.dto';
 
 @UseGuards(AuthGuard, RoleGuard)
@@ -33,6 +35,7 @@ export class ClientController {
     private readonly deleteService: DeleteClientService,
     @Inject(RentRepository)
     private readonly rentRepository: RentRepository,
+    private readonly nodeMailer: NodeMailerService,
   ) {}
 
   @Post()
@@ -69,5 +72,10 @@ export class ClientController {
   async getRentsHistory(@AuthenticatedUser() dto: ClientDto) {
     const { email } = dto;
     return this.rentRepository.getOldRents(email);
+  }
+
+  @Post('contact')
+  async contact(@Body() dto: ContactDto) {
+    return this.nodeMailer.sendContactEmail(dto);
   }
 }

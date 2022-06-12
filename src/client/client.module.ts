@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { KeycloakConnectModule } from 'nest-keycloak-connect';
 import { KeycloakConfigModule } from '../config/keycloak/config.module';
 import { KeycloakConfigService } from '../config/keycloak/config.service';
+import { NodeMailerService } from '../rent/application/mailer/MailerService';
 import { RentEntity } from '../rent/infrastructure/persistence/entity/rent.entity';
 import { RentRepository } from '../rent/infrastructure/persistence/repository/rent.repository';
 import { VehicleRatingEntity } from '../vehicle/infrastructure/persistence/entities/vehicle-rating';
@@ -44,6 +45,7 @@ import { ClientController } from './infrastructure/rest/controllers/client.contr
     KeycloakRepository,
     UpdateClientService,
     FindOrCreateClientService,
+    NodeMailerService,
     // {
     //   provide: APP_GUARD,
     //   useClass: AuthGuard,

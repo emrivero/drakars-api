@@ -1,5 +1,6 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
+import { ContactDto } from '../../../client/infrastructure/rest/dtos/contact.dto';
 import { RentEntity } from '../../infrastructure/persistence/entity/rent.entity';
 
 @Injectable()
@@ -23,6 +24,22 @@ export class NodeMailerService {
           total: rent.total,
           dates: `${rent.startDate}-${rent.startHour} / ${rent.endDate}-${rent.endHour}`,
           link: `http://localhost:5000/api/rent-car/download/${rent.reference}`,
+        },
+      })
+      .catch(console.error);
+  }
+
+  sendContactEmail(contactDto: ContactDto) {
+    this.mailerService
+      .sendMail({
+        to: 'info@drakars.es',
+        subject: `Contacto desde la Web`,
+        template: 'contact',
+        context: {
+          name: contactDto.name,
+          email: contactDto.email,
+          phone: contactDto.phone,
+          message: contactDto.message,
         },
       })
       .catch(console.error);
