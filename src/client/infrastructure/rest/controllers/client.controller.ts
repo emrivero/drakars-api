@@ -13,6 +13,7 @@ import {
   AuthGuard,
   RoleGuard,
   Roles,
+  Unprotected,
 } from 'nest-keycloak-connect';
 import { NodeMailerService } from '../../../../rent/application/mailer/MailerService';
 import { RentRepository } from '../../../../rent/infrastructure/persistence/repository/rent.repository';
@@ -75,6 +76,7 @@ export class ClientController {
   }
 
   @Post('contact')
+  @Unprotected()
   async contact(@Body() dto: ContactDto) {
     return this.nodeMailer.sendContactEmail(dto);
   }
