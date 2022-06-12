@@ -27,7 +27,6 @@ import { UpdateClientDto } from '../dtos/update-client.dto';
 
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('client')
-@Roles({ roles: ['user'] })
 export class ClientController {
   constructor(
     private readonly createService: CreateClientService,
@@ -40,6 +39,7 @@ export class ClientController {
   ) {}
 
   @Post()
+  @Roles({ roles: ['user'] })
   async autoregister(@AuthenticatedUser() dto: ClientDto) {
     return this.createService.create(dto);
   }
@@ -50,6 +50,7 @@ export class ClientController {
   }
 
   @Put('editme')
+  @Roles({ roles: ['user'] })
   async editMe(
     @Body() newData: UpdateClientDto,
     @AuthenticatedUser() dto: ClientDto,
@@ -58,25 +59,28 @@ export class ClientController {
   }
 
   @Delete('deleteme')
+  @Roles({ roles: ['user'] })
   async deleteMe(@AuthenticatedUser() dto: ClientDto) {
     const { sub, email } = dto;
     return this.deleteService.delete(sub, email);
   }
 
   @Get('getrent')
+  @Roles({ roles: ['user'] })
   async getRent(@AuthenticatedUser() dto: ClientDto) {
     const { email } = dto;
     return this.rentRepository.getRent(email);
   }
 
   @Get('getrents')
+  @Roles({ roles: ['user'] })
   async getRentsHistory(@AuthenticatedUser() dto: ClientDto) {
     const { email } = dto;
     return this.rentRepository.getOldRents(email);
   }
 
-  @Post('contact')
   @Unprotected()
+  @Post('contact')
   async contact(@Body() dto: ContactDto) {
     return this.nodeMailer.sendContactEmail(dto);
   }
